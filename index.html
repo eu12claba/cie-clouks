@@ -6,7 +6,7 @@
   <title>Cie Clouks — Théâtre physique &amp; musical</title>
   <meta name="description" content="Cie Clouks — compagnie de théâtre physique et musical nourrie par le clown, le jeu masqué et le bouffon. Genève / Suisse." />
   <meta name="keywords" content="théâtre physique, clown, bouffon, jeu masqué, compagnie théâtre, Genève, Suisse, Clara Urio, Sortez les mouchoirs" />
-  <meta name="theme-color" content="#1C1C1C" />
+  <meta name="theme-color" content="#0E0D0A" />
   <meta property="og:title" content="Cie Clouks — Théâtre physique & musical" />
   <meta property="og:description" content="Compagnie de théâtre physique et musical nourrie par le clown, le jeu masqué et le bouffon. Genève / Suisse." />
   <meta property="og:type" content="website" />
@@ -20,7 +20,8 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high" />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <script type="application/ld+json">
   {
@@ -42,13 +43,14 @@
   <!-- NAV -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a class="nav-logo" href="#hero">Cie&nbsp;Clouks</a>
+      <a class="nav-logo" href="#hero"><span>Cie</span> Clouks</a>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="#compagnie">La Compagnie</a></li>
         <li><a href="#spectacle">Le Spectacle</a></li>
+        <li><a href="#galerie">Galerie</a></li>
         <li><a href="#agenda">Agenda</a></li>
         <li><a href="#equipe">L'Équipe</a></li>
         <li><a href="#contact" class="nav-cta">Contact</a></li>
@@ -58,41 +60,60 @@
 
   <!-- HERO -->
   <header id="hero">
-    <div class="hero-img">
-      <img src="images/hero.jpg" width="1800" height="1202" alt="" aria-hidden="true" fetchpriority="high" />
+    <div class="hero-media">
+      <img src="images/hero.jpg" width="1800" height="1202" alt="" aria-hidden="true" fetchpriority="high" id="heroImg" />
     </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">Compagnie de théâtre · Genève</p>
-      <h1>
+    <div class="hero-scrim"></div>
+
+    <p class="hero-rail" aria-hidden="true">Théâtre physique &amp; musical</p>
+
+    <div class="hero-inner">
+      <p class="hero-eyebrow"><span class="dot"></span> Compagnie de théâtre — Genève, Suisse</p>
+      <h1 class="hero-title">
         <span class="hero-cie">Cie</span>
-        <span class="hero-clouks">Clouks</span>
+        <span class="hero-word" data-split>Clouks</span>
       </h1>
-      <p class="hero-tagline">Le <em>gloups</em> du vide et du doute,<br />le <em>clac</em> de la précision et de l'élan</p>
-      <div class="hero-actions">
-        <a href="#spectacle" class="btn-primary">Le spectacle</a>
-        <a href="#contact" class="btn-outline">Nous contacter</a>
+      <div class="hero-foot">
+        <p class="hero-tagline">Le <em>gloups</em> du vide et du doute,<br />le <em>clac</em> de la précision et de l'élan</p>
+        <div class="hero-actions">
+          <a href="#spectacle" class="btn btn-solid">Le spectacle</a>
+          <a href="#contact" class="btn btn-ghost">Nous contacter</a>
+        </div>
       </div>
     </div>
+
     <a href="#compagnie" class="hero-scroll" aria-label="Défiler vers le contenu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      <span class="hero-scroll-line" aria-hidden="true"></span>
+      <span class="hero-scroll-txt">Défiler</span>
     </a>
   </header>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Gloups <i>✳</i> Clac <i>✳</i> Gloups <i>✳</i> Clac <i>✳</i> Gloups <i>✳</i> Clac <i>✳</i> </span>
+      <span>Gloups <i>✳</i> Clac <i>✳</i> Gloups <i>✳</i> Clac <i>✳</i> Gloups <i>✳</i> Clac <i>✳</i> </span>
+    </div>
+  </div>
 
   <main>
 
   <!-- COMPAGNIE -->
   <section id="compagnie">
-    <div class="section-inner">
+    <div class="wrap">
+      <p class="label"><span class="num">01</span> La Compagnie</p>
+      <blockquote class="statement" data-reveal>
+        La cie Clouks c'est le <em>gloups</em> du vide et du doute, le <em>clac</em> de la précision et de l'élan — le tout sans signification précise, car le sens vient beaucoup d'ailleurs que des mots.
+      </blockquote>
+
       <div class="compagnie-grid">
-        <div class="compagnie-text">
-          <p class="section-label"><span class="num">01</span> La Compagnie</p>
+        <div class="compagnie-text" data-reveal>
           <h2>Un théâtre engagé,<br />poétique et vivant</h2>
-          <p class="lead">
-            La cie Clouks c'est le <em>gloups</em> du vide et du doute, le <em>clac</em> de la précision et de l'élan — le tout sans signification précise, car le sens vient beaucoup d'ailleurs que des mots et les onomatopées vont bon train.
-          </p>
           <p>
             Cette jeune compagnie de théâtre physique et musical est nourrie par le clown, le jeu masqué et le bouffon. Un brin absurde, poétique et vivant, pensé pour rassembler et créer des émotions, des évocations et quelques réflexions.
+          </p>
+          <p>
+            Les onomatopées vont bon train&nbsp;: elles disent ce que les mots manquent, et laissent au corps le soin du reste.
           </p>
           <ul class="tags">
             <li>Théâtre physique</li>
@@ -103,8 +124,9 @@
             <li>Espace public</li>
           </ul>
         </div>
-        <figure class="compagnie-img">
+        <figure class="compagnie-fig" data-reveal>
           <img src="images/violon.jpg" width="800" height="1330" loading="lazy" alt="Une clowne au violon joue en plein air, au bord du lac." />
+          <figcaption>En extérieur, au bord du lac</figcaption>
         </figure>
       </div>
     </div>
@@ -112,50 +134,86 @@
 
   <!-- SPECTACLE -->
   <section id="spectacle">
-    <div class="section-inner">
-      <div class="spectacle-grid">
-        <figure class="spectacle-visuel">
-          <img src="images/spectacle.jpg" width="750" height="830" loading="lazy" alt="La clowne, bras tendu, crie face au public dans « Sortez les mouchoirs ! »." />
-        </figure>
-        <div class="spectacle-content">
-          <p class="section-label"><span class="num">02</span> Le Spectacle</p>
-          <h2>Sortez les<br />mouchoirs&nbsp;!</h2>
-          <p>
+    <div class="wrap">
+      <p class="label label-light"><span class="num">02</span> Le Spectacle</p>
+    </div>
+
+    <div class="spectacle-stage">
+      <figure class="spectacle-fig" data-reveal>
+        <img src="images/spectacle.jpg" width="750" height="830" loading="lazy" alt="La clowne, bras tendu, crie face au public dans « Sortez les mouchoirs ! »." />
+      </figure>
+      <h2 class="spectacle-title" data-reveal>Sortez les<br /><em>mouchoirs&nbsp;!</em></h2>
+    </div>
+
+    <div class="wrap">
+      <div class="spectacle-body">
+        <div class="spectacle-col" data-reveal>
+          <p class="lede">
             Cette clowne débarque dans la rue avec une mission solennelle&nbsp;: <strong>émouvoir aux larmes pour laver la société de ses maux</strong>. Elle est alors vite décontenancée de constater l'effet comique qu'elle produit.
           </p>
+        </div>
+        <div class="spectacle-col" data-reveal>
           <p>
             Son compagnon dans cette quête impossible, <strong>un violon</strong>, devient un prétexte grotesque et poétique à l'émotion — tour à tour pathétique ou sublime.
           </p>
           <p>
             De la mort à l'amour en passant par la guerre, le spectacle aborde des thèmes universels d'une manière <strong>grotesque mais non moins sincère</strong>.
           </p>
-          <ul class="spectacle-themes">
-            <li>La mort</li>
-            <li>L'amour</li>
-            <li>La guerre</li>
-            <li>Le comique</li>
-            <li>Le violon</li>
-          </ul>
-          <a href="#contact" class="btn-primary">Réserver une date</a>
         </div>
       </div>
+
+      <ul class="themes" data-reveal>
+        <li><span>01</span> La mort</li>
+        <li><span>02</span> L'amour</li>
+        <li><span>03</span> La guerre</li>
+        <li><span>04</span> Le comique</li>
+        <li><span>05</span> Le violon</li>
+      </ul>
+
+      <div class="spectacle-cta" data-reveal>
+        <a href="#contact" class="btn btn-solid">Réserver une date</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie">
+    <div class="wrap">
+      <p class="label"><span class="num">03</span> Galerie</p>
+      <h2 class="galerie-h2" data-reveal>Sur scène<br />et dans la rue</h2>
+    </div>
+    <div class="gallery">
+      <figure class="g-item g-tall" data-reveal>
+        <img src="images/violon.jpg" width="800" height="1330" loading="lazy" alt="La clowne au violon, en plein air au bord du lac." />
+        <figcaption>Au bord du lac</figcaption>
+      </figure>
+      <figure class="g-item g-wide" data-reveal>
+        <img src="images/rue.jpg" width="1600" height="1066" loading="lazy" alt="Représentation en rue devant un public de festival." />
+        <figcaption>En festival, espace public</figcaption>
+      </figure>
+      <figure class="g-item" data-reveal>
+        <img src="images/spectacle.jpg" width="750" height="830" loading="lazy" alt="La clowne crie, bras tendu, sur scène." />
+        <figcaption>Sortez les mouchoirs&nbsp;!</figcaption>
+      </figure>
+      <figure class="g-item" data-reveal>
+        <img src="images/clara.jpg" width="800" height="1064" loading="lazy" alt="Clara Urio en costume, devant une balustrade de pierre." />
+        <figcaption>En costume</figcaption>
+      </figure>
     </div>
   </section>
 
   <!-- AGENDA -->
   <section id="agenda">
-    <div class="section-inner">
-      <div class="agenda-header">
-        <p class="section-label"><span class="num">03</span> Agenda</p>
-        <h2>Dates à venir</h2>
-      </div>
-      <div class="agenda-list">
-        <div class="agenda-item agenda-empty">
+    <div class="wrap">
+      <p class="label"><span class="num">04</span> Agenda</p>
+      <h2 data-reveal>Dates à venir</h2>
+      <div class="agenda-list" data-reveal>
+        <div class="agenda-item">
           <div class="agenda-info">
             <p class="agenda-title">Dates en cours de programmation</p>
             <p class="agenda-lieu">La compagnie se déplace en salle comme en espace public. Écrivez-nous pour organiser une représentation.</p>
           </div>
-          <a href="#contact" class="btn-dark btn-sm">Nous contacter</a>
+          <a href="#contact" class="btn btn-line btn-sm">Nous contacter</a>
         </div>
       </div>
     </div>
@@ -163,17 +221,14 @@
 
   <!-- ÉQUIPE -->
   <section id="equipe">
-    <div class="section-inner">
-      <div class="equipe-header">
-        <p class="section-label"><span class="num">04</span> L'Équipe</p>
-        <h2>La compagnie</h2>
-      </div>
+    <div class="wrap">
+      <p class="label label-light"><span class="num">05</span> L'Équipe</p>
       <div class="membre">
-        <figure class="membre-photo">
+        <figure class="membre-photo" data-reveal>
           <img src="images/clara.jpg" width="800" height="1064" loading="lazy" alt="Clara Urio en costume de clowne, devant une balustrade en pierre." />
         </figure>
-        <div class="membre-bio">
-          <h3>Clara Urio</h3>
+        <div class="membre-bio" data-reveal>
+          <h2>Clara Urio</h2>
           <p class="membre-role">Jeu &amp; Écriture</p>
           <p>
             Jeune artiste pluridisciplinaire, Clara s'est formée à l'école de théâtre physique <strong>Lassaâd à Bruxelles</strong> (2021–2023). Titulaire d'un Bachelor en littérature et anthropologie à l'<strong>Université de Neuchâtel</strong> (2021), elle nourrit son travail d'une réflexion sur les comportements humains et les dynamiques sociales.
@@ -191,19 +246,19 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="section-inner">
+    <div class="wrap">
+      <p class="label label-light"><span class="num">06</span> Contact</p>
       <div class="contact-grid">
-        <div class="contact-text">
-          <p class="section-label"><span class="num">05</span> Contact</p>
+        <div class="contact-text" data-reveal>
           <h2>Travaillons<br />ensemble</h2>
-          <p>Pour des dates, des collaborations ou toute question sur la compagnie.</p>
+          <p class="contact-intro">Pour des dates, des collaborations ou toute question sur la compagnie.</p>
           <a href="mailto:contact@cieclouks.ch" class="contact-email">contact@cieclouks.ch</a>
           <p class="contact-location">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
             Genève, Suisse
           </p>
         </div>
-        <div class="contact-form">
+        <div class="contact-form" data-reveal>
           <form id="contactForm" novalidate>
             <label>
               <span>Votre nom</span>
@@ -227,7 +282,7 @@
               <span>Votre message</span>
               <textarea id="cfMessage" name="message" rows="5" placeholder="Bonjour, je souhaite..."></textarea>
             </label>
-            <button type="submit" class="btn-primary btn-full">Envoyer le message</button>
+            <button type="submit" class="btn btn-solid btn-full">Envoyer le message</button>
             <p class="form-note" id="formNote" role="status">Le formulaire ouvre votre logiciel de messagerie avec le message pré-rempli.</p>
           </form>
         </div>
@@ -239,21 +294,20 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-inner">
-      <div class="footer-top">
-        <p class="footer-logo">Cie Clouks</p>
+    <div class="wrap">
+      <p class="footer-word" aria-hidden="true">Clouks</p>
+      <div class="footer-row">
         <nav class="footer-nav" aria-label="Pied de page">
           <a href="#compagnie">La Compagnie</a>
           <a href="#spectacle">Le Spectacle</a>
+          <a href="#galerie">Galerie</a>
           <a href="#agenda">Agenda</a>
           <a href="#equipe">L'Équipe</a>
           <a href="#contact">Contact</a>
         </nav>
+        <a href="mailto:contact@cieclouks.ch" class="footer-mail">contact@cieclouks.ch</a>
       </div>
-      <div class="footer-bottom">
-        <p>© <span id="year">2026</span> Cie Clouks — Théâtre physique &amp; musical · Genève, Suisse</p>
-        <p><a href="mailto:contact@cieclouks.ch">contact@cieclouks.ch</a></p>
-      </div>
+      <p class="footer-legal">© <span id="year">2026</span> Cie Clouks — Théâtre physique &amp; musical · Genève, Suisse</p>
     </div>
   </footer>
 

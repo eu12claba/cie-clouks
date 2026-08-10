@@ -1,6 +1,8 @@
 // Cie Clouks — cieclouks.ch
 
-// ---- Navbar au scroll ----
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ---- Barre de navigation ----
 const navbar = document.getElementById('navbar');
 const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 60);
 window.addEventListener('scroll', onScroll, { passive: true });
@@ -18,34 +20,56 @@ const setMenu = (open) => {
 };
 
 navToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
-navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+navLinks.querySelectorAll('a').forEach((l) => l.addEventListener('click', () => setMenu(false)));
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && navLinks.classList.contains('open')) setMenu(false);
 });
 
+// ---- Le mot du hero, lettre par lettre ----
+document.querySelectorAll('[data-split]').forEach((el) => {
+  const word = el.textContent.trim();
+  el.setAttribute('aria-label', word);
+  el.textContent = '';
+  [...word].forEach((c, i) => {
+    const s = document.createElement('span');
+    s.className = 'ch';
+    s.textContent = c;
+    s.style.setProperty('--i', i);
+    s.setAttribute('aria-hidden', 'true');
+    el.appendChild(s);
+  });
+});
+
 // ---- Apparition au scroll ----
-const revealed = [
-  '.compagnie-text', '.compagnie-img',
-  '.spectacle-visuel', '.spectacle-content',
-  '.agenda-header', '.agenda-list',
-  '.equipe-header', '.membre',
-  '.contact-text', '.contact-form',
-];
-
-const targets = document.querySelectorAll(revealed.join(','));
-targets.forEach((el) => el.classList.add('reveal'));
-
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver((entries) => {
+const targets = document.querySelectorAll('[data-reveal]');
+if (reduced || !('IntersectionObserver' in window)) {
+  targets.forEach((el) => el.classList.add('is-in'));
+} else {
+  const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      entry.target.classList.add('in');
-      observer.unobserve(entry.target);
+      entry.target.classList.add('is-in');
+      io.unobserve(entry.target);
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  targets.forEach((el) => observer.observe(el));
-} else {
-  targets.forEach((el) => el.classList.add('in'));
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  targets.forEach((el) => io.observe(el));
+}
+
+// ---- Parallaxe douce sur l'image du hero ----
+const heroImg = document.getElementById('heroImg');
+if (heroImg && !reduced) {
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      if (y < window.innerHeight * 1.2) {
+        heroImg.style.transform = `translate3d(0, ${y * 0.16}px, 0)`;
+      }
+      ticking = false;
+    });
+  }, { passive: true });
 }
 
 // ---- Formulaire de contact ----
@@ -79,6 +103,6 @@ form.addEventListener('submit', (e) => {
   window.location.href = href;
 });
 
-// ---- Année du copyright ----
+// ---- Année ----
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
