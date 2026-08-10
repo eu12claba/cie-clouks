@@ -4,156 +4,172 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cie Clouks — Théâtre physique & musical</title>
-  <link rel="icon" type="image/jpeg" href="tab_image.jpg" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Cie Clouks — compagnie de théâtre physique et musical nourrie par le clown, le jeu masqué et le bouffon. Genève / Suisse." />
+  <meta name="keywords" content="théâtre physique, clown, bouffon, jeu masqué, compagnie théâtre, Genève, Suisse, Clara Urio, Sortez les mouchoirs" />
+  <meta property="og:title" content="Cie Clouks — Théâtre physique & musical" />
+  <meta property="og:description" content="Compagnie de théâtre physique et musical nourrie par le clown, le jeu masqué et le bouffon. Genève / Suisse." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cieclouks.ch/" />
+  <meta property="og:image" content="https://cieclouks.ch/IMG_0956.PNG" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://cieclouks.ch/" />
+  <link rel="icon" type="image/png" href="IMG_0956.PNG" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- EXPLOSION CANVAS -->
-  <canvas id="explosionCanvas"></canvas>
-
-  <!-- ZIDANE FLOTTANT -->
-  <div class="zidane-float" id="zidaneFloat">
-    <img src="looking%20at%20you.webp" alt="Zidane approuve" />
-    <span>Zidane approuve ce théâtre</span>
-  </div>
 
   <!-- NAV -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a class="nav-logo" href="#hero">
-        <span class="logo-clouks">Cie Clouks</span>
-        <span class="logo-zz">⚽</span>
-      </a>
-      <ul class="nav-links">
+      <a class="nav-logo" href="#hero">Cie Clouks</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="#compagnie">La Compagnie</a></li>
         <li><a href="#spectacle">Le Spectacle</a></li>
+        <li><a href="#agenda">Agenda</a></li>
         <li><a href="#equipe">L'Équipe</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-zidane-bg">
-      <img src="looking%20at%20you.webp" alt="Zidane" class="zidane-hero-img" />
+    <div class="hero-img">
+      <img src="IMG_5500.PNG" alt="" aria-hidden="true" />
     </div>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
-      <p class="hero-pre">Bienvenue dans l'univers de la</p>
-      <h1 class="hero-title">
-        <span class="title-cie">Cie</span>
-        <span class="title-clouks">Clouks</span>
+      <p class="hero-eyebrow">Compagnie de théâtre</p>
+      <h1>
+        <span class="hero-cie">Cie</span>
+        <span class="hero-clouks">Clouks</span>
       </h1>
-      <p class="hero-sub">Le gloups du vide et du doute, le clac de la précision et de l'élan</p>
-      <a href="#spectacle" class="btn-hero" id="explodeBtn">Découvrir le spectacle 💥</a>
+      <p class="hero-tagline">Le gloups du vide et du doute,<br>le clac de la précision et de l'élan</p>
+      <div class="hero-actions">
+        <a href="#spectacle" class="btn-primary">Le spectacle</a>
+        <a href="#contact" class="btn-outline">Nous contacter</a>
+      </div>
     </div>
-    <div class="hero-scroll">
-      <span>↓</span>
-    </div>
+    <a href="#compagnie" class="hero-scroll" aria-label="Défiler">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
   </section>
 
   <!-- COMPAGNIE -->
   <section id="compagnie">
     <div class="section-inner">
-      <div class="section-header">
-        <h2>La Compagnie</h2>
-        <div class="zidane-inline">
-          <img src="tripes.jpg" alt="Zidane" />
-          <p class="zidane-quote">« Le théâtre c'est comme le football : ça se joue avec les tripes. »<br/><em>— Zinedine Zidane (citation imaginaire mais probable)</em></p>
+      <div class="compagnie-grid">
+        <div class="compagnie-header reveal">
+          <span class="section-label">La Compagnie</span>
+          <h2>Un théâtre engagé, poétique et vivant</h2>
         </div>
-      </div>
-      <div class="compagnie-text">
-        <p class="compagnie-lead">
-          La cie Clouks c'est le <strong>gloups</strong> du vide et du doute, le <strong>clac</strong> de la précision et de l'élan, et le tout sans signification précise car le sens vient beaucoup d'ailleurs que des mots et les onomatopées vont bon train.
-        </p>
-        <p>
-          Cette jeune compagnie de <strong>théâtre physique et musical</strong> est nourrie par le clown, le jeu masqué et le bouffon. Un théâtre engagé, un brin absurde, poétique et vivant, pensé pour rassembler et créer des émotions, des évocations et quelques réflexions.
-        </p>
-      </div>
-      <div class="tags">
-        <span>Théâtre physique</span>
-        <span>Clown</span>
-        <span>Jeu masqué</span>
-        <span>Bouffon</span>
-        <span>Musique</span>
-        <span>Espace public</span>
+        <div class="compagnie-body reveal">
+          <p class="lead">
+            La cie Clouks c'est le <em>gloups</em> du vide et du doute, le <em>clac</em> de la précision et de l'élan — le tout sans signification précise, car le sens vient beaucoup d'ailleurs que des mots et les onomatopées vont bon train.
+          </p>
+          <p>
+            Cette jeune compagnie de théâtre physique et musical est nourrie par le clown, le jeu masqué et le bouffon. Un brin absurde, poétique et vivant, pensé pour rassembler et créer des émotions, des évocations et quelques réflexions.
+          </p>
+          <div class="compagnie-img reveal">
+            <img src="IMG_5310.JPG" alt="Cie Clouks en représentation" />
+          </div>
+          <ul class="tags">
+            <li>Théâtre physique</li>
+            <li>Clown</li>
+            <li>Jeu masqué</li>
+            <li>Bouffon</li>
+            <li>Musique</li>
+            <li>Espace public</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- SPECTACLE -->
   <section id="spectacle">
-    <div class="spectacle-bg-text">MOUCHOIRS</div>
     <div class="section-inner">
       <div class="spectacle-grid">
-        <div class="spectacle-visuel">
-          <div class="spectacle-img-real">
-            <img src="clara.jpg" alt="Sortez les mouchoirs !" />
-          </div>
-          <div class="zidane-spectacle">
-            <img src="pleure.jpg" alt="Zidane pleure" />
-            <p>Zidane aussi a sorti son mouchoir</p>
+        <div class="spectacle-visuel reveal">
+          <div class="spectacle-img-wrap">
+            <img src="IMG_0956.PNG" alt="Sortez les mouchoirs ! — Clara Urio" />
           </div>
         </div>
-        <div class="spectacle-content">
-          <span class="spectacle-tag">Le Spectacle</span>
-          <h2>Sortez les<br/>mouchoirs&nbsp;!</h2>
+        <div class="spectacle-content reveal">
+          <span class="section-label">Le Spectacle</span>
+          <h2>Sortez les<br />mouchoirs&nbsp;!</h2>
           <p>
             Cette clowne débarque dans la rue avec une mission solennelle : <strong>émouvoir aux larmes pour laver la société de ses maux</strong>. Elle est alors vite décontenancée de constater l'effet comique qu'elle produit.
           </p>
           <p>
-            Son compagnon dans cette quête impossible, <strong>un violon</strong>, devient un prétexte grotesque et poétique à l'émotion. Tour à tour pathétique ou sublime.
+            Son compagnon dans cette quête impossible, <strong>un violon</strong>, devient un prétexte grotesque et poétique à l'émotion — tour à tour pathétique ou sublime.
           </p>
           <p>
             De la mort à l'amour en passant par la guerre, le spectacle aborde des thèmes universels d'une manière <strong>grotesque mais non moins sincère</strong>.
           </p>
-          <div class="themes">
-            <span>💀 La mort</span>
-            <span>❤️ L'amour</span>
-            <span>⚔️ La guerre</span>
-            <span>😂 Le comique</span>
-            <span>🎻 Le violon</span>
+          <div class="spectacle-themes">
+            <span>La mort</span>
+            <span>L'amour</span>
+            <span>La guerre</span>
+            <span>Le comique</span>
+            <span>Le violon</span>
           </div>
-          <a href="#contact" class="btn-secondary explode-trigger">Nous contacter pour une date 💥</a>
+          <a href="#contact" class="btn-primary">Réserver une date</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EQUIPE -->
+  <!-- AGENDA -->
+  <section id="agenda">
+    <div class="section-inner">
+      <div class="agenda-header reveal">
+        <span class="section-label">Agenda</span>
+        <h2>Dates à venir</h2>
+      </div>
+      <div class="agenda-list reveal">
+        <div class="agenda-item agenda-empty">
+          <div class="agenda-date">
+            <span class="agenda-day">—</span>
+            <span class="agenda-month">2025</span>
+          </div>
+          <div class="agenda-info">
+            <p class="agenda-title">Dates en cours de programmation</p>
+            <p class="agenda-lieu">Contactez-nous pour organiser une représentation</p>
+          </div>
+          <a href="#contact" class="btn-outline btn-sm">Nous contacter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÉQUIPE -->
   <section id="equipe">
     <div class="section-inner">
-      <h2>L'Équipe</h2>
-      <div class="equipe-grid">
-        <div class="membre-card">
-          <div class="membre-photo-real">
-            <img src="clara.jpg" alt="Clara Urio" />
-          </div>
-          <div class="membre-info">
-            <h3>Clara Urio</h3>
-            <span class="membre-role">Jeu & Écriture</span>
-            <p>
-              Jeune artiste pluridisciplinaire, Clara s'est formée à l'école de théâtre physique <strong>Lassaâd à Bruxelles</strong> (2021–2023). Titulaire d'un Bachelor en littérature et anthropologie à l'<strong>Université de Neuchâtel</strong> (2021), elle nourrit son travail d'une réflexion sur les comportements humains et les dynamiques sociales.
-            </p>
-            <p>
-              Elle se perfectionne dans le clown et le bouffon auprès d'<strong>Hélène Vieilletoile</strong>, de <strong>Gabriel Chamé</strong> et de <strong>Fred Robbe</strong>, et explore le jeu masqué avec <strong>Omar Porras</strong>.
-            </p>
-            <p>
-              Musicienne dès l'enfance, Clara a étudié le violon au <strong>Conservatoire Populaire de Genève</strong>. Ce bagage nourrit ses collaborations scéniques, notamment dans <em>Un beau jour</em> (création 2023) ou dans <em>Hapax ou la Comparution immédiate</em> (Festival de la Bâtie 2025), où elle est à la fois musicienne et comédienne.
-            </p>
-          </div>
+      <div class="equipe-header reveal">
+        <span class="section-label">L'Équipe</span>
+        <h2>La compagnie</h2>
+      </div>
+      <div class="membre reveal">
+        <div class="membre-photo">
+          <img src="IMG_5497.PNG" alt="Clara Urio" />
         </div>
-
-        <div class="zidane-card">
-          <img src="honneur.webp" alt="Zidane membre honoraire" />
-          <h3>Zinedine Zidane</h3>
-          <span class="membre-role">Membre honoraire & Mascotte spirituelle</span>
+        <div class="membre-bio">
+          <h3>Clara Urio</h3>
+          <span class="membre-role">Jeu & Écriture</span>
           <p>
-            Bien qu'absent des répétitions pour des raisons logistiques, Zidane est présent dans chaque geste, chaque roulade, chaque coup de tête. Son influence sur la compagnie est totale et inexplicable.
+            Jeune artiste pluridisciplinaire, Clara s'est formée à l'école de théâtre physique <strong>Lassaâd à Bruxelles</strong> (2021–2023). Titulaire d'un Bachelor en littérature et anthropologie à l'<strong>Université de Neuchâtel</strong> (2021), elle nourrit son travail d'une réflexion sur les comportements humains et les dynamiques sociales.
+          </p>
+          <p>
+            Elle se perfectionne dans le clown et le bouffon auprès d'<strong>Hélène Vieilletoile</strong>, de <strong>Gabriel Chamé</strong> et de <strong>Fred Robbe</strong>, et explore le jeu masqué avec <strong>Omar Porras</strong>. Depuis 2023, elle expérimente le clown en solo, sur scène et dans l'espace public.
+          </p>
+          <p>
+            Musicienne dès l'enfance, Clara a étudié le violon au <strong>Conservatoire Populaire de Genève</strong>. Ce bagage nourrit ses collaborations scéniques, notamment dans <em>Un beau jour</em> (création 2023) ou dans <em>Hapax ou la Comparution immédiate</em> (Festival de la Bâtie 2025), où elle est à la fois musicienne et comédienne.
           </p>
         </div>
       </div>
@@ -164,31 +180,41 @@
   <section id="contact">
     <div class="section-inner">
       <div class="contact-grid">
-        <div class="contact-text">
-          <h2>Nous contacter</h2>
-          <p>Pour des dates, des collaborations, ou simplement pour parler de Zidane.</p>
-          <div class="contact-links">
-            <a href="mailto:contact@cieclouks.ch" class="contact-link explode-trigger">
-              ✉️ contact@cieclouks.ch
-            </a>
-          </div>
-          <div class="contact-zidane">
-            <img src="shocked.jpg" alt="Zidane attend votre message" />
-            <p>Zidane attend votre message avec impatience</p>
+        <div class="contact-text reveal">
+          <span class="section-label">Contact</span>
+          <h2>Travaillons ensemble</h2>
+          <p>Pour des dates, des collaborations ou toute question sur la compagnie.</p>
+          <a href="mailto:contact@cieclouks.ch" class="contact-email">contact@cieclouks.ch</a>
+          <div class="contact-location">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Genève, Suisse
           </div>
         </div>
-        <div class="contact-form">
-          <form id="contactForm">
-            <label>Votre nom
-              <input type="text" name="nom" placeholder="Jean-Kévin ou Zinedine" required />
+        <div class="contact-form reveal">
+          <form id="contactForm" action="mailto:contact@cieclouks.ch" method="GET" enctype="text/plain">
+            <label>
+              Votre nom
+              <input type="text" name="nom" placeholder="Prénom Nom" required />
             </label>
-            <label>Votre email
+            <label>
+              Votre email
               <input type="email" name="email" placeholder="votre@email.ch" required />
             </label>
-            <label>Votre message
-              <textarea name="message" rows="5" placeholder="Bonjour, je voudrais réserver la compagnie pour..."></textarea>
+            <label>
+              Sujet
+              <select name="sujet">
+                <option value="">Choisissez un sujet</option>
+                <option value="date">Réserver une représentation</option>
+                <option value="collaboration">Collaboration artistique</option>
+                <option value="presse">Presse</option>
+                <option value="autre">Autre</option>
+              </select>
             </label>
-            <button type="submit" class="btn-submit explode-trigger">Envoyer 💥</button>
+            <label>
+              Votre message
+              <textarea name="message" rows="5" placeholder="Bonjour, je souhaite..."></textarea>
+            </label>
+            <button type="submit" class="btn-primary btn-full">Envoyer le message</button>
           </form>
         </div>
       </div>
@@ -198,13 +224,20 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <div class="footer-logo">Cie Clouks</div>
-      <p class="footer-sub">Théâtre physique & musical · Genève / Suisse</p>
-      <p class="footer-zidane">Ce site est dédié à Zinedine Zidane, qui n'a rien demandé.</p>
-      <div class="footer-zidane-img">
-        <img src="laughing.webp" alt="Zidane" />
+      <div class="footer-top">
+        <div class="footer-logo">Cie Clouks</div>
+        <nav class="footer-nav">
+          <a href="#compagnie">La Compagnie</a>
+          <a href="#spectacle">Le Spectacle</a>
+          <a href="#agenda">Agenda</a>
+          <a href="#equipe">L'Équipe</a>
+          <a href="#contact">Contact</a>
+        </nav>
       </div>
-      <p class="footer-copy">© 2025 Cie Clouks — Tous droits réservés</p>
+      <div class="footer-bottom">
+        <p>© 2025 Cie Clouks — Théâtre physique & musical · Genève, Suisse</p>
+        <p><a href="mailto:contact@cieclouks.ch">contact@cieclouks.ch</a></p>
+      </div>
     </div>
   </footer>
 
