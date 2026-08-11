@@ -31,7 +31,12 @@
     "description": "Compagnie de théâtre physique et musical nourrie par le clown, le jeu masqué et le bouffon.",
     "url": "https://cieclouks.ch/",
     "email": "contact@cieclouks.ch",
+    "telephone": "+41787088982",
     "image": "https://cieclouks.ch/images/og.jpg",
+    "sameAs": [
+      "https://www.facebook.com/clara.urio",
+      "https://www.instagram.com/claclimu/"
+    ],
     "address": { "@type": "PostalAddress", "addressLocality": "Genève", "addressCountry": "CH" }
   }
   </script>
@@ -43,16 +48,15 @@
   <!-- NAV -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a class="nav-logo" href="#hero"><span>Cie</span> Clouks</a>
+      <a class="nav-logo" href="index.html"><span>Cie</span> Clouks</a>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="#compagnie">La Compagnie</a></li>
-        <li><a href="#spectacle">Le Spectacle</a></li>
+        <li><a href="creations.html">Créations</a></li>
+        <li><a href="a-venir.html">À venir</a></li>
         <li><a href="#galerie">Galerie</a></li>
-        <li><a href="#agenda">Agenda</a></li>
-        <li><a href="#equipe">L'Équipe</a></li>
         <li><a href="#contact" class="nav-cta">Contact</a></li>
       </ul>
     </div>
@@ -76,7 +80,7 @@
       <div class="hero-foot">
         <p class="hero-tagline">Le <em>gloups</em> du vide et du doute,<br />le <em>clac</em> de la précision et de l'élan</p>
         <div class="hero-actions">
-          <a href="#spectacle" class="btn btn-solid">Le spectacle</a>
+          <a href="creations.html" class="btn btn-solid">Les créations</a>
           <a href="#contact" class="btn btn-ghost">Nous contacter</a>
         </div>
       </div>
@@ -129,105 +133,14 @@
           <figcaption>En extérieur, au bord du lac</figcaption>
         </figure>
       </div>
-    </div>
-  </section>
 
-  <!-- SPECTACLE -->
-  <section id="spectacle">
-    <div class="wrap">
-      <p class="label label-light"><span class="num">02</span> Le Spectacle</p>
-    </div>
-
-    <div class="spectacle-stage">
-      <figure class="spectacle-fig" data-reveal>
-        <img src="images/spectacle.jpg" width="750" height="830" loading="lazy" alt="La clowne, bras tendu, crie face au public dans « Sortez les mouchoirs ! »." />
-      </figure>
-      <h2 class="spectacle-title" data-reveal>Sortez les<br /><em>mouchoirs&nbsp;!</em></h2>
-    </div>
-
-    <div class="wrap">
-      <div class="spectacle-body">
-        <div class="spectacle-col" data-reveal>
-          <p class="lede">
-            Cette clowne débarque dans la rue avec une mission solennelle&nbsp;: <strong>émouvoir aux larmes pour laver la société de ses maux</strong>. Elle est alors vite décontenancée de constater l'effet comique qu'elle produit.
-          </p>
-        </div>
-        <div class="spectacle-col" data-reveal>
-          <p>
-            Son compagnon dans cette quête impossible, <strong>un violon</strong>, devient un prétexte grotesque et poétique à l'émotion — tour à tour pathétique ou sublime.
-          </p>
-          <p>
-            De la mort à l'amour en passant par la guerre, le spectacle aborde des thèmes universels d'une manière <strong>grotesque mais non moins sincère</strong>.
-          </p>
-        </div>
-      </div>
-
-      <ul class="themes" data-reveal>
-        <li><span>01</span> La mort</li>
-        <li><span>02</span> L'amour</li>
-        <li><span>03</span> La guerre</li>
-        <li><span>04</span> Le comique</li>
-        <li><span>05</span> Le violon</li>
-      </ul>
-
-      <div class="spectacle-cta" data-reveal>
-        <a href="#contact" class="btn btn-solid">Réserver une date</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALERIE -->
-  <section id="galerie">
-    <div class="wrap">
-      <p class="label"><span class="num">03</span> Galerie</p>
-      <h2 class="galerie-h2" data-reveal>Sur scène<br />et dans la rue</h2>
-    </div>
-    <div class="gallery">
-      <figure class="g-item g-tall" data-reveal>
-        <img src="images/violon.jpg" width="800" height="1330" loading="lazy" alt="La clowne au violon, en plein air au bord du lac." />
-        <figcaption>Au bord du lac</figcaption>
-      </figure>
-      <figure class="g-item g-wide" data-reveal>
-        <img src="images/rue.jpg" width="1600" height="1066" loading="lazy" alt="Représentation en rue devant un public de festival." />
-        <figcaption>En festival, espace public</figcaption>
-      </figure>
-      <figure class="g-item" data-reveal>
-        <img src="images/spectacle.jpg" width="750" height="830" loading="lazy" alt="La clowne crie, bras tendu, sur scène." />
-        <figcaption>Sortez les mouchoirs&nbsp;!</figcaption>
-      </figure>
-      <figure class="g-item" data-reveal>
-        <img src="images/clara.jpg" width="800" height="1064" loading="lazy" alt="Clara Urio en costume, devant une balustrade de pierre." />
-        <figcaption>En costume</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- AGENDA -->
-  <section id="agenda">
-    <div class="wrap">
-      <p class="label"><span class="num">04</span> Agenda</p>
-      <h2 data-reveal>Dates à venir</h2>
-      <div class="agenda-list" data-reveal>
-        <div class="agenda-item">
-          <div class="agenda-info">
-            <p class="agenda-title">Dates en cours de programmation</p>
-            <p class="agenda-lieu">La compagnie se déplace en salle comme en espace public. Écrivez-nous pour organiser une représentation.</p>
-          </div>
-          <a href="#contact" class="btn btn-line btn-sm">Nous contacter</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ÉQUIPE -->
-  <section id="equipe">
-    <div class="wrap">
-      <p class="label label-light"><span class="num">05</span> L'Équipe</p>
-      <div class="membre">
+      <!-- L'équipe, intégrée à la Compagnie -->
+      <div class="membre" id="equipe">
         <figure class="membre-photo" data-reveal>
           <img src="images/clara.jpg" width="800" height="1064" loading="lazy" alt="Clara Urio en costume de clowne, devant une balustrade en pierre." />
         </figure>
         <div class="membre-bio" data-reveal>
+          <p class="sub-label">L'équipe</p>
           <h2>Clara Urio</h2>
           <p class="membre-role">Jeu &amp; Écriture</p>
           <p>
@@ -239,25 +152,104 @@
           <p>
             Musicienne dès l'enfance, Clara a étudié le violon au <strong>Conservatoire Populaire de Genève</strong>. Ce bagage nourrit ses collaborations scéniques, notamment dans <em>Un beau jour</em> (création 2023) ou dans <em>Hapax ou la Comparution immédiate</em> (Festival de la Bâtie 2025), où elle est à la fois musicienne et comédienne.
           </p>
+
+          <div class="comite" data-reveal>
+            <p class="sub-label">Le comité</p>
+            <ul class="comite-list">
+              <li><span class="comite-nom">Eléonore Gür</span><span class="comite-role">Présidente</span></li>
+              <li><span class="comite-nom">Lucie Minten</span></li>
+              <li><span class="comite-nom">Alice Arif</span></li>
+            </ul>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- À L'AFFICHE -->
+  <section id="affiche">
+    <div class="wrap">
+      <p class="label label-light"><span class="num">02</span> À l'affiche</p>
+    </div>
+    <a class="affiche-band" href="sortez-les-mouchoirs.html" data-reveal>
+      <img src="images/spectacle.jpg" width="750" height="830" loading="lazy" alt="" aria-hidden="true" />
+      <div class="affiche-inner">
+        <h2>Sortez les <em>mouchoirs&nbsp;!</em></h2>
+        <p>Clown de rue &amp; violon — une mission&nbsp;: émouvoir aux larmes</p>
+        <span class="affiche-cta">Découvrir la création</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie">
+    <div class="wrap">
+      <p class="label"><span class="num">03</span> Galerie</p>
+      <h2 class="galerie-h2" data-reveal>Sur scène<br />et dans la rue</h2>
+    </div>
+    <div class="gallery" id="gallery">
+      <figure class="g-item g-tall" data-reveal>
+        <button type="button" class="g-btn" data-full="images/violon.jpg" data-cap="Au bord du lac">
+          <img src="images/violon.jpg" width="800" height="1330" loading="lazy" alt="La clowne au violon, en plein air au bord du lac." />
+          <span class="g-zoom" aria-hidden="true"></span>
+        </button>
+        <figcaption>Au bord du lac</figcaption>
+      </figure>
+      <figure class="g-item g-wide" data-reveal>
+        <button type="button" class="g-btn" data-full="images/rue.jpg" data-cap="En festival, espace public">
+          <img src="images/rue.jpg" width="1600" height="1066" loading="lazy" alt="Représentation en rue devant un public de festival." />
+          <span class="g-zoom" aria-hidden="true"></span>
+        </button>
+        <figcaption>En festival, espace public</figcaption>
+      </figure>
+      <figure class="g-item" data-reveal>
+        <button type="button" class="g-btn" data-full="images/spectacle.jpg" data-cap="Sortez les mouchoirs !">
+          <img src="images/spectacle.jpg" width="750" height="830" loading="lazy" alt="La clowne crie, bras tendu, sur scène." />
+          <span class="g-zoom" aria-hidden="true"></span>
+        </button>
+        <figcaption>Sortez les mouchoirs&nbsp;!</figcaption>
+      </figure>
+      <figure class="g-item" data-reveal>
+        <button type="button" class="g-btn" data-full="images/clara.jpg" data-cap="En costume">
+          <img src="images/clara.jpg" width="800" height="1064" loading="lazy" alt="Clara Urio en costume, devant une balustrade de pierre." />
+          <span class="g-zoom" aria-hidden="true"></span>
+        </button>
+        <figcaption>En costume</figcaption>
+      </figure>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
     <div class="wrap">
-      <p class="label label-light"><span class="num">06</span> Contact</p>
+      <p class="label label-light"><span class="num">04</span> Contact</p>
       <div class="contact-grid">
         <div class="contact-text" data-reveal>
           <h2>Travaillons<br />ensemble</h2>
           <p class="contact-intro">Pour des dates, des collaborations ou toute question sur la compagnie.</p>
+
           <a href="mailto:contact@cieclouks.ch" class="contact-email">contact@cieclouks.ch</a>
+          <a href="tel:+41787088982" class="contact-tel">+41 78 708 89 82</a>
+
           <p class="contact-location">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
             Genève, Suisse
           </p>
+
+          <ul class="socials">
+            <li>
+              <a href="https://www.facebook.com/clara.urio" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.55-1.5h1.65V4.6c-.29-.04-1.27-.12-2.41-.12-2.38 0-4.01 1.45-4.01 4.13v2.3H7.5V14h2.78v8h3.22z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/claclimu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.1" cy="6.9" r="1.1" fill="currentColor" stroke="none"/></svg>
+              </a>
+            </li>
+          </ul>
         </div>
+
         <div class="contact-form" data-reveal>
           <form id="contactForm" novalidate>
             <label>
@@ -269,18 +261,8 @@
               <input type="email" id="cfEmail" name="email" placeholder="votre@email.ch" autocomplete="email" required />
             </label>
             <label>
-              <span>Sujet</span>
-              <select id="cfSujet" name="sujet">
-                <option value="Prise de contact">Choisissez un sujet</option>
-                <option value="Réserver une représentation">Réserver une représentation</option>
-                <option value="Collaboration artistique">Collaboration artistique</option>
-                <option value="Presse">Presse</option>
-                <option value="Autre">Autre</option>
-              </select>
-            </label>
-            <label>
               <span>Votre message</span>
-              <textarea id="cfMessage" name="message" rows="5" placeholder="Bonjour, je souhaite..."></textarea>
+              <textarea id="cfMessage" name="message" rows="6" placeholder="Bonjour, je souhaite..."></textarea>
             </label>
             <button type="submit" class="btn btn-solid btn-full">Envoyer le message</button>
             <p class="form-note" id="formNote" role="status">Le formulaire ouvre votre logiciel de messagerie avec le message pré-rempli.</p>
@@ -298,18 +280,31 @@
       <p class="footer-word" aria-hidden="true">Clouks</p>
       <div class="footer-row">
         <nav class="footer-nav" aria-label="Pied de page">
-          <a href="#compagnie">La Compagnie</a>
-          <a href="#spectacle">Le Spectacle</a>
-          <a href="#galerie">Galerie</a>
-          <a href="#agenda">Agenda</a>
-          <a href="#equipe">L'Équipe</a>
-          <a href="#contact">Contact</a>
+          <a href="index.html#compagnie">La Compagnie</a>
+          <a href="creations.html">Créations</a>
+          <a href="a-venir.html">À venir</a>
+          <a href="index.html#galerie">Galerie</a>
+          <a href="index.html#contact">Contact</a>
         </nav>
-        <a href="mailto:contact@cieclouks.ch" class="footer-mail">contact@cieclouks.ch</a>
+        <div class="footer-right">
+          <a href="mailto:contact@cieclouks.ch" class="footer-mail">contact@cieclouks.ch</a>
+          <a href="tel:+41787088982" class="footer-mail">+41 78 708 89 82</a>
+        </div>
       </div>
       <p class="footer-legal">© <span id="year">2026</span> Cie Clouks — Théâtre physique &amp; musical · Genève, Suisse</p>
     </div>
   </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie" hidden>
+    <button class="lb-close" id="lbClose" aria-label="Fermer">&times;</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Photo précédente">&#8249;</button>
+    <figure class="lb-figure">
+      <img id="lbImg" src="" alt="" />
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Photo suivante">&#8250;</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
