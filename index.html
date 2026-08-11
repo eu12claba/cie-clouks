@@ -48,16 +48,21 @@
   <!-- NAV -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a class="nav-logo" href="index.html"><span>Cie</span> Clouks</a>
+      <a class="nav-logo" href="/"><span>Cie</span> Clouks</a>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#compagnie">La Compagnie</a></li>
-        <li><a href="creations.html">Créations</a></li>
-        <li><a href="a-venir.html">À venir</a></li>
-        <li><a href="#galerie">Galerie</a></li>
-        <li><a href="#contact" class="nav-cta">Contact</a></li>
+        <li><a href="/#compagnie">La Compagnie</a></li>
+        <li class="has-sub">
+          <a href="/creations">Créations <span class="caret" aria-hidden="true"></span></a>
+          <ul class="sub">
+            <li><a href="/sortez-les-mouchoirs">Sortez les mouchoirs&nbsp;!</a></li>
+          </ul>
+        </li>
+        <li><a href="/a-venir">À venir</a></li>
+        <li><a href="/#galerie">Galerie</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -80,7 +85,7 @@
       <div class="hero-foot">
         <p class="hero-tagline">Le <em>gloups</em> du vide et du doute,<br />le <em>clac</em> de la précision et de l'élan</p>
         <div class="hero-actions">
-          <a href="creations.html" class="btn btn-solid">Les créations</a>
+          <a href="/creations" class="btn btn-solid">Les créations</a>
           <a href="#contact" class="btn btn-ghost">Nous contacter</a>
         </div>
       </div>
@@ -171,7 +176,7 @@
     <div class="wrap">
       <p class="label label-light"><span class="num">02</span> À l'affiche</p>
     </div>
-    <a class="affiche-band" href="sortez-les-mouchoirs.html" data-reveal>
+    <a class="affiche-band" href="/sortez-les-mouchoirs" data-reveal>
       <img src="images/spectacle.jpg" width="750" height="830" loading="lazy" alt="" aria-hidden="true" />
       <div class="affiche-inner">
         <h2>Sortez les <em>mouchoirs&nbsp;!</em></h2>
@@ -280,11 +285,11 @@
       <p class="footer-word" aria-hidden="true">Clouks</p>
       <div class="footer-row">
         <nav class="footer-nav" aria-label="Pied de page">
-          <a href="index.html#compagnie">La Compagnie</a>
-          <a href="creations.html">Créations</a>
-          <a href="a-venir.html">À venir</a>
-          <a href="index.html#galerie">Galerie</a>
-          <a href="index.html#contact">Contact</a>
+          <a href="/#compagnie">La Compagnie</a>
+          <a href="/creations">Créations</a>
+          <a href="/a-venir">À venir</a>
+          <a href="/#galerie">Galerie</a>
+          <a href="/#contact">Contact</a>
         </nav>
         <div class="footer-right">
           <a href="mailto:contact@cieclouks.ch" class="footer-mail">contact@cieclouks.ch</a>

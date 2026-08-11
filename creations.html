@@ -10,10 +10,10 @@
   <meta property="og:description" content="Les créations de la Cie Clouks — théâtre physique et musical, clown et bouffon." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_CH" />
-  <meta property="og:url" content="https://cieclouks.ch/creations.html" />
+  <meta property="og:url" content="https://cieclouks.ch/creations" />
   <meta property="og:image" content="https://cieclouks.ch/images/og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://cieclouks.ch/creations.html" />
+  <link rel="canonical" href="https://cieclouks.ch/creations" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,16 +26,21 @@
 
   <nav id="navbar" class="is-solid">
     <div class="nav-inner">
-      <a class="nav-logo" href="index.html"><span>Cie</span> Clouks</a>
+      <a class="nav-logo" href="/"><span>Cie</span> Clouks</a>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html#compagnie">La Compagnie</a></li>
-        <li><a href="creations.html" aria-current="page">Créations</a></li>
-        <li><a href="a-venir.html">À venir</a></li>
-        <li><a href="index.html#galerie">Galerie</a></li>
-        <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+        <li><a href="/#compagnie">La Compagnie</a></li>
+        <li class="has-sub">
+          <a href="/creations" aria-current="page">Créations <span class="caret" aria-hidden="true"></span></a>
+          <ul class="sub">
+            <li><a href="/sortez-les-mouchoirs">Sortez les mouchoirs&nbsp;!</a></li>
+          </ul>
+        </li>
+        <li><a href="/a-venir">À venir</a></li>
+        <li><a href="/#galerie">Galerie</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -50,7 +55,7 @@
 
     <div class="creations">
       <!-- Une bande par création. Dupliquer ce bloc pour en ajouter une. -->
-      <a class="creation-band" href="sortez-les-mouchoirs.html">
+      <a class="creation-band" href="/sortez-les-mouchoirs">
         <img src="images/spectacle.jpg" width="750" height="830" alt="" aria-hidden="true" />
         <div class="creation-inner">
           <p class="creation-meta">Solo · Clown &amp; violon · Salle et espace public</p>
@@ -64,7 +69,7 @@
     <section class="page-tail">
       <div class="wrap">
         <p class="tail-note">Une création en tournée, d'autres en chantier. Pour programmer un spectacle&nbsp;:</p>
-        <a href="index.html#contact" class="btn btn-line">Nous contacter</a>
+        <a href="/#contact" class="btn btn-line">Nous contacter</a>
       </div>
     </section>
   </main>
@@ -74,11 +79,11 @@
       <p class="footer-word" aria-hidden="true">Clouks</p>
       <div class="footer-row">
         <nav class="footer-nav" aria-label="Pied de page">
-          <a href="index.html#compagnie">La Compagnie</a>
-          <a href="creations.html">Créations</a>
-          <a href="a-venir.html">À venir</a>
-          <a href="index.html#galerie">Galerie</a>
-          <a href="index.html#contact">Contact</a>
+          <a href="/#compagnie">La Compagnie</a>
+          <a href="/creations">Créations</a>
+          <a href="/a-venir">À venir</a>
+          <a href="/#galerie">Galerie</a>
+          <a href="/#contact">Contact</a>
         </nav>
         <div class="footer-right">
           <a href="mailto:contact@cieclouks.ch" class="footer-mail">contact@cieclouks.ch</a>
