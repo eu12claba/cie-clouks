@@ -170,6 +170,8 @@ h2 em { font-style: italic; font-weight: 400; }
 }
 .hero-scrim {
   position: absolute; inset: 0; z-index: 1;
+  /* le voile est au-dessus du nez : sans ceci il intercepterait le clic */
+  pointer-events: none;
   background:
     linear-gradient(to bottom, rgba(14,13,10,.72) 0%, rgba(14,13,10,.12) 30%, rgba(14,13,10,.55) 62%, rgba(14,13,10,.96) 100%),
     radial-gradient(90% 70% at 50% 35%, rgba(14,13,10,0) 40%, rgba(14,13,10,.6) 100%);
@@ -643,3 +645,112 @@ footer { background: var(--ink); color: var(--bone); padding: 0 0 40px; border-t
 .nav-links a.is-section { color: var(--bone); }
 .nav-links a.is-section::after { transform: scaleX(1); background: var(--rouge); }
 .sub a[aria-current="page"] { color: var(--bone); background: rgba(196,64,47,.14); }
+
+/* ================================================
+   BLOC « PHOTO À VENIR »
+   ================================================ */
+[hidden] { display: none !important; }
+
+.photo-todo {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(135deg, #232119 0 16px, #262419 16px 32px);
+  display: grid; place-items: center;
+}
+/* sur une bande, le texte du spectacle est à gauche : la mention va à droite */
+.creation-band .photo-todo,
+.affiche-band .photo-todo { place-items: end end; padding: 0 5% 7% 0; }
+.photo-todo span {
+  font-size: .68rem; letter-spacing: .28em; text-transform: uppercase;
+  color: rgba(244,240,230,.42);
+}
+.photo-todo-hero {
+  position: static; aspect-ratio: 16/7; border-radius: 2px;
+  border: 1px solid var(--line-dark);
+}
+.creation-band.no-photo::after,
+.affiche-band.no-photo::after {
+  background: linear-gradient(to right, rgba(14,13,10,.9) 0%, rgba(14,13,10,.55) 62%, rgba(14,13,10,.3) 100%);
+}
+
+/* ================================================
+   À L'AFFICHE
+   ================================================ */
+.affiche-date {
+  font-size: .7rem; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--rouge-l); margin-bottom: 14px;
+}
+.affiche-lieu { color: var(--on-dark); margin-bottom: 26px; max-width: 40ch; }
+
+/* ================================================
+   AGENDA
+   ================================================ */
+.agenda-h2 {
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem); color: var(--bone);
+  margin: 0 0 28px;
+}
+.agenda-h2-past {
+  margin-top: clamp(56px, 7vw, 96px);
+  padding-top: clamp(30px, 4vw, 52px);
+  border-top: 1px solid var(--line-dark);
+}
+.date-row.is-past { opacity: .72; }
+.date-row.is-past .date-day { color: var(--on-dark-soft); }
+.date-show a { border-bottom: 1px solid var(--line-dark); transition: color .25s, border-color .25s; }
+.date-show a:hover { color: var(--rouge-l); border-color: var(--rouge-l); }
+
+/* ================================================
+   LE NEZ + FEU D'ARTIFICE
+   ================================================ */
+.nose {
+  position: absolute; z-index: 4;
+  width: clamp(34px, 4.2vw, 56px); aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border: 0; background: transparent; border-radius: 50%;
+  cursor: pointer; padding: 0; visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+.nose::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  box-shadow: 0 0 0 1.5px rgba(196,64,47,0);
+  transition: box-shadow .35s var(--ease), transform .35s var(--ease);
+}
+.nose::before {
+  content: ""; position: absolute; inset: -6px; border-radius: 50%;
+  border: 1px solid rgba(196,64,47,.5);
+  opacity: 0; animation: nezPulse 3.4s ease-out infinite;
+}
+@keyframes nezPulse {
+  0%   { transform: scale(.72); opacity: 0; }
+  35%  { opacity: .55; }
+  70%  { transform: scale(1.25); opacity: 0; }
+  100% { opacity: 0; }
+}
+.nose:hover::after {
+  box-shadow: 0 0 0 2px rgba(196,64,47,.85), 0 0 30px 8px rgba(196,64,47,.3);
+  transform: scale(1.1);
+}
+.nose:focus-visible::after { box-shadow: 0 0 0 2px var(--rouge), 0 0 30px 8px rgba(196,64,47,.35); }
+.nose.pop::after { animation: nezPop .4s var(--ease); }
+@keyframes nezPop { 0% { transform: scale(1); } 42% { transform: scale(1.45); } 100% { transform: scale(1); } }
+
+#fx {
+  position: fixed; inset: 0; z-index: 150;
+  pointer-events: none; opacity: 0;
+  transition: opacity .25s;
+}
+#fx.is-on { opacity: 1; }
+
+/* ================================================
+   QR CODE
+   ================================================ */
+.qr-block {
+  display: flex; align-items: center; gap: 18px;
+  margin-top: 34px; padding-top: 28px; border-top: 1px solid var(--line-dark);
+}
+.qr-block img { width: 104px; height: 104px; background: var(--bone); padding: 7px; border-radius: 4px; }
+.qr-block p { font-size: .8rem; color: var(--on-dark-soft); line-height: 1.6; }
+.qr-block a { color: var(--rouge-l); border-bottom: 1px solid currentColor; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nose::before { animation: none; }
+}

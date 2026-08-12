@@ -56,11 +56,13 @@
         <li><a href="/#compagnie">La Compagnie</a></li>
         <li class="has-sub">
           <a href="/creations">Créations <span class="caret" aria-hidden="true"></span></a>
-          <ul class="sub">
-            <li><a href="/sortez-les-mouchoirs">Sortez les mouchoirs&nbsp;!</a></li>
-          </ul>
+          <ul class="sub" data-sub="creations"></ul>
         </li>
-        <li><a href="/a-venir">À venir</a></li>
+        <li class="has-sub">
+          <a href="/hors-format">Hors format <span class="caret" aria-hidden="true"></span></a>
+          <ul class="sub" data-sub="horsFormat"></ul>
+        </li>
+        <li><a href="/agenda">Agenda</a></li>
         <li><a href="/#galerie">Galerie</a></li>
         <li><a href="/#contact" class="nav-cta">Contact</a></li>
       </ul>
@@ -71,6 +73,8 @@
   <header id="hero">
     <div class="hero-media">
       <img src="images/hero.jpg" width="1800" height="1202" alt="" aria-hidden="true" fetchpriority="high" id="heroImg" />
+      <!-- Le nez : le clic déclenche le feu d'artifice. Position posée par script.js -->
+      <button type="button" class="nose" id="nose" aria-label="Faire un feu d'artifice"></button>
     </div>
     <div class="hero-scrim"></div>
 
@@ -91,7 +95,7 @@
       </div>
     </div>
 
-    <a href="#compagnie" class="hero-scroll" aria-label="Défiler vers le contenu">
+    <a href="#affiche" class="hero-scroll" aria-label="Défiler vers le contenu">
       <span class="hero-scroll-line" aria-hidden="true"></span>
       <span class="hero-scroll-txt">Défiler</span>
     </a>
@@ -100,17 +104,20 @@
   <!-- MARQUEE -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Gloups <i>✳</i> Clac <i>✳</i> Gloups <i>✳</i> Clac <i>✳</i> Gloups <i>✳</i> Clac <i>✳</i> </span>
-      <span>Gloups <i>✳</i> Clac <i>✳</i> Gloups <i>✳</i> Clac <i>✳</i> Gloups <i>✳</i> Clac <i>✳</i> </span>
+      <span>clic clac gloups <i>→</i> pif paf tchouk <i>→</i> ratatatatatata <i>→</i> </span>
+      <span>clic clac gloups <i>→</i> pif paf tchouk <i>→</i> ratatatatatata <i>→</i> </span>
     </div>
   </div>
 
   <main>
 
+  <!-- À L'AFFICHE — rempli depuis data.js ; masqué s'il n'y a aucune date à venir -->
+  <section id="affiche" hidden></section>
+
   <!-- COMPAGNIE -->
   <section id="compagnie">
     <div class="wrap">
-      <p class="label"><span class="num">01</span> La Compagnie</p>
+      <p class="label">La Compagnie</p>
       <blockquote class="statement" data-reveal>
         La cie Clouks c'est le <em>gloups</em> du vide et du doute, le <em>clac</em> de la précision et de l'élan — le tout sans signification précise, car le sens vient beaucoup d'ailleurs que des mots.
       </blockquote>
@@ -139,13 +146,13 @@
         </figure>
       </div>
 
-      <!-- L'équipe, intégrée à la Compagnie -->
+      <!-- Artiste récurrente -->
       <div class="membre" id="equipe">
         <figure class="membre-photo" data-reveal>
           <img src="images/clara.jpg" width="800" height="1064" loading="lazy" alt="Clara Urio en costume de clowne, devant une balustrade en pierre." />
         </figure>
         <div class="membre-bio" data-reveal>
-          <p class="sub-label">L'équipe</p>
+          <p class="sub-label">Artiste récurrente</p>
           <h2>Clara Urio</h2>
           <p class="membre-role">Jeu &amp; Écriture</p>
           <p>
@@ -162,8 +169,8 @@
             <p class="sub-label">Le comité</p>
             <ul class="comite-list">
               <li><span class="comite-nom">Eléonore Gür</span><span class="comite-role">Présidente</span></li>
-              <li><span class="comite-nom">Lucie Minten</span></li>
-              <li><span class="comite-nom">Alice Arif</span></li>
+              <li><span class="comite-nom">Lucie Minten</span><span class="comite-role">Trésorière</span></li>
+              <li><span class="comite-nom">Alice Arif</span><span class="comite-role">Secrétaire</span></li>
             </ul>
           </div>
         </div>
@@ -171,25 +178,10 @@
     </div>
   </section>
 
-  <!-- À L'AFFICHE -->
-  <section id="affiche">
-    <div class="wrap">
-      <p class="label label-light"><span class="num">02</span> À l'affiche</p>
-    </div>
-    <a class="affiche-band" href="/sortez-les-mouchoirs" data-reveal>
-      <img src="images/spectacle.jpg" width="750" height="830" loading="lazy" alt="" aria-hidden="true" />
-      <div class="affiche-inner">
-        <h2>Sortez les <em>mouchoirs&nbsp;!</em></h2>
-        <p>Clown de rue &amp; violon — une mission&nbsp;: émouvoir aux larmes</p>
-        <span class="affiche-cta">Découvrir la création</span>
-      </div>
-    </a>
-  </section>
-
   <!-- GALERIE -->
   <section id="galerie">
     <div class="wrap">
-      <p class="label"><span class="num">03</span> Galerie</p>
+      <p class="label">Galerie</p>
       <h2 class="galerie-h2" data-reveal>Sur scène<br />et dans la rue</h2>
     </div>
     <div class="gallery" id="gallery">
@@ -227,7 +219,7 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="wrap">
-      <p class="label label-light"><span class="num">04</span> Contact</p>
+      <p class="label label-light">Contact</p>
       <div class="contact-grid">
         <div class="contact-text" data-reveal>
           <h2>Travaillons<br />ensemble</h2>
@@ -253,6 +245,11 @@
               </a>
             </li>
           </ul>
+
+          <div class="qr-block">
+            <img src="images/qr-cieclouks.svg" width="120" height="120" loading="lazy" alt="QR code vers cieclouks.ch" />
+            <p>Scannez pour retrouver le site.<br /><a href="images/qr-cieclouks.png" download>Télécharger le QR code</a></p>
+          </div>
         </div>
 
         <div class="contact-form" data-reveal>
@@ -287,7 +284,8 @@
         <nav class="footer-nav" aria-label="Pied de page">
           <a href="/#compagnie">La Compagnie</a>
           <a href="/creations">Créations</a>
-          <a href="/a-venir">À venir</a>
+          <a href="/hors-format">Hors format</a>
+          <a href="/agenda">Agenda</a>
           <a href="/#galerie">Galerie</a>
           <a href="/#contact">Contact</a>
         </nav>
@@ -311,6 +309,9 @@
     <button class="lb-nav lb-next" id="lbNext" aria-label="Photo suivante">&#8250;</button>
   </div>
 
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
