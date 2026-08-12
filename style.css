@@ -247,7 +247,7 @@ h2 em { font-style: italic; font-weight: 400; }
 .marquee { background: var(--rouge); color: var(--bone); overflow: hidden; padding: 16px 0; border-block: 1px solid rgba(0,0,0,.12); }
 .marquee-track { display: flex; width: max-content; animation: slide 28s linear infinite; }
 .marquee-track span { font-family: var(--display); font-size: clamp(1.5rem, 3.4vw, 2.7rem); font-style: italic; font-weight: 400; white-space: nowrap; padding-right: .3em; }
-.marquee-track i { font-style: normal; opacity: .5; font-size: .6em; vertical-align: middle; margin: 0 .28em; }
+.marquee-track .mot { font-weight: inherit; padding-right: 1.5em; }
 @keyframes slide { to { transform: translateX(-50%); } }
 
 /* ================================================
@@ -740,16 +740,6 @@ footer { background: var(--ink); color: var(--bone); padding: 0 0 40px; border-t
 }
 #fx.is-on { opacity: 1; }
 
-/* ================================================
-   QR CODE
-   ================================================ */
-.qr-block {
-  display: flex; align-items: center; gap: 18px;
-  margin-top: 34px; padding-top: 28px; border-top: 1px solid var(--line-dark);
-}
-.qr-block img { width: 104px; height: 104px; background: var(--bone); padding: 7px; border-radius: 4px; }
-.qr-block p { font-size: .8rem; color: var(--on-dark-soft); line-height: 1.6; }
-.qr-block a { color: var(--rouge-l); border-bottom: 1px solid currentColor; }
 
 @media (prefers-reduced-motion: reduce) {
   .nose::before { animation: none; }
