@@ -41,6 +41,8 @@ body {
 }
 
 img { display: block; max-width: 100%; height: auto; }
+/* <picture> ne sert qu'à proposer le WebP : il ne doit rien changer à la mise en page. */
+picture { display: contents; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 figure { margin: 0; }
@@ -349,6 +351,25 @@ figcaption { margin-top: 12px; font-size: .7rem; letter-spacing: .18em; text-tra
 .g-item:nth-child(3) .g-btn img { aspect-ratio: 16/10; object-position: center 22%; }
 .g-item:nth-child(4) { grid-column: span 1; }
 
+/* GALERIE D'UN SPECTACLE — sous-catégories (rendu depuis data.js) */
+.gal-cat + .gal-cat { margin-top: 38px; }
+.gal-cat-titre {
+  font-family: var(--sans); font-size: .7rem; font-weight: 500;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--rouge-l); margin-bottom: 14px;
+}
+.gal-grid {
+  display: grid; gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+}
+.gal-item { overflow: hidden; }
+.gal-item .g-btn img { aspect-ratio: 4/3; }
+.gal-cat .empty { margin: 0; }
+
+@media (max-width: 600px) {
+  .gal-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* LIGHTBOX */
 .lightbox {
   position: fixed; inset: 0; z-index: 400;
@@ -419,6 +440,11 @@ body.lb-open { overflow: hidden; }
 .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(244,240,230,.25); }
 .contact-form input:focus, .contact-form textarea:focus { border-color: var(--rouge-l); background: rgba(244,240,230,.08); }
 .contact-form .btn { margin-top: 8px; }
+/* Piège à robots : hors écran, hors tabulation, hors lecteurs d'écran. */
+.contact-form input.botcheck {
+  position: absolute; left: -9999px; top: auto;
+  width: 1px; height: 1px; padding: 0; border: 0; opacity: 0;
+}
 .form-note { font-size: .76rem; color: var(--on-dark-soft); margin-top: 14px; text-align: center; }
 .form-note.error { color: #E8896F; }
 

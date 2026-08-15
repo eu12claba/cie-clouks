@@ -46,6 +46,21 @@ Le menu déroulant et la page de liste se mettent à jour seuls.
 `image: null` affiche un bloc « Photo à venir ». Pour mettre une vraie
 photo : la déposer dans `images/` et indiquer `image: 'images/xxx.jpg'`.
 
+> **Après avoir ajouté une photo**, générer sa version WebP (voir
+> « Photos » plus bas). Sans elle, la photo s'affiche quand même — le `.jpg`
+> sert de secours — mais elle sera plus lourde à charger.
+
+### Recevoir les messages du formulaire
+
+Dans `data.js`, bloc `contact` : coller une clé
+[Web3Forms](https://web3forms.com) (gratuite, sans compte, obtenue en
+indiquant `contact@cieclouks.ch`). Les messages arrivent alors directement
+par email.
+
+Tant que la clé est vide, le formulaire ouvre le logiciel de messagerie du
+visiteur — ce qui ne fonctionne pas pour tout le monde. **Mettre cette clé
+est la seule chose à faire pour ne plus perdre de demandes.**
+
 ## Les autres contenus
 
 | Quoi | Où |
@@ -68,13 +83,32 @@ hors-format.html        liste des hors format
 agenda.html             à venir + dates passées
 <slug>.html             une page par spectacle
 a-venir.html            redirection vers /agenda (ancienne adresse)
+404.html                page « introuvable » (servie seule par GitHub Pages)
 data.js                 LE fichier de contenu
 style.css  script.js    mise en forme et interactions
-images/                 photos du site
+fonts.css  fonts/       polices auto-hébergées — ne pas remettre Google Fonts
+images/                 photos du site (.jpg d'origine + .webp générés)
+tools/images.py         régénère les .webp après ajout d'une photo
 qr/                     QR codes (non affichés sur le site)
 docs/                   dossiers et fiches techniques en PDF
 CNAME                   le domaine — ne pas supprimer
 ```
+
+## Photos
+
+Après avoir déposé une photo dans `images/` :
+
+```bash
+pip install Pillow      # une seule fois
+python tools/images.py
+```
+
+Le script crée les versions WebP (30 à 45 % plus légères) et les tailles
+réduites pour les téléphones. Les `.jpg` restent en place comme secours :
+si un `.webp` manque, la photo s'affiche quand même.
+
+Sur mobile, ce jeu de tailles fait passer les photos de l'accueil
+d'environ 790 Ko à 150 Ko.
 
 Les adresses sont sans `.html` (`cieclouks.ch/agenda`) : GitHub Pages le
 fait tout seul, il n'y a rien à configurer.
@@ -90,9 +124,22 @@ fait tout seul, il n'y a rien à configurer.
 - Quand le menu mobile est ouvert, le `backdrop-filter` de la barre de
   navigation est désactivé : il crée sinon un bloc conteneur qui empêche le
   menu plein écran de couvrir l'écran.
-- Le formulaire de contact compose un `mailto:` en JavaScript. Un
-  `<form action="mailto:">` classique est ignoré par la plupart des
-  navigateurs.
+- Le formulaire envoie via Web3Forms si une clé est configurée, et retombe
+  sur un `mailto:` composé en JavaScript sinon — ou si l'envoi échoue, pour
+  qu'un message ne soit jamais perdu. Un `<form action="mailto:">` classique
+  est ignoré par la plupart des navigateurs.
+- Les polices sont **auto-hébergées** dans `fonts/`. Ne pas revenir aux
+  liens `fonts.googleapis.com` : cela renverrait l'adresse IP de chaque
+  visiteur à Google, ce que la LPD et le RGPD n'autorisent pas sans
+  consentement.
+- `data.js` est édité à la main, donc faillible. `script.js` isole chaque
+  bloc d'affichage : une erreur de syntaxe dans `data.js` fait disparaître
+  les spectacles et les dates, mais la navigation, le menu mobile et le
+  formulaire continuent de fonctionner. En cas de doute, ouvrir la console
+  du navigateur : le message commence par `[Clouks]`.
+- Les dates à venir sont publiées en Schema.org (`TheaterEvent`) : c'est ce
+  qui permet à Google d'afficher lieu, date et billetterie directement dans
+  les résultats. Rien à faire, c'est généré depuis `data.js`.
 
 ## Travailler en local
 
