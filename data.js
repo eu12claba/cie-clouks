@@ -31,11 +31,11 @@ window.CLOUKS = {
     },
     {
       slug:  'chichiclack',
-      titre: 'Chichiclack&nbsp;!',
-      texte: 'Chichiclack !',
+      titre: 'Cornelius &amp; Chichiclac',
+      texte: 'Cornelius & Chichiclac',
       meta:  'Création passée',
       desc:  '',
-      image: null,
+      image: 'images/cornelius-chichiclac.jpg',
     },
     {
       slug:  'le-fil-d-ariane',
@@ -73,7 +73,60 @@ window.CLOUKS = {
       desc:  '',
       image: null,
     },
+    {
+      slug:  'cours-clown',
+      titre: 'Cours de clown',
+      texte: 'Cours de clown',
+      meta:  'Transmission · La Julienne, Plan-les-Ouates',
+      desc:  'Un cours hebdomadaire de clown dès 16 ans, à la Julienne (Plan-les-Ouates), saison 2026–2027.',
+      image: null,
+    },
   ],
+
+  /* ---------- LES GALERIES ----------
+     Une galerie par spectacle, rangée en sous-catégories (un lieu, un
+     festival, une série de dates). L'ordre ci-dessous est celui affiché.
+
+     Une sous-catégorie sans photo affiche « Photos à venir » : on peut donc
+     préparer les rubriques avant d'avoir les images.
+
+     Pour ajouter une photo : la déposer dans images/, lancer
+     `python tools/images.py`, puis ajouter une ligne
+       { src: 'images/xxx.jpg', alt: 'Ce que montre la photo.' }
+     Le texte `alt` est lu par les lecteurs d'écran et par Google : décrire
+     ce qu'on voit, pas « photo de spectacle ».
+  */
+  galeries: {
+    'sortez-les-mouchoirs': [
+      {
+        titre: 'Cabarets et scènes ouvertes',
+        photos: [],
+      },
+      {
+        titre: 'La Plage des Six Pompes 2026',
+        photos: [
+          { src: 'images/plage-six-pompes-1.jpg',
+            alt: "La clowne, bras écartés, le violon dans une main et l'archet dans l'autre, devant le mur peint du festival." },
+          { src: 'images/plage-six-pompes-2.jpg',
+            alt: 'La clowne, tête renversée et bouche grande ouverte, le violon calé contre son épaule.' },
+          { src: 'images/plage-six-pompes-3.jpg',
+            alt: 'La clowne debout dans la lumière, souriante, le violon au bout du bras.' },
+          { src: 'images/plage-six-pompes-4.jpg',
+            alt: 'Gros plan sur la clowne qui joue du violon en criant.' },
+          { src: 'images/plage-six-pompes-5.jpg',
+            alt: "La clowne joue du violon, l'archet tendu et les yeux écarquillés." },
+        ],
+      },
+      {
+        titre: 'Festival du numéro de clown 2025',
+        photos: [],
+      },
+      {
+        titre: 'Festival Théâtre Nomades 2024',
+        photos: [],
+      },
+    ],
+  },
 
   /* ---------- LES DATES ----------
      Exemple (enlever les // pour l'activer) :
@@ -84,4 +137,17 @@ window.CLOUKS = {
   dates: [
     // Aucune date enregistrée pour l'instant.
   ],
+
+  /* ---------- FORMULAIRE DE CONTACT ----------
+     Pour recevoir les messages du site directement par email :
+       1. aller sur https://web3forms.com
+       2. entrer contact@cieclouks.ch — la clé arrive par email (gratuit, sans compte)
+       3. coller la clé entre les guillemets ci-dessous
+
+     Tant que la clé est vide, le formulaire bascule sur l'ancien
+     comportement (ouverture du logiciel de messagerie).
+  */
+  contact: {
+    web3formsKey: '',
+  },
 };

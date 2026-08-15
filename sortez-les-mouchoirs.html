@@ -15,9 +15,9 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://cieclouks.ch/sortez-les-mouchoirs" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" href="fonts/bodoni-moda-normal-400-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/inter-normal-300-500-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="fonts.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="page">
@@ -102,6 +102,14 @@
 
     <section class="show-block">
       <div class="wrap block-grid">
+        <p class="block-label">Galerie</p>
+        <!-- Les photos et leurs rubriques se règlent dans data.js -> galeries -->
+        <div class="block-body" data-galerie="sortez-les-mouchoirs"></div>
+      </div>
+    </section>
+
+    <section class="show-block">
+      <div class="wrap block-grid">
         <p class="block-label">Presse</p>
         <div class="block-body">
           <!-- <blockquote class="press"><p>« … »</p><cite>Média — date</cite></blockquote> -->
@@ -171,6 +179,17 @@
       <p class="footer-legal">© <span id="year">2026</span> Cie Clouks — Théâtre physique &amp; musical · Genève, Suisse</p>
     </div>
   </footer>
+
+  <!-- LIGHTBOX — nécessaire pour agrandir les photos de la galerie -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie" hidden>
+    <button class="lb-close" id="lbClose" aria-label="Fermer">&times;</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Photo précédente">&#8249;</button>
+    <figure class="lb-figure">
+      <img id="lbImg" src="" alt="" />
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Photo suivante">&#8250;</button>
+  </div>
 
   <script src="data.js"></script>
   <script src="script.js"></script>
