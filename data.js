@@ -43,7 +43,7 @@ window.CLOUKS = {
       texte: "Le fil d'Ariane",
       meta:  'Création',
       desc:  '',
-      image: null,
+      image: 'images/le-fil-d-ariane.jpg',
     },
     {
       slug:  'le-trio-vivigang',
@@ -51,7 +51,7 @@ window.CLOUKS = {
       texte: 'Le trio Vivigang',
       meta:  'Création',
       desc:  '',
-      image: null,
+      image: 'images/trio-vivigang-1.jpg',
     },
   ],
 
@@ -124,6 +124,51 @@ window.CLOUKS = {
       {
         titre: 'Festival Théâtre Nomades 2024',
         photos: [],
+      },
+    ],
+    'le-trio-vivigang': [
+      {
+        titre: 'En concert',
+        photos: [
+          { src: 'images/trio-vivigang-1.jpg',
+            alt: 'Le trio en plein air sous une bâche : une comédienne raconte, une violoniste joue, un musicien est au clavier.' },
+          { src: 'images/trio-vivigang-2.jpg',
+            alt: 'Portrait du trio Vivigang : deux musiciens souriants et la violoniste agenouillée, violon et archet à la main.' },
+        ],
+      },
+    ],
+  },
+
+  /* ---------- LA PRESSE ----------
+     Une entrée par article, la plus récente en premier.
+
+     `url`      : laisser vide pour un article papier — le bloc reste
+                  affiché, simplement sans lien.
+     `citation` : un extrait court, recopié mot pour mot. Ne jamais
+                  résumer ni reformuler : c'est une citation.
+     `media`    : nom du journal ou de la radio/TV.
+  */
+  presse: {
+    'sortez-les-mouchoirs': [
+      {
+        media:    '',
+        titre:    'Plage des Six Pompes : sur les pavés, la joie',
+        auteur:   'Isabelle Carceles',
+        date:     'Août 2026',
+        url:      '',
+        citation: "Cette longue artiste hallucinée, vêtue de satin et d'une perruque crépue blonde, est une virtuose dont le violon part dans tous les sens, qui joue toutes sortes de musiques rythmé par ses exclamations.",
+        image:    'images/presse-plage-article.jpg',
+        imageAlt: "Coupure de presse de l'article « Plage des Six Pompes : sur les pavés, la joie ».",
+      },
+      {
+        media:    'RTS',
+        titre:    'La Plage des Six Pompes tire un bilan positif, mais reste précaire',
+        auteur:   '',
+        date:     '8 août 2026',
+        url:      'https://www.rts.ch/info/culture/spectacles/2026/article/la-plage-des-six-pompes-tire-un-bilan-positif-mais-reste-precaire-29323541.html',
+        citation: '',
+        image:    'images/presse-rts-19h30.jpg',
+        imageAlt: 'La clowne au violon à l’image dans le journal télévisé Le 19h30 de la RTS.',
       },
     ],
   },

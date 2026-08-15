@@ -370,6 +370,32 @@ figcaption { margin-top: 12px; font-size: .7rem; letter-spacing: .18em; text-tra
   .gal-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* PRESSE — un article par bloc, vignette cliquable + lien externe */
+.pr-item { display: grid; grid-template-columns: 200px 1fr; gap: 22px; align-items: start; }
+.pr-item + .pr-item {
+  margin-top: 30px; padding-top: 30px; border-top: 1px solid var(--line-dark);
+}
+.pr-vignette { border-radius: 2px; }
+.pr-vignette img { aspect-ratio: 4/3; }
+.pr-corps .press { margin-bottom: 12px; }
+.pr-titre { font-family: var(--display); font-size: 1.12rem; font-weight: 700; color: var(--bone); }
+.pr-titre a {
+  color: var(--bone); text-decoration: none;
+  border-bottom: 1px solid rgba(244, 240, 230, .28);
+  transition: color .25s, border-color .25s;
+}
+.pr-titre a:hover, .pr-titre a:focus-visible { color: var(--rouge-l); border-color: var(--rouge-l); }
+.pr-ext { font-size: .78em; margin-left: .4em; }
+.pr-source {
+  font-family: var(--sans); font-size: .74rem; letter-spacing: .08em;
+  color: var(--on-dark-soft); margin-top: 6px;
+}
+
+@media (max-width: 700px) {
+  .pr-item { grid-template-columns: 1fr; gap: 14px; }
+  .pr-vignette img { aspect-ratio: 16/9; }
+}
+
 /* LIGHTBOX */
 .lightbox {
   position: fixed; inset: 0; z-index: 400;

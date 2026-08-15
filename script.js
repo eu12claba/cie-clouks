@@ -539,6 +539,42 @@ safe('galerie du spectacle', () => {
 });
 
 /* ============================================================
+   PRESSE — articles, avec lien cliquable quand il y en a un.
+   La coupure de presse s'ouvre dans la visionneuse : c'est le seul
+   moyen de la lire. Doit rester AVANT la visionneuse.
+   ============================================================ */
+safe('presse', () => {
+  $$('[data-presse]').forEach((el) => {
+    const articles = (D.presse || {})[el.dataset.presse] || [];
+    if (!articles.length) { el.innerHTML = '<p class="empty">Revue de presse à venir.</p>'; return; }
+
+    el.innerHTML = articles.map((a) => {
+      const source = [a.media, a.auteur, a.date].filter(Boolean).join(' · ');
+      const titre = a.url
+        ? `<a href="${attr(a.url)}" target="_blank" rel="noopener noreferrer">${a.titre}<span class="pr-ext" aria-hidden="true">↗</span></a>`
+        : a.titre;
+      const vignette = a.image
+        ? `<button type="button" class="g-btn pr-vignette" data-full="${attr(a.image)}" data-cap="${attr(a.titre)}">
+             <picture>
+               <source type="image/webp" srcset="${attr(versWebp(a.image))}" />
+               <img src="${attr(a.image)}" alt="${attr(a.imageAlt)}" loading="lazy" />
+             </picture>
+             <span class="g-zoom" aria-hidden="true"></span>
+           </button>`
+        : '';
+      return `<article class="pr-item">
+                ${vignette}
+                <div class="pr-corps">
+                  ${a.citation ? `<blockquote class="press"><p>«&nbsp;${a.citation}&nbsp;»</p></blockquote>` : ''}
+                  <p class="pr-titre">${titre}</p>
+                  ${source ? `<p class="pr-source">${source}</p>` : ''}
+                </div>
+              </article>`;
+    }).join('');
+  });
+});
+
+/* ============================================================
    GALERIE — visionneuse
    ============================================================ */
 const lightbox = $('#lightbox');
