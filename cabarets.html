@@ -57,7 +57,10 @@
     </header>
 
     <figure class="show-hero">
-      <div class="photo-todo photo-todo-hero"><span>Photo à venir</span></div>
+      <picture>
+        <source type="image/webp" sizes="100vw" srcset="images/cabarets-1-480.webp 480w, images/cabarets-1-960.webp 960w, images/cabarets-1-1125.webp 1125w" />
+        <img src="images/cabarets-1.jpg" width="1125" height="1500" alt="La clowne, violon et archet à la main, sur une scène en plein air au bord du lac." />
+      </picture>
     </figure>
 
 
@@ -95,6 +98,14 @@
           <!-- <blockquote class="press"><p>« … »</p><cite>Média — date</cite></blockquote> -->
           <p class="empty">Revue de presse à venir.</p>
         </div>
+      </div>
+    </section>
+
+    <section class="show-block">
+      <div class="wrap block-grid">
+        <p class="block-label">Galerie</p>
+        <!-- Les photos se règlent dans data.js -> galeries -->
+        <div class="block-body" data-galerie="cabarets"></div>
       </div>
     </section>
 
@@ -157,6 +168,18 @@
       <p class="footer-legal">© <span id="year">2026</span> Cie Clouks — Théâtre physique &amp; musical · Genève, Suisse</p>
     </div>
   </footer>
+
+
+  <!-- LIGHTBOX — nécessaire pour agrandir les photos de la galerie -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie" hidden>
+    <button class="lb-close" id="lbClose" aria-label="Fermer">&times;</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Photo précédente">&#8249;</button>
+    <figure class="lb-figure">
+      <img id="lbImg" src="" alt="" />
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Photo suivante">&#8250;</button>
+  </div>
 
   <script src="data.js"></script>
   <script src="script.js"></script>

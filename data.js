@@ -63,7 +63,7 @@ window.CLOUKS = {
       texte: 'Cabarets',
       meta:  'Hors format',
       desc:  '',
-      image: null,
+      image: 'images/cabarets-1.jpg',
     },
     {
       slug:  'impro-clown',
@@ -134,6 +134,17 @@ window.CLOUKS = {
         photos: [
           { src: 'images/cornelius-chichiclac.jpg',
             alt: 'La clowne, bras tendu, crie sur scène devant un mur de pierre.' },
+        ],
+      },
+    ],
+    'cabarets': [
+      {
+        titre: '',
+        photos: [
+          { src: 'images/cabarets-1.jpg',
+            alt: 'La clowne, violon et archet à la main, penchée sur une scène en plein air au bord du lac.' },
+          { src: 'images/cabarets-2.jpg',
+            alt: 'La clowne en cape rouge et pantalon doré, debout près d’une balustrade de pierre.' },
         ],
       },
     ],
