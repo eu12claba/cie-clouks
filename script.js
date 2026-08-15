@@ -530,8 +530,9 @@ safe('galerie du spectacle', () => {
                </button>
              </figure>`).join('')}</div>`
         : '<p class="empty">Photos à venir.</p>';
+      // Sans titre, la galerie s'affiche d'un bloc, sans sous-catégorie.
       return `<div class="gal-cat">
-                <p class="gal-cat-titre">${cat.titre}</p>
+                ${cat.titre ? `<p class="gal-cat-titre">${cat.titre}</p>` : ''}
                 ${corps}
               </div>`;
     }).join('');

@@ -126,14 +126,40 @@ window.CLOUKS = {
         photos: [],
       },
     ],
+    /* Les galeries ci-dessous n'ont pas de sous-catégorie : une seule
+       rubrique sans titre, donc les photos s'affichent directement. */
+    'chichiclack': [
+      {
+        titre: '',
+        photos: [
+          { src: 'images/cornelius-chichiclac.jpg',
+            alt: 'La clowne, bras tendu, crie sur scène devant un mur de pierre.' },
+        ],
+      },
+    ],
+    'impro-clown': [
+      {
+        titre: '',
+        photos: [],
+      },
+    ],
     'le-trio-vivigang': [
       {
-        titre: 'En concert',
+        titre: '',
         photos: [
           { src: 'images/trio-vivigang-1.jpg',
             alt: 'Le trio en plein air sous une bâche : une comédienne raconte, une violoniste joue, un musicien est au clavier.' },
           { src: 'images/trio-vivigang-2.jpg',
             alt: 'Portrait du trio Vivigang : deux musiciens souriants et la violoniste agenouillée, violon et archet à la main.' },
+        ],
+      },
+    ],
+    'le-fil-d-ariane': [
+      {
+        titre: '',
+        photos: [
+          { src: 'images/le-fil-d-ariane.jpg',
+            alt: 'La récitante, bras levé devant son pupitre, accompagnée au violoncelle et au piano dans une salle aux murs de brique.' },
         ],
       },
     ],
