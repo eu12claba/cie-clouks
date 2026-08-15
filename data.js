@@ -27,7 +27,7 @@ window.CLOUKS = {
       texte: 'Sortez les mouchoirs !',
       meta:  'Solo · Clown & violon · Salle et espace public',
       desc:  "Une clowne débarque dans la rue avec une mission solennelle : émouvoir aux larmes pour laver la société de ses maux.",
-      image: 'images/spectacle.jpg',
+      image: 'images/plage-six-pompes-1.jpg',
     },
     {
       slug:  'chichiclack',
@@ -177,11 +177,11 @@ window.CLOUKS = {
   presse: {
     'sortez-les-mouchoirs': [
       {
-        media:    '',
+        media:    'Le Courrier',
         titre:    'Plage des Six Pompes : sur les pavés, la joie',
         auteur:   'Isabelle Carceles',
-        date:     'Août 2026',
-        url:      '',
+        date:     '4 août 2026',
+        url:      'https://lecourrier.ch/2026/08/04/plage-des-six-pompes-sur-les-paves-la-joie/',
         citation: "Cette longue artiste hallucinée, vêtue de satin et d'une perruque crépue blonde, est une virtuose dont le violon part dans tous les sens, qui joue toutes sortes de musiques rythmé par ses exclamations.",
         image:    'images/presse-plage-article.jpg',
         imageAlt: "Coupure de presse de l'article « Plage des Six Pompes : sur les pavés, la joie ».",
@@ -219,6 +219,6 @@ window.CLOUKS = {
      comportement (ouverture du logiciel de messagerie).
   */
   contact: {
-    web3formsKey: '9e74f3b2-46d9-4112-afb0-45daf4cc9c50',
+    web3formsKey: '7cec16bc-99e6-4206-abaa-cc6a1a18f274',
   },
 };
