@@ -219,6 +219,6 @@ window.CLOUKS = {
      comportement (ouverture du logiciel de messagerie).
   */
   contact: {
-    web3formsKey: '',
+    web3formsKey: '9e74f3b2-46d9-4112-afb0-45daf4cc9c50',
   },
 };
