@@ -18,10 +18,12 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://cieclouks.ch/" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high" />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" type="image/webp" fetchpriority="high"
+        imagesrcset="images/hero-480.webp 480w, images/hero-960.webp 960w, images/hero-1440.webp 1440w, images/hero-1800.webp 1800w"
+        imagesizes="100vw" />
+  <link rel="preload" href="fonts/bodoni-moda-normal-400-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/inter-normal-300-500-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="fonts.css" />
   <link rel="stylesheet" href="style.css" />
   <script type="application/ld+json">
   {
@@ -72,7 +74,11 @@
   <!-- HERO -->
   <header id="hero">
     <div class="hero-media">
-      <img src="images/hero.jpg" width="1800" height="1202" alt="" aria-hidden="true" fetchpriority="high" id="heroImg" />
+      <picture>
+        <source type="image/webp" sizes="100vw"
+                srcset="images/hero-480.webp 480w, images/hero-960.webp 960w, images/hero-1440.webp 1440w, images/hero-1800.webp 1800w" />
+        <img src="images/hero.jpg" width="1800" height="1202" alt="" aria-hidden="true" fetchpriority="high" id="heroImg" />
+      </picture>
       <!-- Le nez : le clic déclenche le feu d'artifice. Position posée par script.js -->
       <button type="button" class="nose" id="nose" aria-label="Faire un feu d'artifice"></button>
     </div>
@@ -141,7 +147,11 @@
           </ul>
         </div>
         <figure class="compagnie-fig" data-reveal>
-          <img src="images/violon.jpg" width="800" height="1330" loading="lazy" alt="Une clowne au violon joue en plein air, au bord du lac." />
+          <picture>
+            <source type="image/webp" sizes="(min-width: 900px) 40vw, 100vw"
+                    srcset="images/violon-480.webp 480w, images/violon-800.webp 800w" />
+            <img src="images/violon.jpg" width="800" height="1330" loading="lazy" alt="Une clowne au violon joue en plein air, au bord du lac." />
+          </picture>
           <figcaption>En extérieur, au bord du lac</figcaption>
         </figure>
       </div>
@@ -149,7 +159,11 @@
       <!-- Artiste récurrente -->
       <div class="membre" id="equipe">
         <figure class="membre-photo" data-reveal>
-          <img src="images/clara.jpg" width="800" height="1064" loading="lazy" alt="Clara Urio en costume de clowne, devant une balustrade en pierre." />
+          <picture>
+            <source type="image/webp" sizes="(min-width: 900px) 40vw, 100vw"
+                    srcset="images/clara-480.webp 480w, images/clara-800.webp 800w" />
+            <img src="images/clara.jpg" width="800" height="1064" loading="lazy" alt="Clara Urio en costume de clowne, devant une balustrade en pierre." />
+          </picture>
         </figure>
         <div class="membre-bio" data-reveal>
           <p class="sub-label">Artiste récurrente</p>
@@ -187,28 +201,44 @@
     <div class="gallery" id="gallery">
       <figure class="g-item g-tall" data-reveal>
         <button type="button" class="g-btn" data-full="images/violon.jpg" data-cap="Au bord du lac">
-          <img src="images/violon.jpg" width="800" height="1330" loading="lazy" alt="La clowne au violon, en plein air au bord du lac." />
+          <picture>
+            <source type="image/webp" sizes="(min-width: 900px) 50vw, 100vw"
+                    srcset="images/violon-480.webp 480w, images/violon-800.webp 800w" />
+            <img src="images/violon.jpg" width="800" height="1330" loading="lazy" alt="La clowne au violon, en plein air au bord du lac." />
+          </picture>
           <span class="g-zoom" aria-hidden="true"></span>
         </button>
         <figcaption>Au bord du lac</figcaption>
       </figure>
       <figure class="g-item g-wide" data-reveal>
         <button type="button" class="g-btn" data-full="images/rue.jpg" data-cap="En festival, espace public">
-          <img src="images/rue.jpg" width="1600" height="1066" loading="lazy" alt="Représentation en rue devant un public de festival." />
+          <picture>
+            <source type="image/webp" sizes="(min-width: 900px) 66vw, 100vw"
+                    srcset="images/rue-480.webp 480w, images/rue-960.webp 960w, images/rue-1440.webp 1440w, images/rue-1600.webp 1600w" />
+            <img src="images/rue.jpg" width="1600" height="1066" loading="lazy" alt="Représentation en rue devant un public de festival." />
+          </picture>
           <span class="g-zoom" aria-hidden="true"></span>
         </button>
         <figcaption>En festival, espace public</figcaption>
       </figure>
       <figure class="g-item" data-reveal>
         <button type="button" class="g-btn" data-full="images/spectacle.jpg" data-cap="Sortez les mouchoirs !">
-          <img src="images/spectacle.jpg" width="750" height="830" loading="lazy" alt="La clowne crie, bras tendu, sur scène." />
+          <picture>
+            <source type="image/webp" sizes="(min-width: 900px) 50vw, 100vw"
+                    srcset="images/spectacle-480.webp 480w, images/spectacle-750.webp 750w" />
+            <img src="images/spectacle.jpg" width="750" height="830" loading="lazy" alt="La clowne crie, bras tendu, sur scène." />
+          </picture>
           <span class="g-zoom" aria-hidden="true"></span>
         </button>
         <figcaption>Sortez les mouchoirs&nbsp;!</figcaption>
       </figure>
       <figure class="g-item" data-reveal>
         <button type="button" class="g-btn" data-full="images/clara.jpg" data-cap="En costume">
-          <img src="images/clara.jpg" width="800" height="1064" loading="lazy" alt="Clara Urio en costume, devant une balustrade de pierre." />
+          <picture>
+            <source type="image/webp" sizes="(min-width: 900px) 50vw, 100vw"
+                    srcset="images/clara-480.webp 480w, images/clara-800.webp 800w" />
+            <img src="images/clara.jpg" width="800" height="1064" loading="lazy" alt="Clara Urio en costume, devant une balustrade de pierre." />
+          </picture>
           <span class="g-zoom" aria-hidden="true"></span>
         </button>
         <figcaption>En costume</figcaption>
@@ -261,8 +291,10 @@
               <span>Votre message</span>
               <textarea id="cfMessage" name="message" rows="6" placeholder="Bonjour, je souhaite..."></textarea>
             </label>
+            <!-- Piège à robots : invisible et jamais rempli par un humain. -->
+            <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <button type="submit" class="btn btn-solid btn-full">Envoyer le message</button>
-            <p class="form-note" id="formNote" role="status">Le formulaire ouvre votre logiciel de messagerie avec le message pré-rempli.</p>
+            <p class="form-note" id="formNote" role="status" aria-live="polite">Le formulaire ouvre votre logiciel de messagerie avec le message pré-rempli.</p>
           </form>
         </div>
       </div>

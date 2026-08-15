@@ -3,7 +3,20 @@
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-const D  = window.CLOUKS || { creations: [], horsFormat: [], dates: [] };
+
+/* data.js est édité à la main : une virgule en trop et window.CLOUKS
+   n'existe pas. On le détecte explicitement, et chaque bloc de rendu est
+   isolé pour qu'une panne de contenu ne casse jamais la navigation. */
+const DATA_OK = !!(window.CLOUKS && Array.isArray(window.CLOUKS.creations));
+const D = DATA_OK ? window.CLOUKS : { creations: [], horsFormat: [], dates: [] };
+if (!DATA_OK) {
+  console.error('[Clouks] data.js n\'a pas pu être lu (erreur de syntaxe ?). ' +
+                'Le site reste navigable, mais les spectacles et les dates ne s\'afficheront pas.');
+}
+
+const safe = (label, fn) => {
+  try { fn(); } catch (e) { console.error(`[Clouks] échec du bloc « ${label} » :`, e); }
+};
 
 /* ============================================================
    DATES
@@ -27,13 +40,17 @@ const lienSpectacle = (d) => (parSlug(d.spectacle) ? `/${d.spectacle}` : null);
 /* ============================================================
    NAVIGATION — sous-menus construits depuis data.js
    ============================================================ */
-$$('[data-sub]').forEach((ul) => {
-  const liste = D[ul.dataset.sub] || [];
-  ul.innerHTML = liste.map((i) => `<li><a href="/${i.slug}">${i.titre}</a></li>`).join('');
+safe('sous-menus', () => {
+  $$('[data-sub]').forEach((ul) => {
+    const liste = D[ul.dataset.sub] || [];
+    // Sans données, on retire le chevron : le lien parent reste cliquable.
+    if (!liste.length) { ul.closest('.has-sub')?.classList.add('no-sub'); return; }
+    ul.innerHTML = liste.map((i) => `<li><a href="/${i.slug}">${i.titre}</a></li>`).join('');
+  });
 });
 
 // rubrique active
-(() => {
+safe('rubrique active', () => {
   const ici = location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
   $$('#navLinks a').forEach((a) => {
     const href = a.getAttribute('href').replace(/\.html$/, '');
@@ -44,7 +61,7 @@ $$('[data-sub]').forEach((ul) => {
     const parent = D.creations.includes(item) ? '/creations' : '/hors-format';
     $$('#navLinks a').forEach((a) => { if (a.getAttribute('href') === parent) a.classList.add('is-section'); });
   }
-})();
+});
 
 const navbar = $('#navbar');
 if (navbar && !navbar.classList.contains('is-solid')) {
@@ -72,13 +89,25 @@ if (navToggle && navLinks) {
 /* ============================================================
    BANDES (listes Créations / Hors format)
    ============================================================ */
+/* Chaque .jpg a un .webp de même nom, généré en amont. */
+const versWebp = (src) => src.replace(/\.(jpe?g|png)$/i, '.webp');
+
 const visuelBande = (i) => i.image
-  ? `<img src="${i.image}" alt="" aria-hidden="true" />`
+  ? `<picture>
+        <source type="image/webp" srcset="${versWebp(i.image)}" />
+        <img src="${i.image}" alt="" aria-hidden="true" loading="lazy" />
+      </picture>`
   : `<div class="photo-todo" aria-hidden="true"><span>Photo à venir</span></div>`;
 
-$$('[data-bands]').forEach((el) => {
-  const liste = D[el.dataset.bands] || [];
-  el.innerHTML = liste.map((i) => `
+safe('bandes', () => {
+  $$('[data-bands]').forEach((el) => {
+    const liste = D[el.dataset.bands] || [];
+    if (!liste.length) {
+      el.innerHTML = `<p class="empty">Les spectacles seront bientôt en ligne.
+        <a href="/#contact">Nous contacter</a>.</p>`;
+      return;
+    }
+    el.innerHTML = liste.map((i) => `
       <a class="creation-band${i.image ? '' : ' no-photo'}" href="/${i.slug}">
         ${visuelBande(i)}
         <div class="creation-inner">
@@ -88,13 +117,15 @@ $$('[data-bands]').forEach((el) => {
           <span class="creation-cta">Voir la page</span>
         </div>
       </a>`).join('');
+  });
 });
 
 /* ============================================================
    À L'AFFICHE — la prochaine date, sinon rien
    ============================================================ */
 const affiche = $('#affiche');
-if (affiche) {
+safe('à l\'affiche', () => {
+  if (!affiche) return;
   const p = aVenir[0];
   if (p) {
     const d = parseDate(p.date);
@@ -104,7 +135,10 @@ if (affiche) {
     affiche.innerHTML = `
       <div class="wrap"><p class="label label-light">À l'affiche</p></div>
       <a class="affiche-band${spec && spec.image ? '' : ' no-photo'}" href="${lien || '/agenda'}">
-        ${spec && spec.image ? `<img src="${spec.image}" alt="" aria-hidden="true" />`
+        ${spec && spec.image ? `<picture>
+             <source type="image/webp" srcset="${versWebp(spec.image)}" />
+             <img src="${spec.image}" alt="" aria-hidden="true" />
+           </picture>`
                              : `<div class="photo-todo" aria-hidden="true"><span>Photo à venir</span></div>`}
         <div class="affiche-inner">
           <p class="affiche-date">${d.getDate()} ${MOIS[d.getMonth()]} ${d.getFullYear()}${p.heure ? ` · ${p.heure}` : ''}</p>
@@ -114,7 +148,64 @@ if (affiche) {
         </div>
       </a>`;
   }
-}
+});
+
+/* ============================================================
+   DONNÉES STRUCTURÉES — les dates à venir en Schema.org
+   Rend chaque représentation éligible aux résultats « événement »
+   de Google (date, lieu, billetterie affichés directement).
+   ============================================================ */
+safe('données structurées', () => {
+  if (!aVenir.length) return;
+
+  const events = aVenir.map((d) => {
+    const spec = parSlug(d.spectacle);
+    // « 20h » / « 20h30 » -> heure ISO ; sans heure, la date seule suffit.
+    const m = String(d.heure || '').match(/(\d{1,2})\s*h\s*(\d{2})?/i);
+    const debut = m
+      ? `${d.date}T${String(m[1]).padStart(2, '0')}:${m[2] || '00'}:00`
+      : d.date;
+
+    // « Genève (CH) » -> localité « Genève » + pays « CH ».
+    const vm = String(d.ville || '').match(/^\s*(.+?)\s*\(([A-Za-z]{2})\)\s*$/);
+    const localite = vm ? vm[1] : (d.ville || 'Genève');
+    const pays = vm ? vm[2].toUpperCase() : 'CH';
+
+    const ev = {
+      '@context': 'https://schema.org',
+      '@type': 'TheaterEvent',
+      name: spec ? spec.texte : nomSpectacle(d),
+      startDate: debut,
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+      performer: { '@type': 'PerformingGroup', name: 'Cie Clouks', url: 'https://cieclouks.ch/' },
+      organizer: { '@type': 'PerformingGroup', name: 'Cie Clouks', url: 'https://cieclouks.ch/' },
+      location: {
+        '@type': 'Place',
+        name: d.lieu || localite || 'Lieu à confirmer',
+        address: { '@type': 'PostalAddress', addressLocality: localite, addressCountry: pays },
+      },
+    };
+    if (spec) {
+      ev.url = `https://cieclouks.ch/${spec.slug}`;
+      if (spec.desc) ev.description = spec.desc;
+      if (spec.image) ev.image = `https://cieclouks.ch/${spec.image}`;
+    }
+    if (d.billetterie) {
+      ev.offers = {
+        '@type': 'Offer',
+        url: d.billetterie,
+        availability: 'https://schema.org/InStock',
+      };
+    }
+    return ev;
+  });
+
+  const tag = document.createElement('script');
+  tag.type = 'application/ld+json';
+  tag.textContent = JSON.stringify(events.length === 1 ? events[0] : events);
+  document.head.appendChild(tag);
+});
 
 /* ---- arrivée directe sur « À l'affiche » (le hero reste au-dessus) ---- */
 if (affiche && !affiche.hidden && !location.hash) {
@@ -150,8 +241,9 @@ const ligneDate = (d, passe = false) => {
     </div>`;
 };
 
-const blocFutures = $('[data-dates="futures"]');
-if (blocFutures) {
+safe('dates à venir', () => {
+  const blocFutures = $('[data-dates="futures"]');
+  if (!blocFutures) return;
   blocFutures.innerHTML = aVenir.length
     ? aVenir.map((d) => ligneDate(d)).join('')
     : `<div class="dates-empty">
@@ -163,16 +255,18 @@ if (blocFutures) {
            <a href="/creations" class="btn btn-line">Voir les créations</a>
          </div>
        </div>`;
-}
+});
 
-const blocPassees = $('[data-dates="passees"]');
-if (blocPassees) {
+safe('dates passées', () => {
+  const blocPassees = $('[data-dates="passees"]');
+  if (!blocPassees) return;
   blocPassees.innerHTML = passees.length
     ? passees.map((d) => ligneDate(d, true)).join('')
     : `<p class="empty">Aucune date passée enregistrée pour l'instant.</p>`;
-}
+});
 
 /* ---- calendrier d'un spectacle ---- */
+safe('calendriers', () => {
 $$('[data-calendrier]').forEach((el) => {
   const slug = el.dataset.calendrier;
   const list = passees.filter((d) => d.spectacle === slug);
@@ -193,6 +287,7 @@ $$('[data-calendrier]').forEach((el) => {
         </div>`).join('')
     : `<p class="empty">Les dates passées seront listées ici.</p>`)
     + `<p class="block-more">Toutes les dates sont sur la page <a href="/agenda">Agenda</a>.</p>`;
+});
 });
 
 /* ============================================================
@@ -409,6 +504,41 @@ if ($('#nose')) {
 })();
 
 /* ============================================================
+   GALERIE D'UN SPECTACLE — rangée en sous-catégories
+   Doit rester AVANT la visionneuse : celle-ci recense les .g-btn
+   présents au chargement.
+   ============================================================ */
+const attr = (s) => String(s ?? '')
+  .replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+
+safe('galerie du spectacle', () => {
+  $$('[data-galerie]').forEach((el) => {
+    const cats = (D.galeries || {})[el.dataset.galerie] || [];
+    if (!cats.length) { el.innerHTML = '<p class="empty">Photos à venir.</p>'; return; }
+
+    el.innerHTML = cats.map((cat) => {
+      const photos = cat.photos || [];
+      const corps = photos.length
+        ? `<div class="gal-grid">${photos.map((p) => `
+             <figure class="gal-item">
+               <button type="button" class="g-btn" data-full="${attr(p.src)}" data-cap="${attr(cat.titre)}">
+                 <picture>
+                   <source type="image/webp" srcset="${attr(versWebp(p.src))}" />
+                   <img src="${attr(p.src)}" alt="${attr(p.alt)}" loading="lazy" />
+                 </picture>
+                 <span class="g-zoom" aria-hidden="true"></span>
+               </button>
+             </figure>`).join('')}</div>`
+        : '<p class="empty">Photos à venir.</p>';
+      return `<div class="gal-cat">
+                <p class="gal-cat-titre">${cat.titre}</p>
+                ${corps}
+              </div>`;
+    }).join('');
+  });
+});
+
+/* ============================================================
    GALERIE — visionneuse
    ============================================================ */
 const lightbox = $('#lightbox');
@@ -489,26 +619,75 @@ $$('[data-doc]').forEach(async (a) => {
 /* ============================================================
    FORMULAIRE
    ============================================================ */
-const form = $('#contactForm');
-if (form) {
+safe('formulaire', () => {
+  const form = $('#contactForm');
+  if (!form) return;
+
   const note = $('#formNote');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const nom = $('#cfNom').value.trim();
-    const email = $('#cfEmail').value.trim();
-    const message = $('#cfMessage').value.trim();
-    if (!nom || !email) {
-      note.textContent = 'Merci d’indiquer votre nom et votre email.';
-      note.classList.add('error');
-      return;
-    }
-    note.classList.remove('error');
-    note.textContent = 'Ouverture de votre logiciel de messagerie…';
+  const bouton = form.querySelector('button[type="submit"]');
+  const cle = String(D.contact?.web3formsKey || '').trim();
+
+  const dire = (texte, erreur = false) => {
+    note.textContent = texte;
+    note.classList.toggle('error', erreur);
+  };
+
+  // Dernier recours : on ne perd jamais un message, on repasse par l'email.
+  const versMessagerie = (nom, email, message) => {
     window.location.href = 'mailto:contact@cieclouks.ch'
       + '?subject=' + encodeURIComponent('[Site] Prise de contact')
       + '&body=' + encodeURIComponent(`${message}\n\n—\n${nom}\n${email}`);
+  };
+
+  // Sans clé configurée, on garde l'ancien comportement.
+  if (!cle) {
+    note.textContent = 'Le formulaire ouvre votre logiciel de messagerie avec le message pré-rempli.';
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const nom     = $('#cfNom').value.trim();
+    const email   = $('#cfEmail').value.trim();
+    const message = $('#cfMessage').value.trim();
+
+    if (!nom || !email) return dire('Merci d’indiquer votre nom et votre email.', true);
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return dire('Cette adresse email semble incomplète.', true);
+    if (form.querySelector('[name="botcheck"]')?.checked) return; // piège à robots
+
+    if (!cle) {
+      dire('Ouverture de votre logiciel de messagerie…');
+      return versMessagerie(nom, email, message);
+    }
+
+    bouton.disabled = true;
+    dire('Envoi en cours…');
+
+    try {
+      const r = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: cle,
+          subject: `[cieclouks.ch] Message de ${nom}`,
+          from_name: 'Site Cie Clouks',
+          replyto: email,
+          Nom: nom, Email: email, Message: message,
+        }),
+      });
+      const data = await r.json().catch(() => ({}));
+      if (!r.ok || !data.success) throw new Error(data.message || `HTTP ${r.status}`);
+
+      form.reset();
+      dire('Merci ! Votre message est bien parti, nous vous répondons vite.');
+    } catch (err) {
+      console.error('[Clouks] envoi du formulaire :', err);
+      dire('L’envoi automatique a échoué — ouverture de votre logiciel de messagerie…', true);
+      versMessagerie(nom, email, message);
+    } finally {
+      bouton.disabled = false;
+    }
   });
-}
+});
 
 const year = $('#year');
 if (year) year.textContent = new Date().getFullYear();

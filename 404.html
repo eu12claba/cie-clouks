@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page introuvable — Cie Clouks</title>
+  <meta name="description" content="Cette page n'existe pas ou plus sur le site de la Cie Clouks." />
+  <meta name="theme-color" content="#0E0D0A" />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="/fonts/bodoni-moda-normal-400-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/inter-normal-300-500-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/fonts.css" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="page">
+
+  <a href="#main" class="skip-link">Aller au contenu</a>
+
+  <nav id="navbar" class="is-solid">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/"><span>Cie</span> Clouks</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/#compagnie">La Compagnie</a></li>
+        <li class="has-sub">
+          <a href="/creations">Créations <span class="caret" aria-hidden="true"></span></a>
+          <ul class="sub" data-sub="creations"></ul>
+        </li>
+        <li class="has-sub">
+          <a href="/hors-format">Hors format <span class="caret" aria-hidden="true"></span></a>
+          <ul class="sub" data-sub="horsFormat"></ul>
+        </li>
+        <li><a href="/agenda">Agenda</a></li>
+        <li><a href="/#galerie">Galerie</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header class="page-head">
+      <div class="wrap">
+        <p class="label">Erreur 404</p>
+        <h1 class="page-title">Cette page<br />a quitté la scène</h1>
+      </div>
+    </header>
+
+    <section class="page-tail">
+      <div class="wrap">
+        <p class="tail-note">Le lien est peut-être ancien, ou la page a changé de nom. Reprenons depuis le début&nbsp;:</p>
+        <div class="dates-empty-actions">
+          <a href="/" class="btn btn-solid">Accueil</a>
+          <a href="/creations" class="btn btn-line">Les créations</a>
+          <a href="/agenda" class="btn btn-line">Agenda</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="footer-word" aria-hidden="true">Clouks</p>
+      <div class="footer-row">
+        <nav class="footer-nav" aria-label="Pied de page">
+          <a href="/#compagnie">La Compagnie</a>
+          <a href="/creations">Créations</a>
+          <a href="/hors-format">Hors format</a>
+          <a href="/agenda">Agenda</a>
+          <a href="/#galerie">Galerie</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+        <div class="footer-right">
+          <a href="mailto:contact@cieclouks.ch" class="footer-mail">contact@cieclouks.ch</a>
+          <a href="tel:+41787088982" class="footer-mail">+41 78 708 89 82</a>
+        </div>
+      </div>
+      <p class="footer-legal">© <span id="year">2026</span> Cie Clouks — Théâtre physique &amp; musical · Genève, Suisse</p>
+    </div>
+  </footer>
+
+  <script src="/data.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>
