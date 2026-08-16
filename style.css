@@ -249,11 +249,12 @@ h2 em { font-style: italic; font-weight: 400; }
 .marquee { background: var(--rouge); color: var(--bone); overflow: hidden; padding: 16px 0; border-block: 1px solid rgba(0,0,0,.12); }
 /* Durée proportionnelle à la longueur de la piste : c'est la vitesse à
    l'écran qui doit rester constante, pas le temps d'un tour. */
-.marquee-track { display: flex; width: max-content; animation: slide 112s linear infinite; }
+.marquee-track { display: flex; width: max-content; animation: slide 131s linear infinite; }
 .marquee-track span { font-family: var(--display); font-size: clamp(1.5rem, 3.4vw, 2.7rem); font-style: italic; font-weight: 400; white-space: nowrap; }
 /* Tout l'espacement vient d'ici, et de nulle part ailleurs : si le <span>
-   ajoutait sa propre marge, l'écart au raccord serait plus large que les autres. */
-.marquee-track .mot { font-weight: inherit; padding-right: 3em; }
+   ajoutait sa propre marge, l'écart au raccord serait plus large que les autres.
+   Chaque mot est un élément séparé, donc cet écart s'applique entre tous. */
+.marquee-track .mot { font-weight: inherit; padding-right: 2em; }
 @keyframes slide { to { transform: translateX(-50%); } }
 
 /* ================================================
