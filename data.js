@@ -79,7 +79,7 @@ window.CLOUKS = {
       texte: 'Cours de clown',
       meta:  'Transmission · La Julienne, Plan-les-Ouates',
       desc:  'Un cours hebdomadaire de clown dès 16 ans, à la Julienne (Plan-les-Ouates), saison 2026–2027.',
-      image: null,
+      image: 'images/cours-clown-affiche.jpg',
     },
   ],
 
@@ -118,8 +118,20 @@ window.CLOUKS = {
         ],
       },
       {
+        // Photos © Olivier Pascual
         titre: 'Festival du numéro de clown 2025',
-        photos: [],
+        photos: [
+          { src: 'images/numero-clown-1.jpg',
+            alt: 'La clowne face au public, le violon serré contre elle, sur fond noir.' },
+          { src: 'images/numero-clown-2.jpg',
+            alt: 'De profil, la clowne joue du violon, la bouche grande ouverte.' },
+          { src: 'images/numero-clown-3.jpg',
+            alt: "La clowne joue du violon, veste rouge ouverte et archet tendu." },
+          { src: 'images/numero-clown-4.jpg',
+            alt: 'La clowne joue du violon devant la banderole du Festival du numéro de clown.' },
+          { src: 'images/numero-clown-5.jpg',
+            alt: 'De profil, la clowne joue du violon sur la scène du festival.' },
+        ],
       },
       {
         titre: 'Festival Théâtre Nomades 2024',
@@ -142,9 +154,13 @@ window.CLOUKS = {
         titre: '',
         photos: [
           { src: 'images/cabarets-1.jpg',
-            alt: 'La clowne, violon et archet à la main, penchée sur une scène en plein air au bord du lac.' },
+            alt: "En noir et blanc, la clowne joue du violon, l'archet levé, devant un mur de béton." },
           { src: 'images/cabarets-2.jpg',
-            alt: 'La clowne en cape rouge et pantalon doré, debout près d’une balustrade de pierre.' },
+            alt: 'En noir et blanc, la clowne joue du violon, la bouche ouverte.' },
+          { src: 'images/cabarets-3.jpg',
+            alt: 'En noir et blanc, la clowne tient violon et archet à la verticale.' },
+          { src: 'images/cabarets-4.jpg',
+            alt: 'En noir et blanc, la clowne penchée sur son violon, le regard baissé.' },
         ],
       },
     ],
