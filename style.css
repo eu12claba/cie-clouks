@@ -547,6 +547,16 @@ body.page { background: var(--ink); color: var(--bone); }
 .block-lede { font-family: var(--display); font-size: clamp(1.08rem, 1.8vw, 1.4rem); font-style: italic; line-height: 1.5; color: rgba(244,240,230,.9) !important; }
 .block-more { font-size: .9rem; }
 .block-more a { color: var(--rouge-l); border-bottom: 1px solid currentColor; }
+
+/* Un lien au fil du texte doit se voir : la règle globale `a { color: inherit }`
+   le rend sinon indistinguable de la prose, sur la fiche comme sur l'accueil.
+   Le soulignement discret reprend l'idiome de `.year-dates a` et `.date-show a`,
+   et `currentColor` le fait suivre la couleur du texte, claire ou sombre. */
+.block-body p a, .membre-bio p a, .compagnie-text p a {
+  border-bottom: 1px solid currentColor; transition: color .25s, border-color .25s;
+}
+.block-body p a:hover { color: var(--rouge-l); }
+.membre-bio p a:hover, .compagnie-text p a:hover { color: var(--rouge); }
 .empty { color: var(--on-dark-soft) !important; font-style: italic; }
 
 .specs { margin: 28px 0 32px; border-top: 1px solid var(--line-dark); }
