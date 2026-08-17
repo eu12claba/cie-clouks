@@ -178,18 +178,7 @@ h2 em { font-style: italic; font-weight: 400; }
     linear-gradient(to bottom, rgba(14,13,10,.72) 0%, rgba(14,13,10,.12) 30%, rgba(14,13,10,.55) 62%, rgba(14,13,10,.96) 100%),
     radial-gradient(90% 70% at 50% 35%, rgba(14,13,10,0) 40%, rgba(14,13,10,.6) 100%);
 }
-.hero-rail {
-  position: absolute; left: calc(var(--pad) - 6px); top: 52%;
-  transform: translateY(-50%) rotate(180deg); writing-mode: vertical-rl; z-index: 3;
-  font-size: .68rem; letter-spacing: .34em; text-transform: uppercase; color: var(--on-dark-soft);
-}
 .hero-inner { position: relative; z-index: 3; max-width: var(--wrap); margin: 0 auto; width: 100%; padding: 0 var(--pad) clamp(64px, 9vh, 104px); }
-.hero-eyebrow {
-  display: flex; align-items: center; gap: 11px;
-  font-size: .72rem; letter-spacing: .26em; text-transform: uppercase;
-  color: var(--on-dark); margin-bottom: 18px;
-}
-.hero-eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--rouge); box-shadow: 0 0 0 4px rgba(196,64,47,.22); }
 .hero-title { color: var(--bone); margin-bottom: 34px; }
 .hero-cie {
   display: block; font-size: clamp(1rem, 2.2vw, 1.65rem); font-style: italic; font-weight: 400;
@@ -199,8 +188,6 @@ h2 em { font-style: italic; font-weight: 400; }
 .hero-word { display: block; font-size: clamp(3.6rem, 15.5vw, 14rem); line-height: .82; letter-spacing: -.035em; text-shadow: 0 6px 60px rgba(0,0,0,.5); }
 .hero-word .ch { display: inline-block; }
 .hero-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 34px; flex-wrap: wrap; padding-top: 30px; border-top: 1px solid var(--line-dark); }
-.hero-tagline { font-family: var(--display); font-size: clamp(1rem, 1.6vw, 1.28rem); font-style: italic; line-height: 1.55; color: rgba(244,240,230,.86); max-width: 34ch; }
-.hero-tagline em { font-style: normal; color: var(--bone); }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .hero-scroll {
   position: absolute; right: var(--pad); bottom: clamp(64px, 9vh, 104px); z-index: 3;
@@ -212,11 +199,9 @@ h2 em { font-style: italic; font-weight: 400; }
 .hero-scroll-line::after { content: ""; position: absolute; inset: 0; background: var(--rouge); animation: scrollLine 2.4s var(--ease) infinite; }
 @keyframes scrollLine { 0% { transform: translateY(-100%); } 60% { transform: translateY(100%); } 100% { transform: translateY(100%); } }
 
-.hero-eyebrow, .hero-foot, .hero-scroll, .hero-rail { opacity: 0; animation: fadeUp .95s var(--ease) forwards; }
-.hero-eyebrow { animation-delay: .15s; }
+.hero-foot, .hero-scroll { opacity: 0; animation: fadeUp .95s var(--ease) forwards; }
 .hero-foot { animation-delay: .85s; }
 .hero-scroll { animation-delay: 1.05s; }
-.hero-rail { animation-delay: 1.15s; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
 .hero-word .ch { opacity: 0; transform: translateY(.42em); animation: chIn .9s var(--ease) forwards; animation-delay: calc(.28s + var(--i) * .055s); }
 @keyframes chIn { to { opacity: 1; transform: none; } }
@@ -661,7 +646,7 @@ footer { background: var(--ink); color: var(--bone); padding: 0 0 40px; border-t
   .g-tall, .g-wide, .g-item:nth-child(3), .g-item:nth-child(4) { grid-column: span 1; grid-row: auto; }
   .g-tall .g-btn img, .g-wide .g-btn img, .g-item:nth-child(3) .g-btn img { aspect-ratio: 4/5; }
 
-  .hero-rail, .hero-scroll { display: none; }
+  .hero-scroll { display: none; }
 
   .date-row { grid-template-columns: 1fr; gap: 14px; }
   .footer-right { align-items: flex-start; }
@@ -715,7 +700,7 @@ footer { background: var(--ink); color: var(--bone); padding: 0 0 40px; border-t
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-  [data-reveal], .hero-eyebrow, .hero-foot, .hero-scroll, .hero-rail, .hero-cie { opacity: 1; transform: none; }
+  [data-reveal], .hero-foot, .hero-scroll, .hero-cie { opacity: 1; transform: none; }
   .hero-word .ch { opacity: 1; transform: none; }
   .marquee-track { animation: none; }
 }

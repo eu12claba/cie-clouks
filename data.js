@@ -102,7 +102,7 @@ window.CLOUKS = {
 
      Pour ajouter une photo : la déposer dans images/, lancer
      `python tools/images.py`, puis ajouter une ligne
-       { src: 'images/xxx.jpg', alt: 'Ce que montre la photo.' }
+       { src: 'images/xxx.jpg', alt: '' }
      Le texte `alt` est lu par les lecteurs d'écran et par Google : décrire
      ce qu'on voit, pas « photo de spectacle ».
   */
@@ -116,15 +116,15 @@ window.CLOUKS = {
         titre: 'La Plage des Six Pompes 2026',
         photos: [
           { src: 'images/plage-six-pompes-1.jpg',
-            alt: "La clowne, bras écartés, le violon dans une main et l'archet dans l'autre, devant le mur peint du festival." },
+            alt: '' },
           { src: 'images/plage-six-pompes-2.jpg',
-            alt: 'La clowne, tête renversée et bouche grande ouverte, le violon calé contre son épaule.' },
+            alt: '' },
           { src: 'images/plage-six-pompes-3.jpg',
-            alt: 'La clowne debout dans la lumière, souriante, le violon au bout du bras.' },
+            alt: '' },
           { src: 'images/plage-six-pompes-4.jpg',
-            alt: 'Gros plan sur la clowne qui joue du violon en criant.' },
+            alt: '' },
           { src: 'images/plage-six-pompes-5.jpg',
-            alt: "La clowne joue du violon, l'archet tendu et les yeux écarquillés." },
+            alt: '' },
         ],
       },
       {
@@ -132,15 +132,15 @@ window.CLOUKS = {
         titre: 'Festival du numéro de clown 2025',
         photos: [
           { src: 'images/numero-clown-1.jpg',
-            alt: 'La clowne face au public, le violon serré contre elle, sur fond noir.' },
+            alt: '' },
           { src: 'images/numero-clown-2.jpg',
-            alt: 'De profil, la clowne joue du violon, la bouche grande ouverte.' },
+            alt: '' },
           { src: 'images/numero-clown-3.jpg',
-            alt: "La clowne joue du violon, veste rouge ouverte et archet tendu." },
+            alt: '' },
           { src: 'images/numero-clown-4.jpg',
-            alt: 'La clowne joue du violon devant la banderole du Festival du numéro de clown.' },
+            alt: '' },
           { src: 'images/numero-clown-5.jpg',
-            alt: 'De profil, la clowne joue du violon sur la scène du festival.' },
+            alt: '' },
         ],
       },
       {
@@ -155,7 +155,7 @@ window.CLOUKS = {
         titre: '',
         photos: [
           { src: 'images/cornelius-chichiclac.jpg',
-            alt: 'La clowne, bras tendu, crie sur scène devant un mur de pierre.' },
+            alt: '' },
         ],
       },
     ],
@@ -164,13 +164,13 @@ window.CLOUKS = {
         titre: '',
         photos: [
           { src: 'images/cabarets-1.jpg',
-            alt: "En noir et blanc, la clowne joue du violon, l'archet levé, devant un mur de béton." },
+            alt: '' },
           { src: 'images/cabarets-2.jpg',
-            alt: 'En noir et blanc, la clowne joue du violon, la bouche ouverte.' },
+            alt: '' },
           { src: 'images/cabarets-3.jpg',
-            alt: 'En noir et blanc, la clowne tient violon et archet à la verticale.' },
+            alt: '' },
           { src: 'images/cabarets-4.jpg',
-            alt: 'En noir et blanc, la clowne penchée sur son violon, le regard baissé.' },
+            alt: '' },
         ],
       },
     ],
@@ -185,9 +185,9 @@ window.CLOUKS = {
         titre: '',
         photos: [
           { src: 'images/trio-vivigang-1.jpg',
-            alt: 'Le trio en plein air sous une bâche : une comédienne raconte, une violoniste joue, un musicien est au clavier.' },
+            alt: '' },
           { src: 'images/trio-vivigang-2.jpg',
-            alt: 'Portrait du trio ViViGang : deux musiciens souriants et la violoniste agenouillée, violon et archet à la main.' },
+            alt: '' },
         ],
       },
     ],
@@ -196,7 +196,7 @@ window.CLOUKS = {
         titre: "Le fil d'Ariane",
         photos: [
           { src: 'images/le-fil-d-ariane.jpg',
-            alt: 'La récitante, bras levé devant son pupitre, accompagnée au violoncelle et au piano dans une salle aux murs de brique.' },
+            alt: '' },
         ],
       },
       {
@@ -241,7 +241,7 @@ window.CLOUKS = {
         url:      'https://www.rts.ch/info/culture/spectacles/2026/article/la-plage-des-six-pompes-tire-un-bilan-positif-mais-reste-precaire-29323541.html',
         citation: '',
         image:    'images/presse-rts-19h30.jpg',
-        imageAlt: 'La clowne au violon à l’image dans le journal télévisé Le 19h30 de la RTS.',
+        imageAlt: '',
       },
     ],
   },
