@@ -535,6 +535,20 @@ body.page { background: var(--ink); color: var(--bone); }
 /* Une affiche ne se recadre pas : on la montre entière, sinon le texte saute. */
 .show-hero.is-affiche img { object-fit: contain; max-height: 66vh; }
 
+/* Logos de soutien. Ils arrivent avec un fond blanc « cuit » dans l'image :
+   impossible à détourer, leur texte est noir et disparaîtrait sur le fond
+   sombre de la page. On les pose donc sur une pastille claire — ce que
+   demande de toute façon la charte d'un logo officiel, qui ne doit être ni
+   inversé ni recoloré. `width: auto` est explicite pour écraser la règle
+   globale sur img. */
+.soutiens { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.soutien {
+  display: block; background: var(--bone); border-radius: 3px;
+  padding: 13px 17px; transition: transform .3s var(--ease);
+}
+.soutien:hover { transform: translateY(-2px); }
+.soutien img { height: clamp(38px, 4.6vw, 50px); width: auto; }
+
 .show-block { padding: clamp(34px, 4.4vw, 54px) 0; border-top: 1px solid var(--line-dark); }
 .show-block-last { border-bottom: 1px solid var(--line-dark); }
 .block-grid { display: grid; grid-template-columns: 210px 1fr; gap: clamp(20px, 4vw, 60px); align-items: start; }
