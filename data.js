@@ -38,11 +38,13 @@ window.CLOUKS = {
       image: 'images/cornelius-chichiclac.jpg',
     },
     {
-      slug:  'le-fil-d-ariane',
-      titre: "Le fil d'Ariane",
-      texte: "Le fil d'Ariane",
-      meta:  'Création',
-      desc:  '',
+      // Regroupe deux concerts : Le fil d'Ariane et Le Carnaval des animaux.
+      // L'ancienne adresse /le-fil-d-ariane redirige vers cette page.
+      slug:  'concerts-avec-recitante',
+      titre: 'Concerts avec récitante',
+      texte: 'Concerts avec récitante',
+      meta:  'Création · Musique & récit',
+      desc:  "Deux concerts où la musique se raconte : Le fil d'Ariane et Le Carnaval des animaux.",
       image: 'images/le-fil-d-ariane.jpg',
     },
     {
@@ -52,6 +54,14 @@ window.CLOUKS = {
       meta:  'Création',
       desc:  '',
       image: 'images/trio-vivigang-1.jpg',
+    },
+    {
+      slug:  'duo-marie-anne-chipo',
+      titre: 'Duo Marie-Anne &amp; Chipo',
+      texte: 'Duo Marie-Anne & Chipo',
+      meta:  'Concert clownesque · Clarinette & violon',
+      desc:  '',
+      image: null,
     },
   ],
 
@@ -181,13 +191,23 @@ window.CLOUKS = {
         ],
       },
     ],
-    'le-fil-d-ariane': [
+    'concerts-avec-recitante': [
       {
-        titre: '',
+        titre: "Le fil d'Ariane",
         photos: [
           { src: 'images/le-fil-d-ariane.jpg',
             alt: 'La récitante, bras levé devant son pupitre, accompagnée au violoncelle et au piano dans une salle aux murs de brique.' },
         ],
+      },
+      {
+        titre: 'Le Carnaval des animaux',
+        photos: [],
+      },
+    ],
+    'duo-marie-anne-chipo': [
+      {
+        titre: '',
+        photos: [],
       },
     ],
   },
