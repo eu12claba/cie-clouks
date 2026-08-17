@@ -357,8 +357,11 @@ figcaption { margin-top: 12px; font-size: .7rem; letter-spacing: .18em; text-tra
 .g-item:nth-child(4) { grid-column: span 1; }
 
 /* GALERIE D'UN SPECTACLE — sous-catégories (rendu depuis data.js) */
-.gal-cat + .gal-cat { margin-top: 38px; }
-.gal-cat-titre {
+/* `.sous-partie` découpe un bloc en sections — les deux volets du calendrier
+   par exemple. Même graphie que les rubriques de galerie, d'où les sélecteurs
+   partagés plutôt que des déclarations recopiées. */
+.gal-cat + .gal-cat, .sous-partie + .sous-partie { margin-top: 38px; }
+.gal-cat-titre, .sous-partie-titre {
   font-family: var(--sans); font-size: .7rem; font-weight: 500;
   letter-spacing: .2em; text-transform: uppercase;
   color: var(--rouge-l); margin-bottom: 14px;
@@ -440,7 +443,15 @@ body.lb-open { overflow: hidden; }
 #contact { background: var(--ink); color: var(--bone); padding: clamp(80px, 11vw, 150px) 0; }
 #contact h2 { color: var(--bone); }
 .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(40px, 7vw, 96px); align-items: start; }
-.contact-intro { color: var(--on-dark); margin-bottom: 34px; font-size: 1.04rem; max-width: 40ch; }
+/* Le même logo qu'en pied de page, mais plus petit : ici il introduit une
+   adresse, il ne signe pas la page. Même remarque que pour .footer-logo :
+   `width: auto` doit être explicite pour écraser la règle globale sur img. */
+.contact-logo { height: clamp(84px, 9vw, 116px); width: auto; margin-bottom: 20px; user-select: none; }
+.contact-nom { font-size: clamp(1.9rem, 3.6vw, 2.8rem); margin-bottom: 16px; }
+.contact-adresse {
+  font-style: normal; color: var(--on-dark);
+  font-size: 1rem; line-height: 1.75; margin-bottom: 30px;
+}
 .contact-email, .contact-tel {
   display: block; width: fit-content;
   font-family: var(--display); font-size: clamp(1.2rem, 2.4vw, 1.75rem); font-style: italic;
@@ -449,7 +460,6 @@ body.lb-open { overflow: hidden; }
 }
 .contact-tel { margin-bottom: 30px; }
 .contact-email:hover, .contact-tel:hover { color: var(--rouge-l); border-color: var(--rouge-l); }
-.contact-location { display: flex; align-items: center; gap: 8px; font-size: .84rem; color: var(--on-dark-soft); }
 
 .socials { display: flex; gap: 12px; margin-top: 26px; }
 .socials a {

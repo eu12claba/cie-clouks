@@ -124,8 +124,70 @@
 
     <section class="show-block">
       <div class="wrap block-grid">
-        <p class="block-label">Calendrier</p>
-        <div class="block-body" data-calendrier="sortez-les-mouchoirs"></div>
+        <p class="block-label">Calendrier et perspectives</p>
+        <!-- Écrit à la main, et non généré par data-calendrier : la plupart de
+             ces entrées ne sont pas des dates. Ce sont des mois, des plages de
+             plusieurs mois, des résidences et des intentions, que `dates` de
+             data.js ne peut pas représenter — il attend un jour précis et
+             publie chaque entrée en TheaterEvent pour Google. `dates` reste
+             donc réservé aux représentations réelles et datées, qui remontent
+             seules dans l'agenda. -->
+        <div class="block-body">
+          <div class="sous-partie">
+            <p class="sous-partie-titre">Dates passées</p>
+            <div class="year-row">
+              <p class="year">2024</p>
+              <ul class="year-dates">
+                <li>Juin — Relais du Parc Chuit, Genève (forme expérimentale de 30 min)</li>
+                <li>Août — Festival Théâtres Nomades, Bruxelles (forme expérimentale de 30 min)</li>
+              </ul>
+            </div>
+            <div class="year-row">
+              <p class="year">2025</p>
+              <ul class="year-dates">
+                <li>Avril — Festival l'Escalier au Théâtricul, Genève (forme courte)</li>
+                <li>Mai — Festival du numéro clown, Grenoble (forme courte)</li>
+                <li>Août — Festival international de théâtre de rue d'Aurillac (expérimentations autour de la matière et du numéro)</li>
+              </ul>
+            </div>
+            <div class="year-row">
+              <p class="year">2026</p>
+              <ul class="year-dates">
+                <li>Février à avril — Cabaret Artistique Clownesque, Cabaret B.E.T. et Cabaret du Festival l'Escalier, Paris et Genève (forme courte)</li>
+                <li>Mai — Résidence à l'Usine Kugler, Genève</li>
+                <li>Juin — Résidence à La Dépendance, ville de Lancy, Genève</li>
+                <li>Août — Festival La Plage des Six Pompes, La Chaux-de-Fonds, 4 dates dans le cadre de «&nbsp;La Nouvelle vague&nbsp;» (accompagnement artistique par des professionnels des arts de la rue)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sous-partie">
+            <p class="sous-partie-titre">Dates futures et projections</p>
+            <div class="year-row">
+              <p class="year">2026</p>
+              <ul class="year-dates">
+                <li>Septembre — «&nbsp;La Ville est à vous&nbsp;» des Pâquis, Genève</li>
+                <li>Résidence à la Yourte des Bains des Pâquis, Genève, pour affiner l'écriture et fixer le format à 40 minutes</li>
+              </ul>
+            </div>
+            <div class="year-row">
+              <p class="year">2027</p>
+              <ul class="year-dates">
+                <li>Développement d'un réseau de diffusion pour l'été 2027 (festivals d'arts de la rue de Suisse romande et de France, Festival international de théâtre de rue d'Aurillac…)</li>
+              </ul>
+            </div>
+            <div class="year-row">
+              <!-- « 2028-29 » ne tient pas dans la colonne de 90 px et se
+                   coupe en deux lignes ; la saison exacte est dans le texte. -->
+              <p class="year">2028</p>
+              <ul class="year-dates">
+                <li>Résidences pour l'écriture d'une version de 50 minutes pour la salle, sortie prévue pour la saison 2028-2029 (dossier envoyé au Théâtre de l'Étincelle, au Théâtre de la Parfumerie, au Théâtre du Galpon, à La Fabrique Jaspir et à La Factory à Avignon)</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="block-more">Les dates de représentation à venir sont sur la page <a href="/agenda">Agenda</a>.</p>
+        </div>
       </div>
     </section>
 
