@@ -605,9 +605,12 @@ body.page { background: var(--ink); color: var(--bone); }
    FOOTER
    ================================================ */
 footer { background: var(--ink); color: var(--bone); padding: 0 0 40px; border-top: 1px solid var(--line-dark); }
-.footer-word {
-  font-family: var(--display); font-weight: 700; font-size: clamp(3.4rem, 17vw, 15rem);
-  line-height: .85; letter-spacing: -.04em; color: rgba(244,240,230,.07);
+/* Le logo dessiné à la main, en clair sur le fond sombre : le crayon devient
+   craie. En dessous d'une centaine de pixels « CLOUKS » devient illisible,
+   d'où ce plancher. La règle globale `img { height: auto }` est ici écrasée
+   par la spécificité de la classe, donc `width: auto` doit être explicite. */
+.footer-logo {
+  height: clamp(110px, 15vw, 180px); width: auto;
   margin: 40px 0 30px; user-select: none;
 }
 .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-bottom: 26px; border-bottom: 1px solid var(--line-dark); margin-bottom: 22px; }
