@@ -276,8 +276,6 @@ h2 em { font-style: italic; font-weight: 400; }
 
 .compagnie-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(36px, 6vw, 86px); align-items: start; }
 .compagnie-text p { color: var(--gris); margin-bottom: 18px; max-width: 54ch; }
-.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
-.tags li { padding: 8px 17px; border: 1px solid var(--line-light); border-radius: 999px; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gris); }
 .compagnie-fig img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 28%; border-radius: 2px; }
 figcaption { margin-top: 12px; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gris); }
 
