@@ -84,13 +84,15 @@
                 srcset="images/clara-loge-480.webp 480w, images/clara-loge-960.webp 960w, images/clara-loge-1035.webp 1035w" />
         <img src="images/clara-loge.jpg" width="1035" height="1380" alt="" aria-hidden="true" fetchpriority="high" id="heroImg" />
       </picture>
-      <!-- Second cliché posé sur le premier, décalé et plus petit : un montage,
-           pas un partage en deux. Il vit dans .hero-media, donc la parallaxe et
-           le voile l'emportent avec le reste. Masqué sous 880 px, où le titre
-           occupe déjà toute la largeur. -->
+      <!-- Second cliché, en bande le long du bord droit : son bord gauche se
+           dissout dans la photo de fond (voir .hero-inset), ce qui fait lire
+           les deux comme une seule image plutôt qu'une photo collée dans une
+           autre. Il vit dans .hero-media, donc la parallaxe et le voile
+           l'emportent avec le fond. Masqué sous 880 px, où le titre occupe
+           déjà toute la largeur. -->
       <figure class="hero-inset" aria-hidden="true">
         <picture>
-          <source type="image/webp" sizes="(min-width: 881px) 24vw, 0px"
+          <source type="image/webp" sizes="(min-width: 881px) 46vw, 0px"
                   srcset="images/clara-rideau-480.webp 480w, images/clara-rideau-960.webp 960w, images/clara-rideau-1000.webp 1000w" />
           <img src="images/clara-rideau.jpg" width="1000" height="1501" alt="" loading="lazy" />
         </picture>
