@@ -69,10 +69,11 @@
       <div class="wrap block-grid">
         <p class="block-label">Teaser</p>
         <div class="block-body">
-          <!-- Identifiant YouTube dans data-yt, ex. data-yt="dQw4w9WgXcQ".
-               Ici https://youtu.be/WjPWfkVzu10 -->
-          <div class="video" data-video data-yt="WjPWfkVzu10" data-title="Captation — Sortez les mouchoirs !"></div>
-          <p class="block-more">Captation de la forme courte&nbsp;: numéro de 10 minutes, Festival du numéro de clown, Grenoble (24 mai 2025).</p>
+          <!-- Le teaser n'existe pas encore. `data-yt` vide fait afficher la
+               mention « Teaser à venir. » sans laisser un grand cadre noir.
+               Coller l'identifiant YouTube ici le jour venu. -->
+          <div class="video" data-video data-yt="" data-title="Teaser — Sortez les mouchoirs !"></div>
+          <p class="block-more">Le teaser du spectacle est en cours de montage. En attendant, la captation ci-dessous donne à voir le numéro.</p>
         </div>
       </div>
     </section>
@@ -103,6 +104,20 @@
             <a class="btn btn-solid" href="docs/dossier-sortez-les-mouchoirs.pdf" data-doc>Dossier</a>
             <a class="btn btn-line-light" href="docs/fiche-technique-sortez-les-mouchoirs.pdf" data-doc>Fiche technique</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- La captation a son bloc à elle, après le texte de présentation : ce
+         n'est pas un teaser, c'est le numéro filmé en entier. La mettre dans
+         le bloc Teaser laissait croire que le teaser existait. -->
+    <section class="show-block">
+      <div class="wrap block-grid">
+        <p class="block-label">Captation</p>
+        <div class="block-body">
+          <!-- https://youtu.be/WjPWfkVzu10 -->
+          <div class="video" data-video data-yt="WjPWfkVzu10" data-title="Captation — Sortez les mouchoirs !"></div>
+          <p class="block-more">Forme courte&nbsp;: numéro de 10 minutes, Festival du numéro de clown, Grenoble (24 mai 2025).</p>
         </div>
       </div>
     </section>

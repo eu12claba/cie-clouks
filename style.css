@@ -168,7 +168,10 @@ h2 em { font-style: italic; font-weight: 400; }
 .hero-media { position: absolute; inset: 0; z-index: 0; }
 .hero-media img {
   width: 100%; height: 110%; object-fit: cover; object-position: center 18%;
-  filter: grayscale(1) contrast(1.12) brightness(.92); will-change: transform;
+  /* Photo en couleur : le nez rouge est la marque de la compagnie, le
+     désaturer la faisait disparaître. Reste un léger assombrissement, le
+     voile ci-dessous ne suffit pas seul à tenir le titre lisible. */
+  filter: brightness(.94); will-change: transform;
 }
 .hero-scrim {
   position: absolute; inset: 0; z-index: 1;
@@ -178,7 +181,15 @@ h2 em { font-style: italic; font-weight: 400; }
     linear-gradient(to bottom, rgba(14,13,10,.72) 0%, rgba(14,13,10,.12) 30%, rgba(14,13,10,.55) 62%, rgba(14,13,10,.96) 100%),
     radial-gradient(90% 70% at 50% 35%, rgba(14,13,10,0) 40%, rgba(14,13,10,.6) 100%);
 }
-.hero-inner { position: relative; z-index: 3; max-width: var(--wrap); margin: 0 auto; width: 100%; padding: 0 var(--pad) clamp(64px, 9vh, 104px); }
+.hero-inner {
+  position: relative; z-index: 3; max-width: var(--wrap); margin: 0 auto; width: 100%;
+  padding: 0 var(--pad) clamp(64px, 9vh, 104px);
+  /* Ce bloc couvre toute la largeur au-dessus de la photo et interceptait
+     le clic destiné au nez. On le rend transparent au pointeur, et on rend
+     la main aux seuls éléments réellement cliquables. */
+  pointer-events: none;
+}
+.hero-inner a, .hero-inner button { pointer-events: auto; }
 .hero-title { color: var(--bone); margin-bottom: 34px; }
 .hero-cie {
   display: block; font-size: clamp(1rem, 2.2vw, 1.65rem); font-style: italic; font-weight: 400;
