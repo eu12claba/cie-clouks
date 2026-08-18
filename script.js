@@ -553,7 +553,7 @@ safe('galerie du spectacle', () => {
       const corps = photos.length
         ? `<div class="gal-grid">${photos.map((p) => `
              <figure class="gal-item">
-               <button type="button" class="g-btn" data-full="${attr(p.src)}" data-cap="${attr(cat.titre)}">
+               <button type="button" class="g-btn" data-full="${attr(p.src)}">
                  <picture>
                    <source type="image/webp" srcset="${attr(versWebp(p.src))}" />
                    <img src="${attr(p.src)}" alt="${attr(p.alt)}" loading="lazy" />
@@ -587,7 +587,7 @@ safe('presse', () => {
         ? `<a href="${attr(a.url)}" target="_blank" rel="noopener noreferrer">${a.titre}<span class="pr-ext" aria-hidden="true">↗</span></a>`
         : a.titre;
       const vignette = a.image
-        ? `<button type="button" class="g-btn pr-vignette" data-full="${attr(a.image)}" data-cap="${attr(a.titre)}">
+        ? `<button type="button" class="g-btn pr-vignette" data-full="${attr(a.image)}">
              <picture>
                <source type="image/webp" srcset="${attr(versWebp(a.image))}" />
                <img src="${attr(a.image)}" alt="${attr(a.imageAlt)}" loading="lazy" />
@@ -612,7 +612,7 @@ safe('presse', () => {
    ============================================================ */
 const lightbox = $('#lightbox');
 if (lightbox) {
-  const lbImg = $('#lbImg'), lbCap = $('#lbCap');
+  const lbImg = $('#lbImg');
   const boutons = $$('.g-btn');
   let index = 0, dernierFocus = null;
 
@@ -621,7 +621,6 @@ if (lightbox) {
     const b = boutons[index];
     lbImg.src = b.dataset.full;
     lbImg.alt = b.querySelector('img')?.alt || '';
-    lbCap.textContent = b.dataset.cap || '';
   };
   const ouvrir = (i) => {
     dernierFocus = document.activeElement;

@@ -277,15 +277,21 @@ h2 em { font-style: italic; font-weight: 400; }
    clair, le dessin y serait invisible. D'où ce panneau sombre, plutôt qu'une
    recoloration : un logo ne se retouche pas. */
 .compagnie-fig.is-logo {
-  background: var(--ink); border-radius: 2px;
+  /* Pas de rectangle : le sombre s'éteint progressivement vers les bords,
+     pour qu'aucun angle ne vienne trancher dans la page claire. Le centre
+     reste plein sur toute la surface occupée par le dessin. */
+  background: radial-gradient(ellipse farthest-side at 50% 48%,
+              var(--ink) 0%, var(--ink) 46%,
+              rgba(14, 13, 10, .72) 66%,
+              rgba(14, 13, 10, .28) 84%,
+              rgba(14, 13, 10, 0) 100%);
   aspect-ratio: 4/5; display: grid; place-items: center;
-  padding: clamp(28px, 4.5vw, 56px);
+  padding: clamp(34px, 5.5vw, 68px);
 }
 .compagnie-fig.is-logo img {
   width: auto; height: auto; max-width: 100%; max-height: 100%;
   aspect-ratio: auto; object-fit: contain;
 }
-figcaption { margin-top: 12px; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gris); }
 
 .membre {
   display: grid; grid-template-columns: 330px 1fr; gap: clamp(34px, 6vw, 82px);
@@ -428,7 +434,6 @@ figcaption { margin-top: 12px; font-size: .7rem; letter-spacing: .18em; text-tra
 .lightbox.is-open { opacity: 1; }
 .lb-figure { max-width: 100%; max-height: 100%; display: flex; flex-direction: column; align-items: center; gap: 16px; }
 .lb-figure img { max-width: 100%; max-height: 80vh; width: auto; height: auto; object-fit: contain; border-radius: 2px; }
-.lb-figure figcaption { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--on-dark); margin: 0; }
 .lb-close {
   position: absolute; top: clamp(14px, 2.5vw, 28px); right: clamp(14px, 2.5vw, 28px);
   width: 46px; height: 46px; border-radius: 50%;

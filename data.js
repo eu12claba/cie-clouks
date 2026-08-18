@@ -125,6 +125,8 @@ window.CLOUKS = {
             alt: '' },
           { src: 'images/plage-six-pompes-5.jpg',
             alt: '' },
+          { src: 'images/plage-six-pompes-6.jpg',
+            alt: '' },
         ],
       },
       {
@@ -232,6 +234,19 @@ window.CLOUKS = {
         citation: "Cette longue artiste hallucinée, vêtue de satin et d'une perruque crépue blonde, est une virtuose dont le violon part dans tous les sens, qui joue toutes sortes de musiques rythmé par ses exclamations.",
         image:    'images/presse-plage-article.jpg',
         imageAlt: "Coupure de presse de l'article « Plage des Six Pompes : sur les pavés, la joie ».",
+      },
+      {
+        // Reel Instagram. Le titre et la date restent à préciser : Instagram
+        // n'expose rien de ses publications sans connexion, impossible donc
+        // de les relever automatiquement.
+        media:    'Instagram',
+        titre:    'Publication Instagram',
+        auteur:   '',
+        date:     '',
+        url:      'https://www.instagram.com/reel/DbtTv3FjD0F/',
+        citation: '',
+        image:    '',
+        imageAlt: '',
       },
       {
         // Reportage vidéo (2 min) consacré à La Nouvelle Vague.
