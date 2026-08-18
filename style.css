@@ -184,10 +184,23 @@ h2 em { font-style: italic; font-weight: 400; }
    deux photos doivent recevoir le même traitement. */
 .hero-inset {
   position: absolute; z-index: 2; inset: 0 0 0 auto;
-  width: clamp(300px, 46vw, 660px);
+  /* En pourcentage et non en clamp : le dégradé ci-dessous doit devenir
+     opaque exactement là où s'arrête la photo de fond, et ce rapport ne
+     tient que si les deux largeurs sont proportionnelles à l'écran.
+     Bande de 46 % -> commence à 54 % ; fond jusqu'à 68 % ; donc pleine
+     opacité à (68-54)/46 = 30 % de la bande. */
+  width: 46%;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 55%);
-  mask-image: linear-gradient(to right, transparent 0%, #000 55%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 30%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 30%);
+}
+/* La photo de fond ne couvre plus toute la largeur : la bande prend le
+   relais, ce qui divise d'autant son agrandissement — de 1.86x à 1.26x en
+   1920, de 2.47x à 1.68x en 2560. C'est la vraie raison d'être du montage :
+   clara-loge ne fait que 1035 px de large, il n'existe pas plus grand.
+   Sous 880 px la bande disparaît, la photo reprend donc toute la largeur. */
+@media (min-width: 881px) {
+  #heroImg { width: 68%; }
 }
 .hero-media .hero-inset img { height: 100%; object-position: center 32%; }
 @media (max-width: 880px) { .hero-inset { display: none; } }
