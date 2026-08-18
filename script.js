@@ -365,9 +365,11 @@ if (heroMedia && !reduced) {
 /* ============================================================
    LE NEZ — position calée sur la photo
    ============================================================ */
-// Fraction de l'image source. Mesurée sur clara-loge.jpg (1035x1380) en
-// isolant la tache rouge saturée du visage : centre à (309 px, 407 px).
-const NEZ = { x: 0.299, y: 0.295 };
+// Fraction de l'image source, mesurée sur clara-loge.jpg (1035x1380) en
+// isolant la tache rouge saturée du visage, puis recentrée à l'œil : le
+// centroïde seul tirait vers le haut à gauche, le reflet blanc et le bas du
+// nez dans l'ombre sortant tous deux du masque.
+const NEZ = { x: 0.313, y: 0.300 };
 
 function placerNez() {
   const hm = $('.hero-media'), img = $('#heroImg'), nez = $('#nose');
