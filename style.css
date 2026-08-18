@@ -541,11 +541,6 @@ body.page { background: var(--ink); color: var(--bone); }
 .show-meta { font-size: .68rem; letter-spacing: .24em; text-transform: uppercase; color: var(--rouge-l); margin-bottom: 16px; }
 .show-title { font-size: clamp(2.7rem, 8vw, 7rem); color: var(--bone); margin-bottom: 30px; }
 .show-title em { color: var(--rouge-l); font-style: italic; font-weight: 400; }
-.show-quote {
-  font-family: var(--display); font-size: clamp(1.1rem, 2.1vw, 1.6rem);
-  font-style: italic; line-height: 1.5; color: rgba(244,240,230,.86);
-  max-width: 40ch; padding-left: 20px; border-left: 2px solid var(--rouge);
-}
 .show-hero { max-width: var(--wrap); margin: 0 auto clamp(50px, 7vw, 90px); padding-inline: var(--pad); }
 .show-hero img { width: 100%; max-height: 74vh; object-fit: cover; object-position: center 20%; border-radius: 2px; }
 /* Une affiche ne se recadre pas : on la montre entière, sinon le texte saute. */
