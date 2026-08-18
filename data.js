@@ -253,12 +253,38 @@ window.CLOUKS = {
        lieu: 'Théâtre du Loup', ville: 'Genève (CH)', billetterie: 'https://…' },
   */
   dates: [
-    // « La Ville est à vous » des Pâquis. Deux jours, donc deux entrées :
-    // l'agenda affiche un jour par ligne.
-    { date: '2026-09-26', spectacle: 'sortez-les-mouchoirs',
+    /* `fin` est facultatif : il transforme l'entrée en période, pour une
+       résidence, un festival de plusieurs jours ou une série de cabarets.
+       L'agenda affiche alors « 20-23 août 2025 » au lieu d'un seul jour. */
+
+    { date: '2026-09-26', fin: '2026-09-27', spectacle: 'sortez-les-mouchoirs',
       lieu: "« La Ville est à vous » des Pâquis", ville: 'Genève (CH)' },
-    { date: '2026-09-27', spectacle: 'sortez-les-mouchoirs',
-      lieu: "« La Ville est à vous » des Pâquis", ville: 'Genève (CH)' },
+
+    { date: '2026-06-22', fin: '2026-06-27', spectacle: 'sortez-les-mouchoirs',
+      lieu: 'Résidence — La Dépendance', ville: 'Lancy, Genève (CH)' },
+    { date: '2026-05-11', fin: '2026-05-15', spectacle: 'sortez-les-mouchoirs',
+      lieu: "Résidence — Usine Kugler", ville: 'Genève (CH)' },
+    { date: '2025-09-01', fin: '2026-04-30', spectacle: 'sortez-les-mouchoirs',
+      lieu: "Cabaret Artistique Clownesque, Cabaret B.E.T. et Cabaret du Festival l'Escalier",
+      ville: 'Paris et Genève' },
+    { date: '2025-08-20', fin: '2025-08-23', spectacle: 'sortez-les-mouchoirs',
+      lieu: "Festival international de théâtre de rue d'Aurillac", ville: 'Aurillac (FR)' },
+    { date: '2025-05-24', spectacle: 'sortez-les-mouchoirs',
+      lieu: 'Festival du numéro clown', ville: 'Grenoble (FR)' },
+    { date: '2025-04-29', spectacle: 'sortez-les-mouchoirs',
+      lieu: "Festival l'Escalier au Théâtricul", ville: 'Genève (CH)' },
+    { date: '2024-09-22', spectacle: 'sortez-les-mouchoirs',
+      lieu: 'Relais du Parc Chuit', ville: 'Genève (CH)' },
+    { date: '2024-08-18', spectacle: 'sortez-les-mouchoirs',
+      lieu: 'Festival Théâtres Nomades', ville: 'Bruxelles (BE)' },
+    { date: '2024-06-23', spectacle: 'sortez-les-mouchoirs',
+      lieu: 'Relais du Parc Chuit', ville: 'Genève (CH)' },
+    { date: '2024-05-19', spectacle: 'sortez-les-mouchoirs',
+      lieu: 'Relais du Parc Chuit', ville: 'Genève (CH)' },
+
+    /* La Plage des Six Pompes 2026 manque : les jours donnés (« 27, 28, 30,
+       30 août ») comptent deux fois le 30, et tomberaient après la revue de
+       presse du 8 août qui tire le bilan du festival. À confirmer. */
   ],
 
   /* ---------- FORMULAIRE DE CONTACT ----------
