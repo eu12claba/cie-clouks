@@ -280,6 +280,9 @@ figcaption { margin-top: 12px; font-size: .7rem; letter-spacing: .18em; text-tra
 .comite-list li { display: flex; flex-direction: column; }
 .comite-nom { font-family: var(--display); font-size: 1.22rem; font-weight: 700; }
 .comite-role { font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; color: var(--rouge); margin-top: 2px; }
+/* La liste n'a pas de marge basse : sans cela la notice colle aux noms.
+   Couleur et largeur viennent de `.membre-bio p`, ce bloc y est imbriqué. */
+.comite-bio { margin-top: 26px; }
 
 /* ================================================
    À L'AFFICHE (accueil)
