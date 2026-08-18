@@ -23,6 +23,8 @@ const safe = (label, fn) => {
    ============================================================ */
 const MOIS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin',
               'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+const MOIS_COURT = ['janv.', 'févr.', 'mars', 'avril', 'mai', 'juin',
+                    'juill.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
 
 const jour0 = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d; };
 const parseDate = (s) => { const [y, m, d] = String(s).split('-').map(Number); return new Date(y, m - 1, d); };
@@ -30,9 +32,39 @@ const parseDate = (s) => { const [y, m, d] = String(s).split('-').map(Number); r
 const spectacles = () => [...(D.creations || []), ...(D.horsFormat || [])];
 const parSlug = (slug) => spectacles().find((s) => s.slug === slug);
 
+/* Une entrée peut couvrir plusieurs jours — une résidence, un festival, une
+   série de cabarets. `fin` porte alors le dernier jour ; `date` reste le
+   premier, et c'est lui qui sert au tri. Une période n'est passée que
+   lorsqu'elle est terminée, d'où `fin || date` dans le filtre. */
+const finDe = (d) => d.fin || d.date;
+
 const toutesDates = (D.dates || []).filter((d) => d && d.date);
-const aVenir  = toutesDates.filter((d) => parseDate(d.date) >= jour0()).sort((a, b) => a.date.localeCompare(b.date));
-const passees = toutesDates.filter((d) => parseDate(d.date) <  jour0()).sort((a, b) => b.date.localeCompare(a.date));
+const aVenir  = toutesDates.filter((d) => parseDate(finDe(d)) >= jour0()).sort((a, b) => a.date.localeCompare(b.date));
+const passees = toutesDates.filter((d) => parseDate(finDe(d)) <  jour0()).sort((a, b) => b.date.localeCompare(a.date));
+
+/* Rend [grand, petit] pour la colonne de gauche de l'agenda. Trois cas :
+   un seul jour, plusieurs jours d'un même mois, ou une période à cheval sur
+   plusieurs mois — « 20-23 » tient dans la colonne, « septembre 2025 à
+   avril 2026 » non, d'où le mois seul en grand dans ce dernier cas. */
+const quand = (d) => {
+  const a = parseDate(d.date);
+  const b = parseDate(finDe(d));
+  const memeMois = a.getMonth() === b.getMonth() && a.getFullYear() === b.getFullYear();
+  if (+a === +b) return [a.getDate(), `${MOIS[a.getMonth()]} ${a.getFullYear()}`];
+  if (memeMois) return [`${a.getDate()}-${b.getDate()}`, `${MOIS[a.getMonth()]} ${a.getFullYear()}`];
+  return [MOIS_COURT[a.getMonth()],
+          `${a.getFullYear()} → ${MOIS[b.getMonth()]} ${b.getFullYear()}`];
+};
+
+/* La même chose sur une ligne, pour le calendrier d'une page spectacle. */
+const quandCourt = (d) => {
+  const a = parseDate(d.date);
+  const b = parseDate(finDe(d));
+  if (+a === +b) return `${a.getDate()} ${MOIS[a.getMonth()]}`;
+  if (a.getMonth() === b.getMonth() && a.getFullYear() === b.getFullYear())
+    return `${a.getDate()}-${b.getDate()} ${MOIS[a.getMonth()]}`;
+  return `${MOIS[a.getMonth()]} ${a.getFullYear()} à ${MOIS[b.getMonth()]} ${b.getFullYear()}`;
+};
 
 const nomSpectacle = (d) => (parSlug(d.spectacle)?.texte) || d.spectacle || '';
 const lienSpectacle = (d) => (parSlug(d.spectacle) ? `/${d.spectacle}` : null);
@@ -176,6 +208,7 @@ safe('données structurées', () => {
       '@type': 'TheaterEvent',
       name: spec ? spec.texte : nomSpectacle(d),
       startDate: debut,
+      ...(d.fin ? { endDate: d.fin } : {}),
       eventStatus: 'https://schema.org/EventScheduled',
       eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
       performer: { '@type': 'PerformingGroup', name: 'Cie Clouks', url: 'https://cieclouks.ch/' },
@@ -222,14 +255,14 @@ if (affiche && !affiche.hidden && !location.hash) {
    AGENDA
    ============================================================ */
 const ligneDate = (d, passe = false) => {
-  const dt = parseDate(d.date);
+  const [grand, petit] = quand(d);
   const lien = lienSpectacle(d);
   const titre = nomSpectacle(d);
   return `
     <div class="date-row${passe ? ' is-past' : ''}">
       <div class="date-when">
-        <span class="date-day">${dt.getDate()}</span>
-        <span class="date-mon">${MOIS[dt.getMonth()]} ${dt.getFullYear()}</span>
+        <span class="date-day">${grand}</span>
+        <span class="date-mon">${petit}</span>
       </div>
       <div class="date-what">
         <p class="date-show">${lien ? `<a href="${lien}">${titre}</a>` : titre}</p>
@@ -279,10 +312,7 @@ $$('[data-calendrier]').forEach((el) => {
         <div class="year-row">
           <p class="year">${an}</p>
           <ul class="year-dates">
-            ${parAnnee[an].map((d) => {
-              const dt = parseDate(d.date);
-              return `<li>${dt.getDate()} ${MOIS[dt.getMonth()]}${d.heure ? `, ${d.heure}` : ''} — ${[d.lieu, d.ville].filter(Boolean).join(', ')}</li>`;
-            }).join('')}
+            ${parAnnee[an].map((d) => `<li>${quandCourt(d)}${d.heure ? `, ${d.heure}` : ''} — ${[d.lieu, d.ville].filter(Boolean).join(', ')}</li>`).join('')}
           </ul>
         </div>`).join('')
     : `<p class="empty">Les dates passées seront listées ici.</p>`)
