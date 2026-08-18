@@ -236,16 +236,35 @@ window.CLOUKS = {
         imageAlt: "Coupure de presse de l'article « Plage des Six Pompes : sur les pavés, la joie ».",
       },
       {
-        // Reel Instagram. Le titre et la date restent à préciser : Instagram
-        // n'expose rien de ses publications sans connexion, impossible donc
-        // de les relever automatiquement.
-        media:    'Instagram',
-        titre:    'Publication Instagram',
+        // Version Instagram du reportage du 12h45 ci-dessous : même sujet,
+        // autre support. À supprimer si le doublon n'est pas souhaité.
+        media:    'RTS — Instagram',
+        titre:    'Un tremplin pour les artistes émergent·es',
         auteur:   '',
-        date:     '',
+        date:     'Août 2026',
         url:      'https://www.instagram.com/reel/DbtTv3FjD0F/',
         citation: '',
-        image:    '',
+        image:    'images/presse-rts-instagram.jpg',
+        imageAlt: '',
+      },
+      {
+        media:    'La Plage des Six Pompes — Instagram',
+        titre:    'La vague des spectacles #10',
+        auteur:   '',
+        date:     'Août 2026',
+        url:      'https://www.instagram.com/p/DblPUdKDnID/',
+        citation: '',
+        image:    'images/presse-plage-vague10.jpg',
+        imageAlt: '',
+      },
+      {
+        media:    'La Plage des Six Pompes — Instagram',
+        titre:    'Sortez les mouchoirs ! en rue',
+        auteur:   '',
+        date:     'Août 2026',
+        url:      'https://www.instagram.com/p/DbnYPQnlaKJ/',
+        citation: '',
+        image:    'images/presse-plage-rue.jpg',
         imageAlt: '',
       },
       {
