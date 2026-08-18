@@ -19,7 +19,7 @@
   <link rel="canonical" href="https://cieclouks.ch/" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preload" as="image" type="image/webp" fetchpriority="high"
-        imagesrcset="images/hero-480.webp 480w, images/hero-960.webp 960w, images/hero-1440.webp 1440w, images/hero-1800.webp 1800w"
+        imagesrcset="images/clara-loge-480.webp 480w, images/clara-loge-960.webp 960w, images/clara-loge-1035.webp 1035w"
         imagesizes="100vw" />
   <link rel="preload" href="fonts/bodoni-moda-normal-400-700-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/inter-normal-300-500-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -74,10 +74,15 @@
   <!-- HERO -->
   <header id="hero">
     <div class="hero-media">
+      <!-- Photo de couverture : clara-loge, déjà présente avec ses variantes.
+           Elle est en portrait 1035x1380, donc plus étroite que l'écran sur
+           un grand moniteur : le srcset s'arrête à 1035, sa vraie largeur.
+           Générer un 1800 factice n'ajouterait aucun détail, seulement du
+           poids. Si la photo change, réajuster NEZ dans script.js. -->
       <picture>
         <source type="image/webp" sizes="100vw"
-                srcset="images/hero-480.webp 480w, images/hero-960.webp 960w, images/hero-1440.webp 1440w, images/hero-1800.webp 1800w" />
-        <img src="images/hero.jpg" width="1800" height="1202" alt="" aria-hidden="true" fetchpriority="high" id="heroImg" />
+                srcset="images/clara-loge-480.webp 480w, images/clara-loge-960.webp 960w, images/clara-loge-1035.webp 1035w" />
+        <img src="images/clara-loge.jpg" width="1035" height="1380" alt="" aria-hidden="true" fetchpriority="high" id="heroImg" />
       </picture>
       <!-- Le nez : le clic déclenche le feu d'artifice. Position posée par script.js -->
       <button type="button" class="nose" id="nose" aria-label="Faire un feu d'artifice"></button>

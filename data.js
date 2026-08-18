@@ -264,6 +264,15 @@ window.CLOUKS = {
       lieu: 'Résidence — La Dépendance', ville: 'Lancy, Genève (CH)' },
     { date: '2026-05-11', fin: '2026-05-15', spectacle: 'sortez-les-mouchoirs',
       lieu: "Résidence — Usine Kugler", ville: 'Genève (CH)' },
+    // Quatre représentations : deux le 6, à 16h et à 20h.
+    { date: '2026-08-06', heure: '20h', spectacle: 'sortez-les-mouchoirs',
+      lieu: 'Festival La Plage des Six Pompes', ville: 'La Chaux-de-Fonds (CH)' },
+    { date: '2026-08-06', heure: '16h', spectacle: 'sortez-les-mouchoirs',
+      lieu: 'Festival La Plage des Six Pompes', ville: 'La Chaux-de-Fonds (CH)' },
+    { date: '2026-08-04', spectacle: 'sortez-les-mouchoirs',
+      lieu: 'Festival La Plage des Six Pompes', ville: 'La Chaux-de-Fonds (CH)' },
+    { date: '2026-08-03', spectacle: 'sortez-les-mouchoirs',
+      lieu: 'Festival La Plage des Six Pompes', ville: 'La Chaux-de-Fonds (CH)' },
     { date: '2025-09-01', fin: '2026-04-30', spectacle: 'sortez-les-mouchoirs',
       lieu: "Cabaret Artistique Clownesque, Cabaret B.E.T. et Cabaret du Festival l'Escalier",
       ville: 'Paris et Genève' },
@@ -282,9 +291,6 @@ window.CLOUKS = {
     { date: '2024-05-19', spectacle: 'sortez-les-mouchoirs',
       lieu: 'Relais du Parc Chuit', ville: 'Genève (CH)' },
 
-    /* La Plage des Six Pompes 2026 manque : les jours donnés (« 27, 28, 30,
-       30 août ») comptent deux fois le 30, et tomberaient après la revue de
-       presse du 8 août qui tire le bilan du festival. À confirmer. */
   ],
 
   /* ---------- FORMULAIRE DE CONTACT ----------
