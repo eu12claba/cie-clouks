@@ -173,6 +173,24 @@ h2 em { font-style: italic; font-weight: 400; }
      voile ci-dessous ne suffit pas seul à tenir le titre lisible. */
   filter: brightness(.94); will-change: transform;
 }
+/* Le second cliché. La règle `.hero-media img` ci-dessus vise toutes les
+   images du bloc : il faut donc lui rendre une hauteur de 100 % et son
+   propre cadrage. L'assombrissement, lui, est conservé — les deux photos
+   doivent recevoir le même traitement. */
+.hero-inset {
+  position: absolute; z-index: 2;
+  right: clamp(28px, 6vw, 110px); top: 14%;
+  width: clamp(190px, 24vw, 380px); aspect-ratio: 2 / 3;
+  overflow: hidden; border-radius: 2px;
+  box-shadow: 0 34px 80px rgba(0, 0, 0, .6);
+}
+.hero-inset::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  border: 1px solid rgba(244, 240, 230, .22);
+}
+.hero-media .hero-inset img { height: 100%; object-position: center 32%; }
+@media (max-width: 880px) { .hero-inset { display: none; } }
+
 .hero-scrim {
   position: absolute; inset: 0; z-index: 1;
   /* le voile est au-dessus du nez : sans ceci il intercepterait le clic */
@@ -637,6 +655,10 @@ body.page { background: var(--ink); color: var(--bone); }
 .date-mon { display: block; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--on-dark-soft); margin-top: 5px; }
 .date-show { font-family: var(--display); font-size: 1.45rem; font-weight: 700; color: var(--bone); margin-bottom: 4px; }
 .date-place { font-size: .92rem; color: var(--on-dark); }
+/* La forme jouée ce soir-là : une ligne à part, plus discrète que le lieu,
+   pour qu'un programmateur voie d'un coup d'œil s'il s'agit du numéro court
+   ou du spectacle entier. */
+.date-note { font-size: .82rem; font-style: italic; color: var(--on-dark-soft); margin-top: 3px; }
 .date-row .btn-line { border-color: var(--line-dark); color: var(--bone); }
 .date-row .btn-line:hover { background: var(--bone); color: var(--ink); }
 

@@ -266,41 +266,56 @@ window.CLOUKS = {
   dates: [
     /* `fin` est facultatif : il transforme l'entrée en période, pour une
        résidence, un festival de plusieurs jours ou une série de cabarets.
-       L'agenda affiche alors « 20-23 août 2025 » au lieu d'un seul jour. */
+       L'agenda affiche alors « 20-23 août 2025 » au lieu d'un seul jour.
+
+       `note` dit ce qui a été joué ce soir-là — forme expérimentale, forme
+       courte, résidence. C'est ce qu'un programmateur regarde en premier,
+       et cela évite de laisser croire que le spectacle entier a déjà
+       tourné partout. */
 
     { date: '2026-09-26', fin: '2026-09-27', spectacle: 'sortez-les-mouchoirs',
       lieu: "« La Ville est à vous » des Pâquis", ville: 'Genève (CH)' },
 
+    // Pas de `note` ici : `lieu` dit déjà que c'est une résidence.
     { date: '2026-06-22', fin: '2026-06-27', spectacle: 'sortez-les-mouchoirs',
       lieu: 'Résidence — La Dépendance', ville: 'Lancy, Genève (CH)' },
     { date: '2026-05-11', fin: '2026-05-15', spectacle: 'sortez-les-mouchoirs',
       lieu: "Résidence — Usine Kugler", ville: 'Genève (CH)' },
     // Quatre représentations : deux le 6, à 16h et à 20h.
     { date: '2026-08-06', heure: '20h', spectacle: 'sortez-les-mouchoirs',
-      lieu: 'Festival La Plage des Six Pompes', ville: 'La Chaux-de-Fonds (CH)' },
+      lieu: 'Festival La Plage des Six Pompes', ville: 'La Chaux-de-Fonds (CH)',
+      note: "Dans le cadre de « La Nouvelle vague », accompagnement artistique par des professionnels des arts de la rue" },
     { date: '2026-08-06', heure: '16h', spectacle: 'sortez-les-mouchoirs',
-      lieu: 'Festival La Plage des Six Pompes', ville: 'La Chaux-de-Fonds (CH)' },
+      lieu: 'Festival La Plage des Six Pompes', ville: 'La Chaux-de-Fonds (CH)',
+      note: "Dans le cadre de « La Nouvelle vague », accompagnement artistique par des professionnels des arts de la rue" },
     { date: '2026-08-04', spectacle: 'sortez-les-mouchoirs',
-      lieu: 'Festival La Plage des Six Pompes', ville: 'La Chaux-de-Fonds (CH)' },
+      lieu: 'Festival La Plage des Six Pompes', ville: 'La Chaux-de-Fonds (CH)',
+      note: "Dans le cadre de « La Nouvelle vague », accompagnement artistique par des professionnels des arts de la rue" },
     { date: '2026-08-03', spectacle: 'sortez-les-mouchoirs',
-      lieu: 'Festival La Plage des Six Pompes', ville: 'La Chaux-de-Fonds (CH)' },
+      lieu: 'Festival La Plage des Six Pompes', ville: 'La Chaux-de-Fonds (CH)',
+      note: "Dans le cadre de « La Nouvelle vague », accompagnement artistique par des professionnels des arts de la rue" },
     { date: '2025-09-01', fin: '2026-04-30', spectacle: 'sortez-les-mouchoirs',
       lieu: "Cabaret Artistique Clownesque, Cabaret B.E.T. et Cabaret du Festival l'Escalier",
-      ville: 'Paris et Genève' },
+      ville: 'Paris et Genève', note: 'Forme courte' },
     { date: '2025-08-20', fin: '2025-08-23', spectacle: 'sortez-les-mouchoirs',
-      lieu: "Festival international de théâtre de rue d'Aurillac", ville: 'Aurillac (FR)' },
+      lieu: "Festival international de théâtre de rue d'Aurillac", ville: 'Aurillac (FR)',
+      note: 'Expérimentations autour de la matière et du numéro' },
     { date: '2025-05-24', spectacle: 'sortez-les-mouchoirs',
-      lieu: 'Festival du numéro clown', ville: 'Grenoble (FR)' },
+      lieu: 'Festival du numéro clown', ville: 'Grenoble (FR)', note: 'Forme courte' },
     { date: '2025-04-29', spectacle: 'sortez-les-mouchoirs',
-      lieu: "Festival l'Escalier au Théâtricul", ville: 'Genève (CH)' },
+      lieu: "Festival l'Escalier au Théâtricul", ville: 'Genève (CH)', note: 'Forme courte' },
     { date: '2024-09-22', spectacle: 'sortez-les-mouchoirs',
-      lieu: 'Relais du Parc Chuit', ville: 'Genève (CH)' },
+      lieu: 'Relais du Parc Chuit', ville: 'Genève (CH)',
+      note: 'Forme expérimentale de 30 min' },
     { date: '2024-08-18', spectacle: 'sortez-les-mouchoirs',
-      lieu: 'Festival Théâtres Nomades', ville: 'Bruxelles (BE)' },
+      lieu: 'Festival Théâtres Nomades', ville: 'Bruxelles (BE)',
+      note: 'Forme expérimentale de 30 min' },
     { date: '2024-06-23', spectacle: 'sortez-les-mouchoirs',
-      lieu: 'Relais du Parc Chuit', ville: 'Genève (CH)' },
+      lieu: 'Relais du Parc Chuit', ville: 'Genève (CH)',
+      note: 'Forme expérimentale de 30 min' },
     { date: '2024-05-19', spectacle: 'sortez-les-mouchoirs',
-      lieu: 'Relais du Parc Chuit', ville: 'Genève (CH)' },
+      lieu: 'Relais du Parc Chuit', ville: 'Genève (CH)',
+      note: 'Forme expérimentale de 30 min' },
 
   ],
 
