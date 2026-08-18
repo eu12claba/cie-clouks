@@ -234,6 +234,17 @@ window.CLOUKS = {
         imageAlt: "Coupure de presse de l'article « Plage des Six Pompes : sur les pavés, la joie ».",
       },
       {
+        // Reportage vidéo (2 min) consacré à La Nouvelle Vague.
+        media:    'RTS — 12h45',
+        titre:    'Plage des Six Pompes : école de terrain pour les artistes émergents',
+        auteur:   '',
+        date:     '4 août 2026',
+        url:      'https://www.rts.ch/play/tv/12h45/video/plage-des-six-pompes-ecole-de-terrain-pour-les-artistes-emergents?urn=urn:rts:video:b6408a28-e7e2-3b85-9ac1-f96a642c05e2',
+        citation: '',
+        image:    '',
+        imageAlt: '',
+      },
+      {
         media:    'RTS',
         titre:    'La Plage des Six Pompes tire un bilan positif, mais reste précaire',
         auteur:   '',
