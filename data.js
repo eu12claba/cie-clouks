@@ -264,7 +264,8 @@ window.CLOUKS = {
         date:     '4 août 2026',
         url:      'https://www.rts.ch/play/tv/12h45/video/plage-des-six-pompes-ecole-de-terrain-pour-les-artistes-emergents?urn=urn:rts:video:b6408a28-e7e2-3b85-9ac1-f96a642c05e2',
         citation: '',
-        image:    '',
+        // Même visuel que la version Instagram : c'est le même reportage.
+        image:    'images/presse-rts-instagram.jpg',
         imageAlt: '',
       },
       {
