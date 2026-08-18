@@ -253,7 +253,12 @@ window.CLOUKS = {
        lieu: 'Théâtre du Loup', ville: 'Genève (CH)', billetterie: 'https://…' },
   */
   dates: [
-    // Aucune date enregistrée pour l'instant.
+    // « La Ville est à vous » des Pâquis. Deux jours, donc deux entrées :
+    // l'agenda affiche un jour par ligne.
+    { date: '2026-09-26', spectacle: 'sortez-les-mouchoirs',
+      lieu: "« La Ville est à vous » des Pâquis", ville: 'Genève (CH)' },
+    { date: '2026-09-27', spectacle: 'sortez-les-mouchoirs',
+      lieu: "« La Ville est à vous » des Pâquis", ville: 'Genève (CH)' },
   ],
 
   /* ---------- FORMULAIRE DE CONTACT ----------
