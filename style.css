@@ -261,7 +261,10 @@ h2 em { font-style: italic; font-weight: 400; }
 
 .compagnie-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(36px, 6vw, 86px); align-items: start; }
 .compagnie-text p { color: var(--gris); margin-bottom: 18px; max-width: 54ch; }
-.compagnie-fig img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 28%; border-radius: 2px; }
+/* Photo cadrée large à dessein : le rideau au-dessus du personnage fait
+   partie de l'image. Un recadrage en 4/5 rognait par le bas et coupait la
+   silhouette — on l'affiche donc entière, à ses proportions d'origine. */
+.compagnie-fig img { width: 100%; height: auto; border-radius: 2px; }
 figcaption { margin-top: 12px; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gris); }
 
 .membre {
