@@ -311,7 +311,9 @@ h2 em { font-style: italic; font-weight: 400; }
   align-items: start; margin-top: clamp(70px, 9vw, 120px);
   padding-top: clamp(50px, 6vw, 80px); border-top: 1px solid var(--line-light);
 }
-.membre-photo img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: 68% center; border-radius: 2px; }
+/* Le cadre 3/4 rogne 11 % d'une photo en 2/3 : on cale vers le haut pour
+   garder de l'air au-dessus de la tête plutôt que de la couper. */
+.membre-photo img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center 20%; border-radius: 2px; }
 .membre-bio h2 { margin-bottom: 6px; }
 .membre-role { font-size: .7rem; letter-spacing: .24em; text-transform: uppercase; color: var(--rouge); font-weight: 500; margin-bottom: 28px; }
 .membre-bio p:not(.membre-role):not(.sub-label) { color: var(--gris); margin-bottom: 17px; max-width: 62ch; }

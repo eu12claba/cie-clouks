@@ -160,9 +160,12 @@
       <div class="membre" id="equipe">
         <figure class="membre-photo" data-reveal>
           <picture>
-            <source type="image/webp" sizes="(min-width: 900px) 40vw, 100vw"
-                    srcset="images/clara-480.webp 480w, images/clara-800.webp 800w" />
-            <img src="images/clara.jpg" width="800" height="1064" loading="lazy" alt="" />
+            <!-- La colonne fait 330px au-dessus de 1000px, et .membre-photo est
+                 plafonnée à 340px en dessous : la taille réelle ne dépasse
+                 jamais 340px, inutile de demander 100vw. -->
+            <source type="image/webp" sizes="(min-width: 1001px) 330px, 340px"
+                    srcset="images/clara-portrait-480.webp 480w, images/clara-portrait-960.webp 960w, images/clara-portrait-1067.webp 1067w" />
+            <img src="images/clara-portrait.jpg" width="1067" height="1600" loading="lazy" alt="" />
           </picture>
         </figure>
         <div class="membre-bio" data-reveal>
