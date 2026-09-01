@@ -357,11 +357,35 @@ h2 em { font-style: italic; font-weight: 400; }
    ================================================ */
 #galerie { background: var(--bone-2); padding: clamp(80px, 11vw, 150px) 0; }
 .galerie-h2 { margin-bottom: clamp(44px, 6vw, 70px); }
-.gallery {
+/* Galerie de l'accueil : un album par projet, la couverture est la première
+   photo. Le clic ouvre la visionneuse sur les seules photos de l'album. */
+.albums {
   max-width: var(--wrap); margin: 0 auto; padding-inline: var(--pad);
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 1.6vw, 22px);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 1.6vw, 22px);
 }
-.g-item { overflow: hidden; }
+.album { overflow: hidden; }
+.album-btn {
+  position: relative; display: block; width: 100%; padding: 0; border: 0;
+  background: none; cursor: pointer; overflow: hidden; border-radius: 2px;
+}
+.album-btn img { width: 100%; aspect-ratio: 4/5; object-fit: cover; transition: transform 1s var(--ease), filter .5s; }
+.album-btn:hover img, .album-btn:focus-visible img { transform: scale(1.045); filter: brightness(.88); }
+/* Voile bas : le nom doit rester lisible quelle que soit la photo. */
+.album-voile {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to top, rgba(14,13,10,.86) 0%, rgba(14,13,10,.30) 46%, rgba(14,13,10,0) 78%);
+}
+.album-nom {
+  position: absolute; left: clamp(14px, 1.6vw, 22px); right: clamp(14px, 1.6vw, 22px);
+  bottom: clamp(12px, 1.4vw, 18px); text-align: left;
+  font-family: var(--display); font-size: clamp(1rem, 1.5vw, 1.3rem); font-weight: 700;
+  color: var(--bone); line-height: 1.15;
+}
+.album-n {
+  display: block; margin-top: 4px;
+  font-family: var(--sans); font-size: .68rem; font-weight: 500;
+  letter-spacing: .16em; color: var(--on-dark-soft);
+}
 .g-btn {
   display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none;
   cursor: zoom-in; position: relative; overflow: hidden; border-radius: 2px;
@@ -378,13 +402,6 @@ h2 em { font-style: italic; font-weight: 400; }
 .g-zoom::before { width: 26px; height: 1.5px; }
 .g-zoom::after { width: 1.5px; height: 26px; }
 .g-btn:hover .g-zoom, .g-btn:focus-visible .g-zoom { opacity: 1; }
-.g-tall { grid-row: span 2; }
-.g-tall .g-btn img { aspect-ratio: 4/8.2; }
-.g-wide { grid-column: span 3; }
-.g-wide .g-btn img { aspect-ratio: 16/8.2; object-position: center 30%; }
-.g-item:nth-child(3) { grid-column: span 2; }
-.g-item:nth-child(3) .g-btn img { aspect-ratio: 16/10; object-position: center 22%; }
-.g-item:nth-child(4) { grid-column: span 1; }
 
 /* GALERIE D'UN SPECTACLE — sous-catégories (rendu depuis data.js) */
 /* `.sous-partie` découpe un bloc en sections — les deux volets du calendrier
@@ -700,9 +717,8 @@ footer { background: var(--ink); color: var(--bone); padding: 0 0 40px; border-t
   .specs li, .credits li { grid-template-columns: 1fr; gap: 3px; padding: 14px 0; }
   .year-row { grid-template-columns: 1fr; gap: 8px; }
 
-  .gallery { grid-template-columns: repeat(2, 1fr); }
-  .g-tall, .g-wide, .g-item:nth-child(3), .g-item:nth-child(4) { grid-column: span 1; grid-row: auto; }
-  .g-tall .g-btn img, .g-wide .g-btn img, .g-item:nth-child(3) .g-btn img { aspect-ratio: 4/5; }
+
+  .albums { grid-template-columns: repeat(2, 1fr); }
 
   .hero-scroll { display: none; }
 

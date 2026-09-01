@@ -613,19 +613,25 @@ safe('presse', () => {
 /* ============================================================
    GALERIE — visionneuse
    ============================================================ */
+/* La visionneuse parcourt une liste d'images qu'on lui donne, et non plus
+   tous les .g-btn de la page : un album doit pouvoir n'ouvrir que ses
+   propres photos. `ouvrirAlbum` est le point d'entrée des albums. */
+let ouvrirAlbum = () => {};
+
 const lightbox = $('#lightbox');
 if (lightbox) {
   const lbImg = $('#lbImg');
-  const boutons = $$('.g-btn');
-  let index = 0, dernierFocus = null;
+  let liste = [], index = 0, dernierFocus = null;
 
   const montrer = (i) => {
-    index = (i + boutons.length) % boutons.length;
-    const b = boutons[index];
-    lbImg.src = b.dataset.full;
-    lbImg.alt = b.querySelector('img')?.alt || '';
+    if (!liste.length) return;
+    index = (i + liste.length) % liste.length;
+    lbImg.src = liste[index].src;
+    lbImg.alt = liste[index].alt || '';
   };
-  const ouvrir = (i) => {
+  const ouvrir = (nouvelle, i) => {
+    if (!nouvelle.length) return;
+    liste = nouvelle;
     dernierFocus = document.activeElement;
     montrer(i);
     lightbox.hidden = false;
@@ -640,7 +646,15 @@ if (lightbox) {
     dernierFocus?.focus();
   };
 
-  boutons.forEach((b, i) => b.addEventListener('click', () => ouvrir(i)));
+  // Vignettes présentes dans la page (galeries et presse des pages spectacle)
+  const boutons = $$('.g-btn');
+  const depuisPage = boutons.map((b) => ({ src: b.dataset.full, alt: b.querySelector('img')?.alt || '' }));
+  boutons.forEach((b, i) => b.addEventListener('click', () => ouvrir(depuisPage, i)));
+
+  // Point d'entrée des albums de l'accueil
+  ouvrirAlbum = (photos, i = 0) =>
+    ouvrir(photos.map((p) => ({ src: p.src, alt: p.alt || '' })), i);
+
   $('#lbClose').addEventListener('click', fermer);
   $('#lbPrev').addEventListener('click', () => montrer(index - 1));
   $('#lbNext').addEventListener('click', () => montrer(index + 1));
@@ -652,6 +666,44 @@ if (lightbox) {
     if (e.key === 'ArrowRight') montrer(index + 1);
   });
 }
+
+/* ============================================================
+   GALERIE DE L'ACCUEIL — un album par projet
+   ============================================================ */
+safe('albums', () => {
+  const el = $('[data-albums]');
+  if (!el) return;
+
+  // Toutes les photos d'un album, sous-rubriques confondues
+  const photosDe = (cle) =>
+    ((D.galeries || {})[cle] || []).flatMap((r) => r.photos || []);
+
+  const albums = (D.albums || [])
+    .map((a) => ({ ...a, photos: photosDe(a.cle) }))
+    .filter((a) => a.photos.length);          // un album vide ne s'affiche pas
+
+  if (!albums.length) { el.innerHTML = '<p class="empty">Photos à venir.</p>'; return; }
+
+  el.innerHTML = albums.map((a, i) => {
+    const couv = a.photos[0].src;
+    const n = a.photos.length;
+    return `<figure class="album" data-reveal>
+              <button type="button" class="album-btn" data-album="${i}"
+                      aria-label="${attr(a.titre)} — ${n} photo${n > 1 ? 's' : ''}">
+                <picture>
+                  <source type="image/webp" sizes="(min-width: 1001px) 25vw, 50vw" srcset="${attr(versWebp(couv))}" />
+                  <img src="${attr(couv)}" alt="" loading="lazy" />
+                </picture>
+                <span class="album-voile" aria-hidden="true"></span>
+                <span class="album-nom">${a.titre}<span class="album-n">${n}</span></span>
+              </button>
+            </figure>`;
+  }).join('');
+
+  el.querySelectorAll('.album-btn').forEach((b) => {
+    b.addEventListener('click', () => ouvrirAlbum(albums[+b.dataset.album].photos));
+  });
+});
 
 /* ============================================================
    TEASER — la vidéo ne se charge qu'au clic

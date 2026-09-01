@@ -212,7 +212,54 @@ window.CLOUKS = {
         photos: [],
       },
     ],
+    /* Ces deux albums ne correspondent à aucun spectacle : ils rassemblent
+       les photos qui vivaient ailleurs sur le site sans appartenir à une
+       création, pour que la galerie les montre toutes. */
+    'portraits': [
+      {
+        titre: '',
+        photos: [
+          { src: 'images/clara-portrait.jpg',  alt: '' },
+          { src: 'images/clara-loge.jpg',      alt: '' },
+          { src: 'images/clara-fond-noir.jpg', alt: '' },
+          { src: 'images/clara-rideau.jpg',    alt: '' },
+          { src: 'images/clara.jpg',           alt: '' },
+        ],
+      },
+    ],
+    'scene-et-rue': [
+      {
+        titre: '',
+        photos: [
+          { src: 'images/rue.jpg',       alt: '' },
+          { src: 'images/violon.jpg',    alt: '' },
+          { src: 'images/spectacle.jpg', alt: '' },
+          { src: 'images/hero.jpg',      alt: '' },
+        ],
+      },
+    ],
   },
+
+  /* ---------- LES ALBUMS DE LA GALERIE ----------
+     Ce que la galerie de l'accueil affiche, dans cet ordre. Chaque entrée
+     pointe sur une clé de `galeries` ci-dessus ; la première photo de
+     l'album sert de couverture.
+
+     Un album vide n'apparaît pas : inutile de montrer une vignette sans
+     image. Il suffit d'ajouter des photos dans `galeries` pour qu'il
+     apparaisse de lui-même.
+  */
+  albums: [
+    { cle: 'sortez-les-mouchoirs',    titre: 'Sortez les mouchoirs !' },
+    { cle: 'concerts-avec-recitante', titre: 'Concerts avec récitante' },
+    { cle: 'le-trio-vivigang',        titre: 'Le trio ViViGang' },
+    { cle: 'duo-marie-anne-chipo',    titre: 'Duo Marie-Anne & Chipo' },
+    { cle: 'chichiclack',             titre: 'Cornelius & Chichiclac' },
+    { cle: 'cabarets',                titre: 'Cabarets' },
+    { cle: 'impro-clown',             titre: 'Impro clown' },
+    { cle: 'portraits',               titre: 'Portraits' },
+    { cle: 'scene-et-rue',            titre: 'Sur scène et dans la rue' },
+  ],
 
   /* ---------- LA PRESSE ----------
      Une entrée par article, la plus récente en premier.
