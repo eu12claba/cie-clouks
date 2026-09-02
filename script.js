@@ -337,15 +337,18 @@ $$('[data-split]').forEach((el) => {
   });
 });
 
-const revealTargets = $$('[data-reveal]');
-if (reduced || !('IntersectionObserver' in window)) {
-  revealTargets.forEach((el) => el.classList.add('is-in'));
-} else {
+/* [data-reveal] démarre à opacity 0 : tant que l'élément n'est pas observé,
+   il reste invisible — mais cliquable, ce qui donne une section vide où il
+   se passe quand même quelque chose. Tout ce qui est rendu depuis data.js
+   arrive après ce point, d'où `revele()`, à rappeler après chaque rendu. */
+let revele = (els) => els.forEach((el) => el.classList.add('is-in'));
+if (!reduced && 'IntersectionObserver' in window) {
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-  revealTargets.forEach((el) => io.observe(el));
+  revele = (els) => els.forEach((el) => io.observe(el));
 }
+revele($$('[data-reveal]'));
 
 // parallaxe : appliquée au conteneur pour que le nez suive l'image
 const heroMedia = $('.hero-media');
@@ -691,7 +694,7 @@ safe('albums', () => {
               <button type="button" class="album-btn" data-album="${i}"
                       aria-label="${attr(a.titre)} — ${n} photo${n > 1 ? 's' : ''}">
                 <picture>
-                  <source type="image/webp" sizes="(min-width: 1001px) 25vw, 50vw" srcset="${attr(versWebp(couv))}" />
+                  <source type="image/webp" srcset="${attr(couv.replace(/\.(jpe?g|png)$/i, '-vignette.webp'))}" />
                   <img src="${attr(couv)}" alt="" loading="lazy" />
                 </picture>
                 <span class="album-voile" aria-hidden="true"></span>
@@ -703,6 +706,8 @@ safe('albums', () => {
   el.querySelectorAll('.album-btn').forEach((b) => {
     b.addEventListener('click', () => ouvrirAlbum(albums[+b.dataset.album].photos));
   });
+  // Les cartes viennent d'être créées : sans ceci elles restent à opacity 0.
+  revele([...el.querySelectorAll('[data-reveal]')]);
 });
 
 /* ============================================================

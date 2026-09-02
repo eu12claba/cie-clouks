@@ -48,6 +48,14 @@ for source in sorted(RACINE.glob("*.jpg")):
     cibles = sorted({w for w in LARGEURS if w < largeur0} | {largeur0})
 
     image.save(RACINE / f"{source.stem}.webp", "WEBP", quality=QUALITE, method=6)
+
+    # Vignette de taille fixe, pour les couvertures d'album : le JS ne peut
+    # pas deviner quelles largeurs existent, il lui faut un nom prévisible.
+    # 640 px couvre une carte d'environ 300 px en écran 2x comme 3x.
+    lv = min(640, largeur0)
+    image.resize((lv, round(hauteur0 * lv / largeur0)), Image.LANCZOS).save(
+        RACINE / f"{source.stem}-vignette.webp", "WEBP", quality=QUALITE, method=6)
+
     for largeur in cibles:
         hauteur = round(hauteur0 * largeur / largeur0)
         sortie = RACINE / f"{source.stem}-{largeur}.webp"
