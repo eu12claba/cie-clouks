@@ -19,11 +19,36 @@
    ============================================================ */
 
 const ZIDANE = [
-  // { src: 'images/zidane/zidane-1.jpg', credit: 'Auteur — CC BY-SA 4.0' },
+  { src: 'images/zidane/blur-background.webp' },
+  { src: 'images/zidane/honneur.webp' },
+  { src: 'images/zidane/laughing.webp' },
+  { src: 'images/zidane/looking-at-you.webp' },
+  { src: 'images/zidane/pleure.webp' },
+  { src: 'images/zidane/shocked.webp' },
+  { src: 'images/zidane/tab_image.webp' },
+  { src: 'images/zidane/tripes.webp' },
+  { src: 'images/zidane/zidane-lunette.webp' },
 ];
 
+/* Que des chauves : c'est là qu'est la blague. Il faut reconnaître Zidane,
+   pas repérer le seul crâne rasé de la grille. */
 const INTRUS = [
-  // { src: 'images/zidane/intrus-1.jpg', credit: '' },
+  { src: 'images/zidane/chauve1.webp' },
+  { src: 'images/zidane/chauve2.webp' },
+  { src: 'images/zidane/chauve3.webp' },
+  { src: 'images/zidane/chauve4.webp' },
+  { src: 'images/zidane/chauve5.webp' },
+  { src: 'images/zidane/chauve6.webp' },
+  { src: 'images/zidane/chauve7.webp' },
+  { src: 'images/zidane/chauve8.webp' },
+  { src: 'images/zidane/chauve9.webp' },
+  { src: 'images/zidane/chauve10.webp' },
+  { src: 'images/zidane/chauve11.webp' },
+  { src: 'images/zidane/chauve12.webp' },
+  { src: 'images/zidane/chauve13.webp' },
+  { src: 'images/zidane/chauve14.webp' },
+  { src: 'images/zidane/chauve15.webp' },
+  { src: 'images/zidane/chauve16.webp' },
 ];
 
 const CASES = 9;          // grille de 3 x 3
