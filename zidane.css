@@ -1,0 +1,94 @@
+/* ================================================
+   CAPTCHA ZIDANE
+   ================================================
+   Feuille à part, chargée par les deux seules pages qui en ont besoin :
+   inutile d'alourdir style.css, que toutes les autres pages téléchargent.
+   Les couleurs et les polices viennent de style.css, chargé avant.
+   ================================================ */
+
+.zi-bloc { max-width: 560px; }
+
+.zi-consigne {
+  font-family: var(--display); font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-weight: 700; color: var(--bone); line-height: 1.15; margin-bottom: 6px;
+}
+.zi-sous { font-size: .84rem; color: var(--on-dark-soft); margin-bottom: 22px; }
+
+.zi-grille {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
+  border: 1px solid var(--line-dark); padding: 6px; border-radius: 3px;
+  background: var(--ink-2);
+}
+
+.zi-case {
+  position: relative; aspect-ratio: 1; overflow: hidden;
+  border: 0; padding: 0; background: #1b1a16; cursor: pointer;
+  border-radius: 2px;
+}
+.zi-case img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Vignette de remplacement, tant qu'aucune photo n'est en place. */
+.zi-case-demo {
+  display: grid; place-items: center;
+  font-size: .74rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--on-dark-soft);
+  background: repeating-linear-gradient(45deg, #1b1a16 0 9px, #201f1a 9px 18px);
+}
+
+/* L'état choisi doit se voir sans la couleur seule : le cadre rouge est
+   doublé d'une pastille cochée, pour qui distingue mal les rouges. */
+.zi-case::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  box-shadow: inset 0 0 0 0 var(--rouge-l);
+  transition: box-shadow .18s var(--ease);
+}
+.zi-case[aria-pressed="true"]::after { box-shadow: inset 0 0 0 4px var(--rouge-l); }
+.zi-case[aria-pressed="true"] img { transform: scale(.9); transition: transform .18s var(--ease); }
+.zi-case[aria-pressed="true"]::before {
+  content: "✓"; position: absolute; z-index: 2; top: 6px; left: 6px;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--rouge-l); color: #fff;
+  font-size: .8rem; line-height: 22px; text-align: center;
+}
+.zi-case:hover::after { box-shadow: inset 0 0 0 2px var(--on-dark-soft); }
+.zi-case[aria-pressed="true"]:hover::after { box-shadow: inset 0 0 0 4px var(--rouge-l); }
+
+@keyframes ziSecoue {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-8px); } 30% { transform: translateX(7px); }
+  45% { transform: translateX(-5px); } 60% { transform: translateX(4px); }
+  75% { transform: translateX(-2px); }
+}
+.zi-secoue { animation: ziSecoue .55s var(--ease); }
+
+.zi-barre { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 18px; }
+.zi-message { font-size: .88rem; color: var(--on-dark); min-height: 1.4em; }
+.zi-rate { color: var(--rouge-l); }
+
+/* L'écran de réussite. */
+.zi-gagne { max-width: 34ch; }
+.zi-gagne:focus { outline: none; }
+.zi-tampon {
+  font-size: .68rem; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--rouge-l); font-weight: 500; margin-bottom: 14px;
+}
+.zi-gagne h2 {
+  font-size: clamp(1.9rem, 4.4vw, 3rem); color: var(--bone); margin-bottom: 18px;
+}
+.zi-gagne p { color: var(--on-dark); margin-bottom: 26px; }
+
+.zi-credits {
+  margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line-dark);
+  font-size: .72rem; color: var(--on-dark-soft);
+}
+.zi-credits li { margin-bottom: 3px; }
+
+@media (max-width: 560px) {
+  .zi-grille { gap: 4px; padding: 4px; }
+  .zi-case[aria-pressed="true"]::before { width: 18px; height: 18px; line-height: 18px; font-size: .7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zi-secoue { animation: none; }
+  .zi-case, .zi-case::after, .zi-case img { transition: none; }
+}
