@@ -18,22 +18,21 @@
    plutôt que d'espérer qu'une largeur fixe passe partout.
    Réservé à cette page : sur la 404 le captcha vient après les issues de
    secours, son grand titre a toute sa place. */
-.zidane .page-head { padding: calc(var(--nav-h) + 14px) 0 14px; }
-.zidane .page-title { font-size: clamp(1.3rem, 2.6vw, 1.9rem); }
-.zidane .label { margin-bottom: 12px; }
-.zidane .show-block { padding: 18px 0; }
-.zidane .zi-consigne { font-size: clamp(1.05rem, 1.8vw, 1.3rem); }
-.zidane .zi-sous { margin-bottom: 14px; }
+.zidane .page-head { padding: calc(var(--nav-h) + 12px) 0 12px; }
+.zidane .page-title { font-size: clamp(1.05rem, 2vw, 1.4rem); }
+.zidane .label { margin-bottom: 10px; }
+.zidane .show-block { padding: 16px 0; }
+.zidane .zi-consigne { font-size: clamp(.95rem, 1.5vw, 1.1rem); margin-bottom: 12px; }
 .zidane .zi-barre { margin-top: 14px; }
 /* La borne porte sur la grille seule, pas sur le bloc entier : la rétrécir
    faisait passer la consigne sur deux lignes, ce qui repoussait la grille,
    ce qui la rétrécissait encore — une boucle. Le texte garde sa largeur.
 
-   345 px = l'en-tête au-dessus (273) et la barre de validation en dessous
-   (60), plus une marge. Mesuré au navigateur, pas estimé. La grille étant
-   carrée, borner sa largeur borne sa hauteur : c'est ce qui garantit que le
-   bouton reste visible sans défiler. */
-.zidane .zi-grille { max-width: min(440px, calc(100svh - 345px)); }
+   290 px = l'en-tête au-dessus et la barre de validation en dessous, plus
+   une marge. Mesuré au navigateur, pas estimé. La grille étant carrée,
+   borner sa largeur borne sa hauteur : c'est ce qui garantit que le bouton
+   reste visible sans défiler. */
+.zidane .zi-grille { max-width: min(560px, calc(100svh - 290px)); }
 
 .zi-consigne {
   font-family: var(--display); font-size: clamp(1.3rem, 2.6vw, 1.9rem);
