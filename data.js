@@ -69,8 +69,8 @@ window.CLOUKS = {
   horsFormat: [
     {
       slug:  'cabarets',
-      titre: 'Cabarets',
-      texte: 'Cabarets',
+      titre: 'Cabaret clown',
+      texte: 'Cabaret clown',
       meta:  'Hors format',
       desc:  '',
       image: 'images/cabarets-1.jpg',
@@ -82,14 +82,6 @@ window.CLOUKS = {
       meta:  'Hors format',
       desc:  '',
       image: null,
-    },
-    {
-      slug:  'cours-clown',
-      titre: 'Cours de clown',
-      texte: 'Cours de clown',
-      meta:  'Transmission · La Julienne, Plan-les-Ouates',
-      desc:  'Un cours hebdomadaire de clown dès 16 ans, à la Julienne (Plan-les-Ouates), saison 2026–2027.',
-      image: 'images/cours-clown-affiche.jpg',
     },
   ],
 
