@@ -688,7 +688,8 @@ safe('albums', () => {
   if (!albums.length) { el.innerHTML = '<p class="empty">Photos à venir.</p>'; return; }
 
   el.innerHTML = albums.map((a, i) => {
-    const couv = a.photos[0].src;
+    // À défaut de `couverture`, la première photo de l'album fait l'affaire.
+    const couv = a.couverture || a.photos[0].src;
     const n = a.photos.length;
     return `<figure class="album" data-reveal>
               <button type="button" class="album-btn" data-album="${i}"

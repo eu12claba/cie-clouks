@@ -109,8 +109,15 @@ window.CLOUKS = {
   galeries: {
     'sortez-les-mouchoirs': [
       {
-        titre: 'Cabarets et scènes ouvertes',
-        photos: [],
+        // Les mêmes photos servent aussi à la page /cabarets : un fichier peut
+        // figurer dans plusieurs albums, seule la liste change.
+        titre: 'Cabarets et scènes ouvertes 2023-2025',
+        photos: [
+          { src: 'images/cabarets-1.jpg', alt: '' },
+          { src: 'images/cabarets-2.jpg', alt: '' },
+          { src: 'images/cabarets-3.jpg', alt: '' },
+          { src: 'images/cabarets-4.jpg', alt: '' },
+        ],
       },
       {
         titre: 'La Plage des Six Pompes 2026',
@@ -212,30 +219,10 @@ window.CLOUKS = {
         photos: [],
       },
     ],
-    /* Ces deux albums ne correspondent à aucun spectacle : ils rassemblent
-       les photos qui vivaient ailleurs sur le site sans appartenir à une
-       création, pour que la galerie les montre toutes. */
-    'portraits': [
+    'deambulations': [
       {
         titre: '',
-        photos: [
-          { src: 'images/clara-portrait.jpg',  alt: '' },
-          { src: 'images/clara-loge.jpg',      alt: '' },
-          { src: 'images/clara-fond-noir.jpg', alt: '' },
-          { src: 'images/clara-rideau.jpg',    alt: '' },
-          { src: 'images/clara.jpg',           alt: '' },
-        ],
-      },
-    ],
-    'scene-et-rue': [
-      {
-        titre: '',
-        photos: [
-          { src: 'images/rue.jpg',       alt: '' },
-          { src: 'images/violon.jpg',    alt: '' },
-          { src: 'images/spectacle.jpg', alt: '' },
-          { src: 'images/hero.jpg',      alt: '' },
-        ],
+        photos: [],
       },
     ],
   },
@@ -248,17 +235,20 @@ window.CLOUKS = {
      Un album vide n'apparaît pas : inutile de montrer une vignette sans
      image. Il suffit d'ajouter des photos dans `galeries` pour qu'il
      apparaisse de lui-même.
+
+     `couverture` permet de choisir la vignette au lieu de prendre la
+     première photo — utile quand la première sous-catégorie n'est pas la
+     plus représentative.
   */
   albums: [
-    { cle: 'sortez-les-mouchoirs',    titre: 'Sortez les mouchoirs !' },
+    { cle: 'sortez-les-mouchoirs',    titre: 'Projet Sortez les mouchoirs',
+      couverture: 'images/plage-six-pompes-1.jpg' },
+    { cle: 'chichiclack',             titre: 'Numéro Chichiclac' },
+    { cle: 'impro-clown',             titre: 'ImproClown' },
+    { cle: 'le-trio-vivigang',        titre: 'Trio ViViGang' },
     { cle: 'concerts-avec-recitante', titre: 'Concerts avec récitante' },
-    { cle: 'le-trio-vivigang',        titre: 'Le trio ViViGang' },
     { cle: 'duo-marie-anne-chipo',    titre: 'Duo Marie-Anne & Chipo' },
-    { cle: 'chichiclack',             titre: 'Cornelius & Chichiclac' },
-    { cle: 'cabarets',                titre: 'Cabarets' },
-    { cle: 'impro-clown',             titre: 'Impro clown' },
-    { cle: 'portraits',               titre: 'Portraits' },
-    { cle: 'scene-et-rue',            titre: 'Sur scène et dans la rue' },
+    { cle: 'deambulations',           titre: 'Déambulations' },
   ],
 
   /* ---------- LA PRESSE ----------
