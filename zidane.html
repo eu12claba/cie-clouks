@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page introuvable — Cie Clouks</title>
-  <meta name="description" content="Cette page n'existe pas ou plus sur le site de la Cie Clouks." />
+  <title>Vérification — Cie Clouks</title>
+  <!-- Page cachée : pas de lien depuis le site, absente du sitemap, refusée
+       aux robots dans robots.txt. Le noindex ci-dessous est la troisième
+       serrure — sans lui, Google finit toujours par trouver une page. -->
+  <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#0E0D0A" />
-  <meta name="robots" content="noindex" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="preload" href="/fonts/bodoni-moda-normal-400-700-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/inter-normal-300-500-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/fonts.css" />
-  <link rel="stylesheet" href="/style.css" />
-  <link rel="stylesheet" href="/zidane.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="fonts/bodoni-moda-normal-400-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/inter-normal-300-500-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="fonts.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="zidane.css" />
 </head>
 <body class="page">
 
@@ -44,32 +46,18 @@
   <main id="main">
     <header class="page-head">
       <div class="wrap">
-        <p class="label">Erreur 404</p>
-        <h1 class="page-title">Cette page<br />a quitté la scène</h1>
+        <p class="label">Vérification</p>
+        <h1 class="page-title">Prouvez<br />que vous êtes humain</h1>
       </div>
     </header>
 
-    <section class="page-tail">
-      <div class="wrap">
-        <p class="tail-note">Le lien est peut-être ancien, ou la page a changé de nom. Reprenons depuis le début&nbsp;:</p>
-        <div class="dates-empty-actions">
-          <a href="/" class="btn btn-solid">Accueil</a>
-          <a href="/creations" class="btn btn-line">Les créations</a>
-          <a href="/agenda" class="btn btn-line">Agenda</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Le captcha vient après les issues de secours, jamais avant : une
-         page d'erreur qui retient son visiteur derrière un jeu serait
-         pénible. Ici c'est un bonus pour qui a le temps. -->
     <section class="show-block show-block-last">
       <div class="wrap">
         <div class="zi-bloc" data-captcha>
 
           <div data-captcha-jeu>
-            <p class="zi-consigne">Ou alors, prouvez que vous êtes humain.</p>
-            <p class="zi-sous">Sélectionnez tous les Zidane.</p>
+            <p class="zi-consigne">Sélectionnez tous les Zidane.</p>
+            <p class="zi-sous">Une compagnie de clown a le droit de vérifier qui elle fait pleurer.</p>
 
             <div class="zi-grille" data-captcha-grille role="group"
                  aria-label="Sélectionnez toutes les images de Zidane"></div>
@@ -83,7 +71,7 @@
           <div class="zi-gagne" data-captcha-gagne hidden tabindex="-1">
             <p class="zi-tampon">Humanité confirmée</p>
             <h2>Vous êtes autorisé à pleurer.</h2>
-            <p>Ce n'est pas la page que vous cherchiez, mais c'est le métier de la maison.</p>
+            <p>C'est précisément le métier de la maison. Une clowne s'en charge, avec un violon, et échoue de mieux en mieux.</p>
             <a href="/sortez-les-mouchoirs" class="btn btn-solid">Sortez les mouchoirs&nbsp;!</a>
           </div>
 
@@ -94,10 +82,7 @@
 
   <footer>
     <div class="wrap">
-      <!-- Chemin absolu comme le reste de cette page : la 404 est servie
-           telle quelle depuis n'importe quelle profondeur d'URL, et un
-           chemin relatif y cherchait le logo à côté de l'adresse fautive. -->
-      <img class="footer-logo" src="/images/logo-clouks.png" width="305" height="380" alt="" loading="lazy" decoding="async" />
+      <img class="footer-logo" src="images/logo-clouks.png" width="305" height="380" alt="" loading="lazy" decoding="async" />
       <div class="footer-row">
         <nav class="footer-nav" aria-label="Pied de page">
           <a href="/#compagnie">La Compagnie</a>
@@ -116,11 +101,12 @@
     </div>
   </footer>
 
-  <!-- Le canevas du feu d'artifice, pour la réussite du captcha. -->
+  <!-- Le canevas du feu d'artifice : il ne vit que sur l'accueil, il faut
+       donc le poser ici aussi pour que la réussite s'accompagne du même feu. -->
   <canvas id="fx" aria-hidden="true"></canvas>
 
-  <script src="/data.js"></script>
-  <script src="/script.js"></script>
-  <script src="/zidane.js"></script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+  <script src="zidane.js"></script>
 </body>
 </html>

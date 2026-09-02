@@ -519,21 +519,43 @@ if ($('#nose')) {
     if (!anim) anim = requestAnimationFrame(boucle);
   }
 
+  /* Le même feu, appelable d'ailleurs : la page cachée /zidane s'en sert
+     pour fêter la réussite du captcha. Le mouvement réduit est traité ici
+     une bonne fois, pour que l'appelant n'ait pas à y penser. */
+  window.clouksFeu = (x, y) => {
+    if (reduced) {
+      cv.classList.add('is-on');
+      bouquet(x, y, Math.random() * 360, 1);
+      if (!anim) anim = requestAnimationFrame(boucle);
+      return;
+    }
+    tirer(x, y);
+  };
+
   const nez = $('#nose');
   if (nez) {
+    /* Trois clics d'affilée ouvrent la page cachée. Le compteur retombe à
+       zéro après une seconde et demie : trois clics étalés sur la visite ne
+       doivent pas y mener par accident. Le court délai avant le départ
+       laisse le troisième bouquet s'allumer. */
+    let clics = 0, retombee = null;
+
     nez.addEventListener('click', (e) => {
       e.preventDefault();
       const r = nez.getBoundingClientRect();
-      // mouvement réduit : un seul bouquet, sans fusées
-      if (reduced) {
-        cv.classList.add('is-on');
-        bouquet(r.left + r.width / 2, r.top + r.height / 2, Math.random() * 360, 1);
-        if (!anim) anim = requestAnimationFrame(boucle);
-        return;
+      window.clouksFeu(r.left + r.width / 2, r.top + r.height / 2);
+      if (!reduced) {
+        nez.classList.add('pop');
+        setTimeout(() => nez.classList.remove('pop'), 400);
       }
-      tirer(r.left + r.width / 2, r.top + r.height / 2);
-      nez.classList.add('pop');
-      setTimeout(() => nez.classList.remove('pop'), 400);
+
+      clics += 1;
+      clearTimeout(retombee);
+      retombee = setTimeout(() => { clics = 0; }, 1500);
+      if (clics >= 3) {
+        clics = 0;
+        setTimeout(() => { location.href = '/zidane'; }, 700);
+      }
     });
   }
 })();
