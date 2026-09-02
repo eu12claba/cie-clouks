@@ -16,7 +16,9 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="zidane.css" />
 </head>
-<body class="page">
+<!-- `zidane` resserre l'en-tête : sur un captcha on doit tomber sur la
+     grille, pas sur un titre pleine page. La 404 garde le sien en grand. -->
+<body class="page zidane">
 
   <a href="#main" class="skip-link">Aller au contenu</a>
 
@@ -47,7 +49,9 @@
     <header class="page-head">
       <div class="wrap">
         <p class="label">Vérification</p>
-        <h1 class="page-title">Prouvez<br />que vous êtes humain</h1>
+        <!-- Sur une ligne, contrairement aux autres pages : chaque ligne de
+             titre repousse la grille sous la ligne de flottaison. -->
+        <h1 class="page-title">Prouvez que vous êtes humain</h1>
       </div>
     </header>
 
