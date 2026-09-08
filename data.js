@@ -23,19 +23,19 @@ window.CLOUKS = {
   creations: [
     {
       slug:  'sortez-les-mouchoirs',
-      titre: 'Sortez les <em>mouchoirs&nbsp;!</em>',
+      titre: 'Sortez les mouchoirs&nbsp;!',
       texte: 'Sortez les mouchoirs !',
       meta:  'Solo · Clown & violon · Salle et espace public',
       desc:  "Une clowne débarque dans la rue avec une mission solennelle : émouvoir aux larmes pour laver la société de ses maux.",
       image: 'images/plage-six-pompes-1.jpg',
     },
     {
-      slug:  'chichiclack',
-      titre: 'Cornelius &amp; Chichiclac',
-      texte: 'Cornelius & Chichiclac',
-      meta:  'Création passée',
+      slug:  'deambulations',
+      titre: 'Déambulations clownesques en duo',
+      texte: 'Déambulations clownesques en duo',
+      meta:  'Création',
       desc:  '',
-      image: 'images/cornelius-chichiclac.jpg',
+      image: null,
     },
     {
       // Regroupe deux concerts : Le fil d'Ariane et Le Carnaval des animaux.
@@ -69,16 +69,16 @@ window.CLOUKS = {
   horsFormat: [
     {
       slug:  'cabarets',
-      titre: 'Cabaret clown',
-      texte: 'Cabaret clown',
+      titre: 'Cabarets Clownesques',
+      texte: 'Cabarets Clownesques',
       meta:  'Hors format',
       desc:  '',
       image: 'images/cabarets-1.jpg',
     },
     {
       slug:  'impro-clown',
-      titre: 'Impro clown',
-      texte: 'Impro clown',
+      titre: 'ImproClown',
+      texte: 'ImproClown',
       meta:  'Hors format',
       desc:  '',
       image: null,
