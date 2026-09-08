@@ -336,8 +336,8 @@ window.CLOUKS = {
        et cela évite de laisser croire que le spectacle entier a déjà
        tourné partout. */
 
-    { date: '2026-09-26', fin: '2026-09-27', spectacle: 'sortez-les-mouchoirs',
-      lieu: "« La Ville est à vous » des Pâquis", ville: 'Genève (CH)' },
+    { date: '2026-09-19', spectacle: 'sortez-les-mouchoirs',
+      lieu: 'Château de Rue, Le Château 1', ville: '1673 Rue, Fribourg (CH)' },
 
     // Pas de `note` ici : `lieu` dit déjà que c'est une résidence.
     { date: '2026-06-22', fin: '2026-06-27', spectacle: 'sortez-les-mouchoirs',
