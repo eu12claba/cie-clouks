@@ -336,7 +336,7 @@ window.CLOUKS = {
        et cela évite de laisser croire que le spectacle entier a déjà
        tourné partout. */
 
-    { date: '2026-09-19', spectacle: 'sortez-les-mouchoirs',
+    { date: '2026-09-19', heure: '16h', spectacle: 'sortez-les-mouchoirs',
       lieu: 'Château de Rue, Le Château 1', ville: '1673 Rue, Fribourg (CH)' },
 
     // Pas de `note` ici : `lieu` dit déjà que c'est une résidence.
