@@ -83,6 +83,23 @@ window.CLOUKS = {
       desc:  '',
       image: null,
     },
+    {
+      slug:  'atelier-clown',
+      titre: 'Atelier clown',
+      texte: 'Atelier clown',
+      meta:  'Transmission · La Julienne, Plan-les-Ouates',
+      desc:  'Un atelier hebdomadaire de clown dès 16 ans, à la Julienne (Plan-les-Ouates), saison 2026–2027.',
+      image: 'images/atelier-clown-affiche.jpg',
+    },
+    {
+      slug:  'regard-exterieur',
+      titre: 'Regard extérieur',
+      texte: 'Regard extérieur',
+      meta:  'Hors format',
+      // `desc` reste vide tant que le texte de la page n'est pas écrit.
+      desc:  '',
+      image: 'images/regard-exterieur-sulfure.jpg',
+    },
   ],
 
   /* ---------- LES GALERIES ----------
@@ -335,6 +352,9 @@ window.CLOUKS = {
        courte, résidence. C'est ce qu'un programmateur regarde en premier,
        et cela évite de laisser croire que le spectacle entier a déjà
        tourné partout. */
+
+    { date: '2026-09-25', heure: '18h30', spectacle: 'sortez-les-mouchoirs',
+      lieu: 'Sortie de résidence', ville: 'Nendaz, Valais (CH)' },
 
     { date: '2026-09-19', heure: '16h', spectacle: 'sortez-les-mouchoirs',
       lieu: 'Château de Rue, Le Château 1', ville: '1673 Rue, Fribourg (CH)' },
