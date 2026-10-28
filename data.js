@@ -357,6 +357,13 @@ window.CLOUKS = {
        et cela évite de laisser croire que le spectacle entier a déjà
        tourné partout. */
 
+    // Une seule entrée, la sortie publique : la résidence elle-même n'est pas
+    // ouverte au public, et « à l'affiche » n'affiche que le premier jour
+    // d'une période — un « 23 novembre » y ferait venir les gens trop tôt.
+    { date: '2026-11-27', spectacle: 'sortez-les-mouchoirs',
+      lieu: 'Sortie de résidence — La Yourte des Bains des Pâquis', ville: 'Genève (CH)',
+      note: 'Après une semaine de résidence, du 23 au 27 novembre' },
+
     // Le numéro tourne en cabaret cet automne, en Suisse puis en France.
     { date: '2026-11-21', heure: '14h30', spectacle: 'sortez-les-mouchoirs',
       lieu: 'The Funky Clown Festival — centre Simone Veil, rue Jean Perrin 2',
