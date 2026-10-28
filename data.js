@@ -202,6 +202,7 @@ window.CLOUKS = {
       {
         titre: '',
         photos: [
+          // Photos © Aline Zandona, crédit inscrit sur chaque image.
           { src: 'images/trio-vivigang-1.jpg',
             alt: '' },
           { src: 'images/trio-vivigang-2.jpg',
