@@ -226,7 +226,8 @@ window.CLOUKS = {
       {
         titre: '',
         // La n° 1 est la photo principale : couverture de la création, de
-        // l'album et grande image en tête de page.
+        // l'album et grande image en tête de page. Photos © Aline Zandona,
+        // crédit inscrit sur chaque image.
         photos: [
           { src: 'images/duo-marie-anne-chipo-1.jpg', alt: '' },
           { src: 'images/duo-marie-anne-chipo-2.jpg', alt: '' },
@@ -244,7 +245,6 @@ window.CLOUKS = {
           { src: 'images/duo-marie-anne-chipo-14.jpg', alt: '' },
           { src: 'images/duo-marie-anne-chipo-15.jpg', alt: '' },
           { src: 'images/duo-marie-anne-chipo-16.jpg', alt: '' },
-          { src: 'images/duo-marie-anne-chipo-17.jpg', alt: '' },
         ],
       },
     ],
