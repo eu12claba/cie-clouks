@@ -61,7 +61,7 @@ window.CLOUKS = {
       texte: 'Duo Marie-Anne & Chipo',
       meta:  'Concert clownesque · Clarinette & violon',
       desc:  '',
-      image: null,
+      image: 'images/duo-marie-anne-chipo-1.jpg',
     },
   ],
 
@@ -225,7 +225,27 @@ window.CLOUKS = {
     'duo-marie-anne-chipo': [
       {
         titre: '',
-        photos: [],
+        // La n° 1 est la photo principale : couverture de la création, de
+        // l'album et grande image en tête de page.
+        photos: [
+          { src: 'images/duo-marie-anne-chipo-1.jpg', alt: '' },
+          { src: 'images/duo-marie-anne-chipo-2.jpg', alt: '' },
+          { src: 'images/duo-marie-anne-chipo-3.jpg', alt: '' },
+          { src: 'images/duo-marie-anne-chipo-4.jpg', alt: '' },
+          { src: 'images/duo-marie-anne-chipo-5.jpg', alt: '' },
+          { src: 'images/duo-marie-anne-chipo-6.jpg', alt: '' },
+          { src: 'images/duo-marie-anne-chipo-7.jpg', alt: '' },
+          { src: 'images/duo-marie-anne-chipo-8.jpg', alt: '' },
+          { src: 'images/duo-marie-anne-chipo-9.jpg', alt: '' },
+          { src: 'images/duo-marie-anne-chipo-10.jpg', alt: '' },
+          { src: 'images/duo-marie-anne-chipo-11.jpg', alt: '' },
+          { src: 'images/duo-marie-anne-chipo-12.jpg', alt: '' },
+          { src: 'images/duo-marie-anne-chipo-13.jpg', alt: '' },
+          { src: 'images/duo-marie-anne-chipo-14.jpg', alt: '' },
+          { src: 'images/duo-marie-anne-chipo-15.jpg', alt: '' },
+          { src: 'images/duo-marie-anne-chipo-16.jpg', alt: '' },
+          { src: 'images/duo-marie-anne-chipo-17.jpg', alt: '' },
+        ],
       },
     ],
     'deambulations': [
