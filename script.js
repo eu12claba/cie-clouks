@@ -269,8 +269,8 @@ const ligneDate = (d, passe = false) => {
         <p class="date-place">${[d.lieu, d.ville, d.heure].filter(Boolean).join(' · ')}</p>
         ${d.note ? `<p class="date-note">${d.note}</p>` : ''}
       </div>
-      ${!passe && d.billetterie
-        ? `<a class="btn btn-line btn-sm" href="${d.billetterie}" target="_blank" rel="noopener">Réserver</a>`
+      ${!passe && (d.billetterie || d.infos)
+        ? `<a class="btn btn-line btn-sm" href="${d.billetterie || d.infos}" target="_blank" rel="noopener">${d.billetterie ? 'Réserver' : 'Infos'}</a>`
         : ''}
     </div>`;
 };

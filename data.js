@@ -348,10 +348,31 @@ window.CLOUKS = {
        résidence, un festival de plusieurs jours ou une série de cabarets.
        L'agenda affiche alors « 20-23 août 2025 » au lieu d'un seul jour.
 
+       `billetterie` affiche un bouton « Réserver » et déclare une offre à
+       Google ; `infos` affiche « Infos » sans rien promettre, pour les
+       soirées à entrée libre dont seule une page de présentation existe.
+
        `note` dit ce qui a été joué ce soir-là — forme expérimentale, forme
        courte, résidence. C'est ce qu'un programmateur regarde en premier,
        et cela évite de laisser croire que le spectacle entier a déjà
        tourné partout. */
+
+    // Le numéro tourne en cabaret cet automne, en Suisse puis en France.
+    { date: '2026-11-21', heure: '14h30', spectacle: 'sortez-les-mouchoirs',
+      lieu: 'The Funky Clown Festival — centre Simone Veil, rue Jean Perrin 2',
+      ville: '30900 Nîmes (FR)', note: 'Grand cabaret clown · forme courte · entrée libre',
+      // `infos` et non `billetterie` : la soirée est à entrée libre, la page
+      // des organisateurs renseigne sans vendre de billet.
+      infos: 'https://www.tourismegard.com/fr/fiche/fete-et-manifestation/the-funky-clown-festival-4e-edition-nimes_TFO8017670/' },
+
+    { date: '2026-11-14', heure: '20h', spectacle: 'sortez-les-mouchoirs',
+      lieu: 'Kabaret Klown — Le Korso, bd de Pérolles 15', ville: '1700 Fribourg (CH)',
+      note: 'Forme courte', billetterie: 'https://www.korso.ch/kabaret-klown/' },
+
+    { date: '2026-10-30', heure: '20h', spectacle: 'sortez-les-mouchoirs',
+      lieu: "P'tit Cabaret d'octobre — Le Monique au PMH, av. Louis-Casaï 54",
+      ville: '1216 Cointrin, Genève (CH)', note: 'Forme courte',
+      billetterie: 'https://leprogramme.ch/theatre/p-tit-cabaret-d-octobre/cointrin/le-monique-au-pmh' },
 
     { date: '2026-09-25', heure: '18h30', spectacle: 'sortez-les-mouchoirs',
       lieu: 'Sortie de résidence', ville: 'Nendaz, Valais (CH)' },
