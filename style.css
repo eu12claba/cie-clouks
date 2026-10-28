@@ -1,5 +1,5 @@
 /* ================================================
-   CIE CLOUKS — cieclouks.ch
+   CIE CLOUKS, cieclouks.ch
    ================================================ */
 
 :root {
@@ -181,7 +181,7 @@ h2 em { font-style: italic; font-weight: 400; }
    pénombre de la loge. Le bas n'a pas besoin d'être fondu : le voile y est
    déjà presque opaque.
    La règle `.hero-media img` ci-dessus vise toutes les images du bloc, d'où
-   la hauteur et le cadrage rendus ici. L'assombrissement est conservé — les
+   la hauteur et le cadrage rendus ici. L'assombrissement est conservé : les
    deux photos doivent recevoir le même traitement. */
 .hero-inset {
   position: absolute; z-index: 2; inset: 0 0 0 auto;
@@ -196,7 +196,7 @@ h2 em { font-style: italic; font-weight: 400; }
   mask-image: linear-gradient(to right, transparent 0%, #000 30%);
 }
 /* La photo de fond ne couvre plus toute la largeur : la bande prend le
-   relais, ce qui divise d'autant son agrandissement — de 1.86x à 1.26x en
+   relais, ce qui divise d'autant son agrandissement, de 1.86x à 1.26x en
    1920, de 2.47x à 1.68x en 2560. C'est la vraie raison d'être du montage :
    clara-loge ne fait que 1035 px de large, il n'existe pas plus grand.
    Sous 880 px la bande disparaît, la photo reprend donc toute la largeur. */
@@ -292,7 +292,7 @@ h2 em { font-style: italic; font-weight: 400; }
 .compagnie-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(36px, 6vw, 86px); align-items: start; }
 .compagnie-text p { color: var(--gris); margin-bottom: 18px; max-width: 54ch; }
 .compagnie-fig img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 28%; border-radius: 2px; }
-/* Le logo est tracé en clair, pour fond sombre — cette section est sur fond
+/* Le logo est tracé en clair, pour fond sombre : cette section est sur fond
    clair, le dessin y serait invisible. D'où ce panneau sombre, plutôt qu'une
    recoloration : un logo ne se retouche pas. */
 /* Version d'origine du logo, dessinée au crayon noir : elle se pose
@@ -404,8 +404,8 @@ h2 em { font-style: italic; font-weight: 400; }
 .g-zoom::after { width: 1.5px; height: 26px; }
 .g-btn:hover .g-zoom, .g-btn:focus-visible .g-zoom { opacity: 1; }
 
-/* GALERIE D'UN SPECTACLE — sous-catégories (rendu depuis data.js) */
-/* `.sous-partie` découpe un bloc en sections — les deux volets du calendrier
+/* GALERIE D'UN SPECTACLE : sous-catégories (rendu depuis data.js) */
+/* `.sous-partie` découpe un bloc en sections : les deux volets du calendrier
    par exemple. Même graphie que les rubriques de galerie, d'où les sélecteurs
    partagés plutôt que des déclarations recopiées. */
 .gal-cat + .gal-cat, .sous-partie + .sous-partie { margin-top: 38px; }
@@ -426,7 +426,7 @@ h2 em { font-style: italic; font-weight: 400; }
   .gal-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* PRESSE — un article par bloc, vignette cliquable + lien externe */
+/* PRESSE : un article par bloc, vignette cliquable + lien externe */
 .pr-item { display: grid; grid-template-columns: 200px 1fr; gap: 22px; align-items: start; }
 .pr-item + .pr-item {
   margin-top: 30px; padding-top: 30px; border-top: 1px solid var(--line-dark);
@@ -553,7 +553,7 @@ body.page { background: var(--ink); color: var(--bone); }
 .page-tail .btn-line { border-color: var(--line-dark); color: var(--bone); }
 .page-tail .btn-line:hover { background: var(--bone); color: var(--ink); }
 
-/* CRÉATIONS — bandes */
+/* CRÉATIONS : bandes */
 .creations { background: var(--ink); }
 .creation-band { position: relative; display: block; min-height: clamp(420px, 62vh, 640px); overflow: hidden; border-top: 1px solid var(--line-dark); }
 .creation-band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; transition: transform 1.2s var(--ease); }
@@ -582,7 +582,7 @@ body.page { background: var(--ink); color: var(--bone); }
 
 /* Logos de soutien. Ils arrivent avec un fond blanc « cuit » dans l'image :
    impossible à détourer, leur texte est noir et disparaîtrait sur le fond
-   sombre de la page. On les pose donc sur une pastille claire — ce que
+   sombre de la page. On les pose donc sur une pastille claire, ce que
    demande de toute façon la charte d'un logo officiel, qui ne doit être ni
    inversé ni recoloré. `width: auto` est explicite pour écraser la règle
    globale sur img. */

@@ -13,7 +13,7 @@
    ------------------------------------------------
    Sur un captcha, on arrive et on joue : le titre pleine page du reste du
    site poussait la grille sous la ligne de flottaison. On resserre donc
-   l'en-tête, et surtout on borne la grille par la hauteur disponible —
+   l'en-tête, et surtout on borne la grille par la hauteur disponible :
    `min()` sur `svh` garantit qu'elle tient, quelle que soit la fenêtre,
    plutôt que d'espérer qu'une largeur fixe passe partout.
    Réservé à cette page : sur la 404 le captcha vient après les issues de
@@ -26,7 +26,7 @@
 .zidane .zi-barre { margin-top: 14px; }
 /* La borne porte sur la grille seule, pas sur le bloc entier : la rétrécir
    faisait passer la consigne sur deux lignes, ce qui repoussait la grille,
-   ce qui la rétrécissait encore — une boucle. Le texte garde sa largeur.
+   ce qui la rétrécissait encore : une boucle. Le texte garde sa largeur.
 
    290 px = l'en-tête au-dessus et la barre de validation en dessous, plus
    une marge. Mesuré au navigateur, pas estimé. La grille étant carrée,

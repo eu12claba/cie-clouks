@@ -1,4 +1,4 @@
-// Cie Clouks — cieclouks.ch
+// Cie Clouks, cieclouks.ch
 
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $  = (s, r = document) => r.querySelector(s);
@@ -32,7 +32,7 @@ const parseDate = (s) => { const [y, m, d] = String(s).split('-').map(Number); r
 const spectacles = () => [...(D.creations || []), ...(D.horsFormat || [])];
 const parSlug = (slug) => spectacles().find((s) => s.slug === slug);
 
-/* Une entrée peut couvrir plusieurs jours — une résidence, un festival, une
+/* Une entrée peut couvrir plusieurs jours : une résidence, un festival, une
    série de cabarets. `fin` porte alors le dernier jour ; `date` reste le
    premier, et c'est lui qui sert au tri. Une période n'est passée que
    lorsqu'elle est terminée, d'où `fin || date` dans le filtre. */
@@ -44,7 +44,7 @@ const passees = toutesDates.filter((d) => parseDate(finDe(d)) <  jour0()).sort((
 
 /* Rend [grand, petit] pour la colonne de gauche de l'agenda. Trois cas :
    un seul jour, plusieurs jours d'un même mois, ou une période à cheval sur
-   plusieurs mois — « 20-23 » tient dans la colonne, « septembre 2025 à
+   plusieurs mois : « 20-23 » tient dans la colonne, « septembre 2025 à
    avril 2026 » non, d'où le mois seul en grand dans ce dernier cas. */
 const quand = (d) => {
   const a = parseDate(d.date);
@@ -70,7 +70,7 @@ const nomSpectacle = (d) => (parSlug(d.spectacle)?.texte) || d.spectacle || '';
 const lienSpectacle = (d) => (parSlug(d.spectacle) ? `/${d.spectacle}` : null);
 
 /* ============================================================
-   NAVIGATION — sous-menus construits depuis data.js
+   NAVIGATION : sous-menus construits depuis data.js
    ============================================================ */
 safe('sous-menus', () => {
   $$('[data-sub]').forEach((ul) => {
@@ -153,7 +153,7 @@ safe('bandes', () => {
 });
 
 /* ============================================================
-   À L'AFFICHE — la prochaine date, sinon rien
+   À L'AFFICHE : la prochaine date, sinon rien
    ============================================================ */
 const affiche = $('#affiche');
 safe('à l\'affiche', () => {
@@ -175,7 +175,7 @@ safe('à l\'affiche', () => {
         <div class="affiche-inner">
           <p class="affiche-date">${d.getDate()} ${MOIS[d.getMonth()]} ${d.getFullYear()}${p.heure ? ` · ${p.heure}` : ''}</p>
           <h2>${spec ? spec.titre : nomSpectacle(p)}</h2>
-          <p class="affiche-lieu">${[p.lieu, p.ville].filter(Boolean).join(' — ')}</p>
+          <p class="affiche-lieu">${[p.lieu, p.ville].filter(Boolean).join(' · ')}</p>
           <span class="affiche-cta">${lien ? 'Découvrir le spectacle' : "Voir l'agenda"}</span>
         </div>
       </a>`;
@@ -183,7 +183,7 @@ safe('à l\'affiche', () => {
 });
 
 /* ============================================================
-   DONNÉES STRUCTURÉES — les dates à venir en Schema.org
+   DONNÉES STRUCTURÉES : les dates à venir en Schema.org
    Rend chaque représentation éligible aux résultats « événement »
    de Google (date, lieu, billetterie affichés directement).
    ============================================================ */
@@ -240,7 +240,7 @@ safe('données structurées', () => {
   document.head.appendChild(tag);
 });
 
-/* ---- arrivée directe sur « À l'affiche » (le hero reste au-dessus) ---- */
+/* ==== arrivée directe sur « À l'affiche » (le hero reste au-dessus) ==== */
 if (affiche && !affiche.hidden && !location.hash) {
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   const aller = () => {
@@ -299,7 +299,7 @@ safe('dates passées', () => {
     : `<p class="empty">Aucune date passée enregistrée pour l'instant.</p>`;
 });
 
-/* ---- calendrier d'un spectacle ---- */
+/* ==== calendrier d'un spectacle ==== */
 safe('calendriers', () => {
 $$('[data-calendrier]').forEach((el) => {
   const slug = el.dataset.calendrier;
@@ -313,7 +313,7 @@ $$('[data-calendrier]').forEach((el) => {
         <div class="year-row">
           <p class="year">${an}</p>
           <ul class="year-dates">
-            ${parAnnee[an].map((d) => `<li>${quandCourt(d)}${d.heure ? `, ${d.heure}` : ''} — ${[d.lieu, d.ville].filter(Boolean).join(', ')}</li>`).join('')}
+            ${parAnnee[an].map((d) => `<li>${quandCourt(d)}${d.heure ? `, ${d.heure}` : ''}&nbsp;: ${[d.lieu, d.ville].filter(Boolean).join(', ')}</li>`).join('')}
           </ul>
         </div>`).join('')
     : `<p class="empty">Les dates passées seront listées ici.</p>`)
@@ -338,7 +338,7 @@ $$('[data-split]').forEach((el) => {
 });
 
 /* [data-reveal] démarre à opacity 0 : tant que l'élément n'est pas observé,
-   il reste invisible — mais cliquable, ce qui donne une section vide où il
+   il reste invisible, mais cliquable, ce qui donne une section vide où il
    se passe quand même quelque chose. Tout ce qui est rendu depuis data.js
    arrive après ce point, d'où `revele()`, à rappeler après chaque rendu. */
 let revele = (els) => els.forEach((el) => el.classList.add('is-in'));
@@ -366,7 +366,7 @@ if (heroMedia && !reduced) {
 }
 
 /* ============================================================
-   LE NEZ — position calée sur la photo
+   LE NEZ : position calée sur la photo
    ============================================================ */
 // Fraction de l'image source, mesurée sur clara-loge.jpg (1035x1380) en
 // isolant la tache rouge saturée du visage, puis recentrée à l'œil : le
@@ -564,7 +564,7 @@ if ($('#nose')) {
 })();
 
 /* ============================================================
-   GALERIE D'UN SPECTACLE — rangée en sous-catégories
+   GALERIE D'UN SPECTACLE : rangée en sous-catégories
    Doit rester AVANT la visionneuse : celle-ci recense les .g-btn
    présents au chargement.
    ============================================================ */
@@ -600,7 +600,7 @@ safe('galerie du spectacle', () => {
 });
 
 /* ============================================================
-   PRESSE — articles, avec lien cliquable quand il y en a un.
+   PRESSE : articles, avec lien cliquable quand il y en a un.
    La coupure de presse s'ouvre dans la visionneuse : c'est le seul
    moyen de la lire. Doit rester AVANT la visionneuse.
    ============================================================ */
@@ -636,7 +636,7 @@ safe('presse', () => {
 });
 
 /* ============================================================
-   GALERIE — visionneuse
+   GALERIE : visionneuse
    ============================================================ */
 /* La visionneuse parcourt une liste d'images qu'on lui donne, et non plus
    tous les .g-btn de la page : un album doit pouvoir n'ouvrir que ses
@@ -693,7 +693,7 @@ if (lightbox) {
 }
 
 /* ============================================================
-   GALERIE DE L'ACCUEIL — un album par projet
+   GALERIE DE L'ACCUEIL : un album par projet
    ============================================================ */
 safe('albums', () => {
   const el = $('[data-albums]');
@@ -715,7 +715,7 @@ safe('albums', () => {
     const n = a.photos.length;
     return `<figure class="album" data-reveal>
               <button type="button" class="album-btn" data-album="${i}"
-                      aria-label="${attr(a.titre)} — ${n} photo${n > 1 ? 's' : ''}">
+                      aria-label="${attr(a.titre)}, ${n} photo${n > 1 ? 's' : ''}">
                 <picture>
                   <source type="image/webp" srcset="${attr(couv.replace(/\.(jpe?g|png)$/i, '-vignette.webp'))}" />
                   <img src="${attr(couv)}" alt="" loading="lazy" />
@@ -734,7 +734,7 @@ safe('albums', () => {
 });
 
 /* ============================================================
-   TEASER — la vidéo ne se charge qu'au clic
+   TEASER : la vidéo ne se charge qu'au clic
    ============================================================ */
 $$('[data-video]').forEach((box) => {
   const id = (box.dataset.yt || '').trim();
@@ -757,14 +757,14 @@ $$('[data-video]').forEach((box) => {
 });
 
 /* ============================================================
-   DOSSIERS PDF — lien seulement si le fichier existe
+   DOSSIERS PDF : lien seulement si le fichier existe
    ============================================================ */
 $$('[data-doc]').forEach(async (a) => {
   try { if ((await fetch(a.getAttribute('href'), { method: 'HEAD' })).ok) return; } catch (_) {}
   const label = a.textContent.trim();
-  a.setAttribute('href', 'mailto:contact@cieclouks.ch?subject=' + encodeURIComponent(`Demande — ${label}`));
+  a.setAttribute('href', 'mailto:contact@cieclouks.ch?subject=' + encodeURIComponent(`Demande : ${label}`));
   a.setAttribute('title', `${label} disponible sur demande`);
-  a.textContent = `${label} — sur demande`;
+  a.textContent = `${label} sur demande`;
 });
 
 /* ============================================================
@@ -787,7 +787,7 @@ safe('formulaire', () => {
   const versMessagerie = (nom, email, message) => {
     window.location.href = 'mailto:contact@cieclouks.ch'
       + '?subject=' + encodeURIComponent('[Site] Prise de contact')
-      + '&body=' + encodeURIComponent(`${message}\n\n—\n${nom}\n${email}`);
+      + '&body=' + encodeURIComponent(`${message}\n\n${nom}\n${email}`);
   };
 
   // Sans clé configurée, on garde l'ancien comportement.
@@ -832,7 +832,7 @@ safe('formulaire', () => {
       dire('Merci ! Votre message est bien parti, nous vous répondons vite.');
     } catch (err) {
       console.error('[Clouks] envoi du formulaire :', err);
-      dire('L’envoi automatique a échoué — ouverture de votre logiciel de messagerie…', true);
+      dire('L’envoi automatique a échoué, ouverture de votre logiciel de messagerie…', true);
       versMessagerie(nom, email, message);
     } finally {
       bouton.disabled = false;

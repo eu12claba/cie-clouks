@@ -1,12 +1,12 @@
 /* ==========================================================
-   CIE CLOUKS — LE SEUL FICHIER À MODIFIER POUR LE CONTENU
+   CIE CLOUKS : LE SEUL FICHIER À MODIFIER POUR LE CONTENU
    ==========================================================
 
    Tout part d'ici : le menu déroulant, la page Agenda,
    le bloc « À l'affiche » de l'accueil et le calendrier de
    chaque spectacle.
 
-   ---- AJOUTER UNE DATE ----
+   ==== AJOUTER UNE DATE ====
    Ajouter une ligne dans DATES. Le site range tout seul :
      - date future  -> Agenda « À venir » + bloc « À l'affiche »
      - date passée  -> Agenda « Dates passées » + calendrier du spectacle
@@ -19,7 +19,7 @@
 
 window.CLOUKS = {
 
-  /* ---------- LES CRÉATIONS ---------- */
+  /* ==== LES CRÉATIONS ==== */
   creations: [
     {
       slug:  'sortez-les-mouchoirs',
@@ -65,7 +65,7 @@ window.CLOUKS = {
     },
   ],
 
-  /* ---------- HORS FORMAT ---------- */
+  /* ==== HORS FORMAT ==== */
   horsFormat: [
     {
       slug:  'cabarets',
@@ -88,7 +88,7 @@ window.CLOUKS = {
       titre: 'Atelier clown',
       texte: 'Atelier clown',
       meta:  'Transmission · La Julienne, Plan-les-Ouates',
-      desc:  'Un atelier hebdomadaire de clown dès 16 ans, à la Julienne (Plan-les-Ouates), saison 2026–2027.',
+      desc:  'Un atelier hebdomadaire de clown dès 16 ans, à la Julienne (Plan-les-Ouates), saison 2026-2027.',
       image: 'images/atelier-clown-affiche.jpg',
     },
     {
@@ -102,7 +102,7 @@ window.CLOUKS = {
     },
   ],
 
-  /* ---------- LES GALERIES ----------
+  /* ==== LES GALERIES ====
      Une galerie par spectacle, rangée en sous-catégories (un lieu, un
      festival, une série de dates). L'ordre ci-dessous est celui affiché.
 
@@ -236,7 +236,7 @@ window.CLOUKS = {
     ],
   },
 
-  /* ---------- LES ALBUMS DE LA GALERIE ----------
+  /* ==== LES ALBUMS DE LA GALERIE ====
      Ce que la galerie de l'accueil affiche, dans cet ordre. Chaque entrée
      pointe sur une clé de `galeries` ci-dessus ; la première photo de
      l'album sert de couverture.
@@ -246,7 +246,7 @@ window.CLOUKS = {
      apparaisse de lui-même.
 
      `couverture` permet de choisir la vignette au lieu de prendre la
-     première photo — utile quand la première sous-catégorie n'est pas la
+     première photo, utile quand la première sous-catégorie n'est pas la
      plus représentative.
   */
   albums: [
@@ -260,10 +260,10 @@ window.CLOUKS = {
     { cle: 'deambulations',           titre: 'Déambulations' },
   ],
 
-  /* ---------- LA PRESSE ----------
+  /* ==== LA PRESSE ====
      Une entrée par article, la plus récente en premier.
 
-     `url`      : laisser vide pour un article papier — le bloc reste
+     `url`      : laisser vide pour un article papier : le bloc reste
                   affiché, simplement sans lien.
      `citation` : un extrait court, recopié mot pour mot. Ne jamais
                   résumer ni reformuler : c'est une citation.
@@ -284,7 +284,7 @@ window.CLOUKS = {
       {
         // Version Instagram du reportage du 12h45 ci-dessous : même sujet,
         // autre support. À supprimer si le doublon n'est pas souhaité.
-        media:    'RTS — Instagram',
+        media:    'RTS, Instagram',
         titre:    'Un tremplin pour les artistes émergent·es',
         auteur:   '',
         date:     '6 août 2026',
@@ -304,7 +304,7 @@ window.CLOUKS = {
         imageAlt: '',
       },
       {
-        media:    'RTS — 12h45',
+        media:    'RTS, 12h45',
         titre:    'Plage des Six Pompes : école de terrain pour les artistes émergents',
         auteur:   '',
         date:     '4 août 2026',
@@ -315,7 +315,7 @@ window.CLOUKS = {
         imageAlt: '',
       },
       {
-        media:    'La Plage des Six Pompes — Instagram',
+        media:    'La Plage des Six Pompes, Instagram',
         titre:    'Sortez les mouchoirs ! en rue',
         auteur:   '',
         date:     '4 août 2026',
@@ -325,7 +325,7 @@ window.CLOUKS = {
         imageAlt: '',
       },
       {
-        media:    'La Plage des Six Pompes — Instagram',
+        media:    'La Plage des Six Pompes, Instagram',
         titre:    'La vague des spectacles #10',
         auteur:   '',
         date:     '3 août 2026',
@@ -337,7 +337,7 @@ window.CLOUKS = {
     ],
   },
 
-  /* ---------- LES DATES ----------
+  /* ==== LES DATES ====
      Exemple (enlever les // pour l'activer) :
 
      { date: '2026-09-12', heure: '20h', spectacle: 'sortez-les-mouchoirs',
@@ -352,32 +352,32 @@ window.CLOUKS = {
        Google ; `infos` affiche « Infos » sans rien promettre, pour les
        soirées à entrée libre dont seule une page de présentation existe.
 
-       `note` dit ce qui a été joué ce soir-là — forme expérimentale, forme
+       `note` dit ce qui a été joué ce soir-là : forme expérimentale, forme
        courte, résidence. C'est ce qu'un programmateur regarde en premier,
        et cela évite de laisser croire que le spectacle entier a déjà
        tourné partout. */
 
     // Une seule entrée, la sortie publique : la résidence elle-même n'est pas
     // ouverte au public, et « à l'affiche » n'affiche que le premier jour
-    // d'une période — un « 23 novembre » y ferait venir les gens trop tôt.
+    // d'une période : un « 23 novembre » y ferait venir les gens trop tôt.
     { date: '2026-11-27', spectacle: 'sortez-les-mouchoirs',
-      lieu: 'Sortie de résidence — La Yourte des Bains des Pâquis', ville: 'Genève (CH)',
+      lieu: 'Sortie de résidence à la Yourte des Bains des Pâquis', ville: 'Genève (CH)',
       note: 'Après une semaine de résidence, du 23 au 27 novembre' },
 
     // Le numéro tourne en cabaret cet automne, en Suisse puis en France.
     { date: '2026-11-21', heure: '14h30', spectacle: 'sortez-les-mouchoirs',
-      lieu: 'The Funky Clown Festival — centre Simone Veil, rue Jean Perrin 2',
+      lieu: 'The Funky Clown Festival, centre Simone Veil, rue Jean Perrin 2',
       ville: '30900 Nîmes (FR)', note: 'Grand cabaret clown · forme courte · entrée libre',
       // `infos` et non `billetterie` : la soirée est à entrée libre, la page
       // des organisateurs renseigne sans vendre de billet.
       infos: 'https://www.tourismegard.com/fr/fiche/fete-et-manifestation/the-funky-clown-festival-4e-edition-nimes_TFO8017670/' },
 
     { date: '2026-11-14', heure: '20h', spectacle: 'sortez-les-mouchoirs',
-      lieu: 'Kabaret Klown — Le Korso, bd de Pérolles 15', ville: '1700 Fribourg (CH)',
+      lieu: 'Kabaret Klown au Korso, bd de Pérolles 15', ville: '1700 Fribourg (CH)',
       note: 'Forme courte', billetterie: 'https://www.korso.ch/kabaret-klown/' },
 
     { date: '2026-10-30', heure: '20h', spectacle: 'sortez-les-mouchoirs',
-      lieu: "P'tit Cabaret d'octobre — Le Monique au PMH, av. Louis-Casaï 54",
+      lieu: "P'tit Cabaret d'octobre, Le Monique au PMH, av. Louis-Casaï 54",
       ville: '1216 Cointrin, Genève (CH)', note: 'Forme courte',
       billetterie: 'https://leprogramme.ch/theatre/p-tit-cabaret-d-octobre/cointrin/le-monique-au-pmh' },
 
@@ -389,9 +389,9 @@ window.CLOUKS = {
 
     // Pas de `note` ici : `lieu` dit déjà que c'est une résidence.
     { date: '2026-06-22', fin: '2026-06-27', spectacle: 'sortez-les-mouchoirs',
-      lieu: 'Résidence — La Dépendance', ville: 'Lancy, Genève (CH)' },
+      lieu: 'Résidence à La Dépendance', ville: 'Lancy, Genève (CH)' },
     { date: '2026-05-11', fin: '2026-05-15', spectacle: 'sortez-les-mouchoirs',
-      lieu: "Résidence — Usine Kugler", ville: 'Genève (CH)' },
+      lieu: "Résidence à l'Usine Kugler", ville: 'Genève (CH)' },
     // Quatre représentations : deux le 6, à 16h et à 20h.
     { date: '2026-08-06', heure: '20h', spectacle: 'sortez-les-mouchoirs',
       lieu: 'Festival La Plage des Six Pompes', ville: 'La Chaux-de-Fonds (CH)',
@@ -430,10 +430,10 @@ window.CLOUKS = {
 
   ],
 
-  /* ---------- FORMULAIRE DE CONTACT ----------
+  /* ==== FORMULAIRE DE CONTACT ====
      Pour recevoir les messages du site directement par email :
        1. aller sur https://web3forms.com
-       2. entrer contact@cieclouks.ch — la clé arrive par email (gratuit, sans compte)
+       2. entrer contact@cieclouks.ch : la clé arrive par email (gratuit, sans compte)
        3. coller la clé entre les guillemets ci-dessous
 
      Tant que la clé est vide, le formulaire bascule sur l'ancien

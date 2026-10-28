@@ -12,7 +12,7 @@ Pour chaque `images/nom.jpg`, produit :
   - `images/nom-<largeur>.webp`  versions réduites pour les srcset d'index.html
 
 Les `.jpg` d'origine sont conservés : ils servent de secours aux très vieux
-navigateurs. `og.jpg` est ignoré — les réseaux sociaux veulent un vrai JPEG.
+navigateurs. `og.jpg` est ignoré : les réseaux sociaux veulent un vrai JPEG.
 """
 import pathlib
 import sys

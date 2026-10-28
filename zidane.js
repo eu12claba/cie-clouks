@@ -1,14 +1,14 @@
 /* ============================================================
-   CAPTCHA ZIDANE — une blague, pas une protection
+   CAPTCHA ZIDANE : une blague, pas une protection
    ============================================================
 
    Il faut le dire ici pour que personne ne s'y trompe : la réponse est
    dans cette page. N'importe quel robot la lit en deux lignes. Ce n'est
    pas un défaut de réalisation, c'est inhérent à un site statique sans
    serveur. Le formulaire de contact, lui, est protégé par Web3Forms et
-   par son piège à robots — c'est là que se joue le vrai filtrage.
+   par son piège à robots : c'est là que se joue le vrai filtrage.
 
-   ---- AJOUTER LES PHOTOS ----
+   ==== AJOUTER LES PHOTOS ====
    Déposer les fichiers dans images/zidane/ puis remplir les deux listes
    ci-dessous. Tant qu'elles sont vides, la grille affiche des vignettes
    numérotées : le mécanisme est testable sans une seule image.
@@ -66,7 +66,7 @@ const melange = (liste) => {
 
 const tirer = (liste, n) => melange(liste).slice(0, n);
 
-/* Sans photos — ou sans assez de photos — on fabrique des vignettes
+/* Sans photos (ou sans assez de photos), on fabrique des vignettes
    numérotées : la grille reste jouable et l'on voit tout de suite si la
    mécanique tient. Il faut au moins MIN_ZIDANE Zidane et de quoi remplir
    le reste de la grille, sinon on afficherait une grille incomplète sans
@@ -78,7 +78,7 @@ function demo() {
   if (ZIDANE.length || INTRUS.length) {
     console.warn(`[Clouks] captcha : il faut au moins ${MIN_ZIDANE} Zidane et ` +
                  `${ASSEZ_INTRUS} intrus. Il y en a ${ZIDANE.length} et ` +
-                 `${INTRUS.length} — grille de démonstration affichée.`);
+                 `${INTRUS.length} : grille de démonstration affichée.`);
   }
   return true;
 }
@@ -122,7 +122,7 @@ function demarrer(racine) {
     grille.innerHTML = tuiles.map((t, i) => `
       <button type="button" class="zi-case${t.demo ? ' zi-case-demo' : ''}"
               data-i="${i}" aria-pressed="false"
-              aria-label="Image ${i + 1}${t.demo ? ' — ' + t.libelle : ''}">
+              aria-label="Image ${i + 1}${t.demo ? ', ' + t.libelle : ''}">
         ${t.demo ? `<span>${t.libelle}</span>`
                  : `<img src="${t.src}" alt="" loading="lazy" />`}
       </button>`).join('');

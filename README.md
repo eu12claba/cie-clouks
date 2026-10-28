@@ -1,4 +1,4 @@
-# Site de la Cie Clouks — cieclouks.ch
+# Site de la Cie Clouks (cieclouks.ch)
 
 Site statique, hébergé gratuitement par GitHub Pages depuis ce dépôt
 (`eu12claba/cie-clouks`, branche `main`). Chaque `git push` met le site en
@@ -47,8 +47,8 @@ Le menu déroulant et la page de liste se mettent à jour seuls.
 photo : la déposer dans `images/` et indiquer `image: 'images/xxx.jpg'`.
 
 > **Après avoir ajouté une photo**, générer sa version WebP (voir
-> « Photos » plus bas). Sans elle, la photo s'affiche quand même — le `.jpg`
-> sert de secours — mais elle sera plus lourde à charger.
+> « Photos » plus bas). Sans elle, la photo s'affiche quand même : le `.jpg`
+> sert de secours, mais elle sera plus lourde à charger.
 
 ### Recevoir les messages du formulaire
 
@@ -58,7 +58,7 @@ indiquant `contact@cieclouks.ch`). Les messages arrivent alors directement
 par email.
 
 Tant que la clé est vide, le formulaire ouvre le logiciel de messagerie du
-visiteur — ce qui ne fonctionne pas pour tout le monde. **Mettre cette clé
+visiteur, ce qui ne fonctionne pas pour tout le monde. **Mettre cette clé
 est la seule chose à faire pour ne plus perdre de demandes.**
 
 ## Les autres contenus
@@ -71,7 +71,7 @@ est la seule chose à faire pour ne plus perdre de demandes.**
 | Teaser vidéo | `data-yt="IDENTIFIANT"` dans la page du spectacle |
 | Textes de l'accueil, comité, contact | `index.html` |
 
-Tant qu'un PDF est absent, le bouton devient « — sur demande » et ouvre un
+Tant qu'un PDF est absent, le bouton devient « sur demande » et ouvre un
 email : aucun lien mort n'apparaît jamais.
 
 ## Les fichiers
@@ -86,12 +86,12 @@ a-venir.html            redirection vers /agenda (ancienne adresse)
 404.html                page « introuvable » (servie seule par GitHub Pages)
 data.js                 LE fichier de contenu
 style.css  script.js    mise en forme et interactions
-fonts.css  fonts/       polices auto-hébergées — ne pas remettre Google Fonts
+fonts.css  fonts/       polices auto-hébergées, ne pas remettre Google Fonts
 images/                 photos du site (.jpg d'origine + .webp générés)
 tools/images.py         régénère les .webp après ajout d'une photo
 qr/                     QR codes (non affichés sur le site)
 docs/                   dossiers et fiches techniques en PDF
-CNAME                   le domaine — ne pas supprimer
+CNAME                   le domaine, ne pas supprimer
 ```
 
 ## Photos
@@ -125,7 +125,7 @@ fait tout seul, il n'y a rien à configurer.
   navigation est désactivé : il crée sinon un bloc conteneur qui empêche le
   menu plein écran de couvrir l'écran.
 - Le formulaire envoie via Web3Forms si une clé est configurée, et retombe
-  sur un `mailto:` composé en JavaScript sinon — ou si l'envoi échoue, pour
+  sur un `mailto:` composé en JavaScript sinon, ou si l'envoi échoue, pour
   qu'un message ne soit jamais perdu. Un `<form action="mailto:">` classique
   est ignoré par la plupart des navigateurs.
 - Les polices sont **auto-hébergées** dans `fonts/`. Ne pas revenir aux
